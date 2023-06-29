@@ -481,7 +481,7 @@ body {
   background-color: #fafafa;
   color: #22272a;
   font-weight: 400;
-  font-size: medium;
+  font-size: 14px;
   font-family: "Menlo", "Meslo LG", monospace;
   line-height: 1.725;
   text-rendering: geometricPrecision;
@@ -494,7 +494,6 @@ body {
   flex-direction: column;
   min-height: 100%;
   overflow-wrap: break-word;
-  margin-bottom: 8px;
 }
 .content p {
   hyphens: auto;
