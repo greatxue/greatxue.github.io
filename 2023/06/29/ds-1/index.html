@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="This note is highly dependent on CS61B offered at UC-Berkley. A data structure is a storage that is used to store and organize data. It is a way of arranging data on a computer so that it can be acces">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DS-1 | 1. Intruduction to Java">
+<meta property="og:url" content="http://greatxue.github.io/2023/06/29/ds-1/index.html">
+<meta property="og:site_name" content="Fantasy of Poseidon">
+<meta property="og:description" content="This note is highly dependent on CS61B offered at UC-Berkley. A data structure is a storage that is used to store and organize data. It is a way of arranging data on a computer so that it can be acces">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-06-29T14:17:34.000Z">
+<meta property="article:modified_time" content="2023-06-29T14:30:43.581Z">
+<meta property="article:author" content="Kevin Shuey">
+<meta property="article:tag" content="CS Reference">
+<meta property="article:tag" content="Data Structure">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>DS-1 | 1. Intruduction to Java</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/cv/">CV</a></li><!--
+     --><!--
+       --><li><a href="/catalog/">Catalog</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2023/06/29/ds-2/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2023/06/29/utilities-2/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://greatxue.github.io/2023/06/29/ds-1/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://greatxue.github.io/2023/06/29/ds-1/&text=DS-1 | 1. Intruduction to Java"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://greatxue.github.io/2023/06/29/ds-1/&title=DS-1 | 1. Intruduction to Java"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://greatxue.github.io/2023/06/29/ds-1/&is_video=false&description=DS-1 | 1. Intruduction to Java"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=DS-1 | 1. Intruduction to Java&body=Check out this article: http://greatxue.github.io/2023/06/29/ds-1/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://greatxue.github.io/2023/06/29/ds-1/&title=DS-1 | 1. Intruduction to Java"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://greatxue.github.io/2023/06/29/ds-1/&title=DS-1 | 1. Intruduction to Java"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://greatxue.github.io/2023/06/29/ds-1/&title=DS-1 | 1. Intruduction to Java"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://greatxue.github.io/2023/06/29/ds-1/&title=DS-1 | 1. Intruduction to Java"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://greatxue.github.io/2023/06/29/ds-1/&name=DS-1 | 1. Intruduction to Java&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://greatxue.github.io/2023/06/29/ds-1/&t=DS-1 | 1. Intruduction to Java"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <div id="toc-div" class="toc-article" >
+          
+                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-Essentials"><span class="toc-number">1.</span> <span class="toc-text">1.1 Essentials</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-Hello-World"><span class="toc-number">1.1.</span> <span class="toc-text">1.1.1 Hello World</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-2-Running-a-Java-Program"><span class="toc-number">1.2.</span> <span class="toc-text">1.1.2 Running a Java Program</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-3-Variables-and-Loops"><span class="toc-number">1.3.</span> <span class="toc-text">1.1.3 Variables and Loops</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-4-Static-Typing"><span class="toc-number">1.4.</span> <span class="toc-text">1.1.4 Static Typing</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-5-Functions"><span class="toc-number">1.5.</span> <span class="toc-text">1.1.5 Functions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-6-Comments"><span class="toc-number">1.6.</span> <span class="toc-text">1.1.6 Comments</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Objects-Defining-and-Using-Classes"><span class="toc-number">2.</span> <span class="toc-text">1.2 Objects (Defining and Using Classes)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1-Static-and-Non-Static-Methods"><span class="toc-number">2.1.</span> <span class="toc-text">1.2.1 Static and Non-Static Methods</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-2-Class-Methods-and-Instance-Methods"><span class="toc-number">2.2.</span> <span class="toc-text">1.2.2 Class Methods and Instance Methods</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-3-public-static-void-main-String-args"><span class="toc-number">2.3.</span> <span class="toc-text">1.2.3 public static void main (String[] args)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-4-Using-Libraries"><span class="toc-number">2.4.</span> <span class="toc-text">1.2.4 Using Libraries</span></a></li></ol></li></ol>
+                  
+        </div>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        DS-1 | 1. Intruduction to Java
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Kevin Shuey</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-06-29T14:17:34.000Z" class="dt-published" itemprop="datePublished">2023-06-29</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/CS-Reference/" rel="tag">CS Reference</a>, <a class="p-category" href="/tags/Data-Structure/" rel="tag">Data Structure</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p><em>This note is highly dependent on CS61B offered at UC-Berkley.</em></p>
+<p>A <strong>data structure</strong> is a storage that is used to store and organize data. It is a way of arranging data on a computer so that it can be accessed and updated efficiently. A data structure is not only used for organizing the data.  </p>
+<p>In this series, we will explore data strcuture to some depth. It is implemented in Java, with the latter one regarded only as a tool. However, we still offer a quick preview on <strong>Java language</strong>.   </p>
+<hr>
+<h3 id="1-1-Essentials"><a href="#1-1-Essentials" class="headerlink" title="1.1 Essentials"></a>1.1 Essentials</h3><h4 id="1-1-1-Hello-World"><a href="#1-1-1-Hello-World" class="headerlink" title="1.1.1 Hello World"></a>1.1.1 Hello World</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloWorld</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello world!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Here are some key syntactic features:</p>
+<ul>
+<li>It always consists of a class declaration, using the key word <code>public class</code>.</li>
+<li>The code to run is inside a method called <code>main</code>.</li>
+<li>Curly braces <code>&#123;</code> and <code>&#125;</code> are used to conclude the codes.</li>
+<li>Statements must end with semi-colons <code>;</code>.</li>
+</ul>
+<h4 id="1-1-2-Running-a-Java-Program"><a href="#1-1-2-Running-a-Java-Program" class="headerlink" title="1.1.2 Running a Java Program"></a>1.1.2 Running a Java Program</h4><p>The most common way is to run it through a sequence:<br><code>Hello.java</code> -&gt; Compiler <code>javac</code> -&gt; <code>Hello.class</code> -&gt; Interpreter <code>java</code> -&gt; (executing)  </p>
+<p>Example:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">javac HelloWorld.java</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">java HelloWorld</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="1-1-3-Variables-and-Loops"><a href="#1-1-3-Variables-and-Loops" class="headerlink" title="1.1.3 Variables and Loops"></a>1.1.3 Variables and Loops</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloNumbers</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (x &lt; <span class="number">10</span>) &#123;</span><br><span class="line">            System.out.print(x + <span class="string">&quot; &quot;</span>);</span><br><span class="line">            x = x + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Here are some features of the program:</p>
+<ul>
+<li>The variable <code>x</code> must be declared and given a type before being used.</li>
+<li>The loop definition is contained inside of <strong>curly braces</strong>, and the boolean expression is inside <strong>parentheses</strong>.</li>
+<li>Our print statement is just <code>System.out.print</code> instead of <code>System.out.println</code>, which means <strong>no newline</strong>.</li>
+<li>Our print statement adds a number to a <strong>space</strong>, which makes sure the numbers don’t run into each other. </li>
+<li>The prompt ends up on the same line as the numbers, <strong>without a newline</strong>.</li>
+</ul>
+<h4 id="1-1-4-Static-Typing"><a href="#1-1-4-Static-Typing" class="headerlink" title="1.1.4 Static Typing"></a>1.1.4 Static Typing</h4><p>Every variable, parameter, and functions in Java has a so-called <code>static type</code>.<br>This is in contrast to dynamically typed languages like <strong>Python</strong>, where users can run into <strong>type error</strong>.<br>To summarize, static typing has the following advantages:</p>
+<ul>
+<li>easier for the programmer to debug their code</li>
+<li>never run into type errors</li>
+<li>easier to understand and reason</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">h</span> <span class="operator">=</span> <span class="number">5</span> + <span class="string">&quot;horse&quot;</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">h</span> <span class="operator">=</span> <span class="number">5</span> + <span class="string">&quot;horse&quot;</span>;   <span class="comment">//compiler error</span></span><br><span class="line">System.out.println(<span class="number">5</span> + <span class="string">&quot;10&quot;</span>);   <span class="comment">//510</span></span><br><span class="line">System.out.println(<span class="number">5</span> + <span class="number">10</span>);   <span class="comment">//15</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-1-5-Functions"><a href="#1-1-5-Functions" class="headerlink" title="1.1.5 Functions"></a>1.1.5 Functions</h4><p>Here is a comparison:  </p>
+<ul>
+<li><p>Python function:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">larger</span>(<span class="params">x,y</span>):</span><br><span class="line">  <span class="keyword">if</span> x &gt; y: </span><br><span class="line">      <span class="keyword">return</span> x</span><br><span class="line">  <span class="keyword">return</span> y</span><br><span class="line">  <span class="built_in">print</span> (larger(<span class="number">8</span>,<span class="number">10</span>))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Java function:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LargerDemo</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">larger</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (x &gt; y) &#123;</span><br><span class="line">          <span class="keyword">return</span> x;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> y;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">      System.out.println(larger(<span class="number">8</span>, <span class="number">10</span>));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="1-1-6-Comments"><a href="#1-1-6-Comments" class="headerlink" title="1.1.6 Comments"></a>1.1.6 Comments</h4><p>Comments are always needed to describe your codes.  </p>
+<ul>
+<li>Line comments: <code>//</code> </li>
+<li>Block comments: <code>/*</code> and <code>*/</code>.</li>
+<li>Javadoc comments: <code>/**</code> and <code>*/</code>.<br>  One special note here is that almost all methods and classes should be described by <strong>Javadoc</strong>.</li>
+</ul>
+<h3 id="1-2-Objects-Defining-and-Using-Classes"><a href="#1-2-Objects-Defining-and-Using-Classes" class="headerlink" title="1.2 Objects (Defining and Using Classes)"></a>1.2 Objects (Defining and Using Classes)</h3><h4 id="1-2-1-Static-and-Non-Static-Methods"><a href="#1-2-1-Static-and-Non-Static-Methods" class="headerlink" title="1.2.1 Static and Non-Static Methods"></a>1.2.1 Static and Non-Static Methods</h4><p><strong>Static Methods</strong>  </p>
+<p>All code in Java must be part of a class. Here’s an example:  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Dog</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">makeNoise</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Bark!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>To run the class, either will do:  </p>
+<ul>
+<li>to add a <code>main</code> method inside <code>Dog</code> class</li>
+<li>to create a “<strong>client</strong>“ class <code>DogLauncher</code> that runs methods from the <code>Dog</code> class.<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DogLauncher</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">      Dog.makeNoise();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>Instance Variables and Object Instantiation</strong></p>
+<p>Here is an example of instantiation:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Dog</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> weightInPounds;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">makeNoise</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (weightInPounds &lt; <span class="number">10</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;yipyipyip!&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(weightInPounds &lt; <span class="number">30</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;bark, bark&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;woof!&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DogLauncher</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        Dog d;</span><br><span class="line">        d = <span class="keyword">new</span> <span class="title class_">Dog</span>();</span><br><span class="line">        d.weightInPounds = <span class="number">20</span>;</span><br><span class="line">        d.makeNoise()    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Some key observations and terminology:</p>
+<ul>
+<li>An <code>object</code> in Java is an instance of any class.</li>
+<li>Variables and methods of a class are <strong>members</strong> of a class.</li>
+<li>The <code>Dog</code> class has its own variables, known as <strong>instance variables</strong>, or <strong>non-static variables</strong>.</li>
+<li>The nethod inside <code>Dog</code> class has no <code>static</code> keyword, which is called <strong>instance methods</strong>.</li>
+<li>To call the <code>makeNoise</code> method, we have to first <strong>instantaite</strong> a <code>Dog</code> using keyword <code>new</code>, and then call <code>d.makeNoise</code> instead of <code>Dog.makeNoise</code>.</li>
+</ul>
+<p><strong>Constructors in Java</strong>  </p>
+<p>For example:  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Dog</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> weightInPounds;    <span class="comment">// Instance variable (as many as you want)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Dog</span><span class="params">(<span class="type">int</span> w)</span> &#123;           <span class="comment">// Constructor (how to instantiate the class)</span></span><br><span class="line">        weightInPounds = w;         </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">makeNoise</span><span class="params">()</span> &#123;     <span class="comment">// Non-static method (invoked by an instance of the class)</span></span><br><span class="line">        <span class="keyword">if</span> (weightInPounds &lt; <span class="number">10</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;yipyipyip!&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (weightInPounds &lt; <span class="number">30</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;bark. bark.&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;woof!&quot;</span>);</span><br><span class="line">        &#125;    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>A constructor could be used to construct objects in Java.  </p>
+<ul>
+<li>The constructor will be invoked anytime that we try to create a <code>Dog</code> using the new keyword and a single integer parameter. </li>
+<li>The constructor is very similar to the <code>__init__</code> method in Python.</li>
+</ul>
+<p>For example:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DogLauncher</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Dog</span> <span class="variable">d</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Dog</span>(<span class="number">20</span>);        <span class="comment">//Declaration, instatiation and assignment</span></span><br><span class="line">        d.makeNoise();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Array Instantiation, Arrays of Objects</strong>  </p>
+<ul>
+<li>Create an array that can hold two <code>Dog</code> objects.</li>
+<li>Create each actual <code>Dog</code> for arrays of instantiated objects in Java</li>
+</ul>
+<p>For example:  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DogArrayDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">/* Create an array of two dogs. */</span></span><br><span class="line">        Dog[] dogs = <span class="keyword">new</span> <span class="title class_">Dog</span>[<span class="number">2</span>];</span><br><span class="line">        dogs[<span class="number">0</span>] = <span class="keyword">new</span> <span class="title class_">Dog</span>(<span class="number">8</span>);</span><br><span class="line">        dogs[<span class="number">1</span>] = <span class="keyword">new</span> <span class="title class_">Dog</span>(<span class="number">20</span>);</span><br><span class="line"></span><br><span class="line">        dogs[<span class="number">0</span>].makeNoise();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-2-Class-Methods-and-Instance-Methods"><a href="#1-2-2-Class-Methods-and-Instance-Methods" class="headerlink" title="1.2.2 Class Methods and Instance Methods"></a>1.2.2 Class Methods and Instance Methods</h4><p>Java allows two types of methods:</p>
+<ul>
+<li><strong>Class methods</strong>, aka static methods: invoked using the class name  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Dog <span class="title function_">maxDog</span><span class="params">(Dog d1, Dog d2)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (d1.weightInPounds &gt; d2.weightInPounds) &#123;</span><br><span class="line">        <span class="keyword">return</span> d1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> d2;</span><br><span class="line"> &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="type">Dog</span> <span class="variable">d</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Dog</span>(<span class="number">15</span>);</span><br><span class="line">  <span class="type">Dog</span> <span class="variable">d2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Dog</span>(<span class="number">100</span>);</span><br><span class="line">  Dog.maxDog(d, d2);</span><br></pre></td></tr></table></figure></li>
+<li><strong>Instance methods</strong>, aka non-static methods: invoked using a specific instance variable  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Dog <span class="title function_">maxDog</span><span class="params">(Dog d2)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.weightInPounds &gt; d2.weightInPounds) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> d2;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="type">Dog</span> <span class="variable">d</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Dog</span>(<span class="number">15</span>);</span><br><span class="line"><span class="type">Dog</span> <span class="variable">d2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Dog</span>(<span class="number">100</span>);</span><br><span class="line">d.maxDog(d2);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>Static Variables</strong><br>It is occasionally useful for classes to have static variables.   </p>
+<ul>
+<li>Static variables should be accessed using the name of the class, e.g. <code>Dog.binomen</code>.</li>
+<li>While Java technically allows you to access a static variable using an instance name, it is bad style.</li>
+</ul>
+<p>For example: </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Dog</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> weightInPounds;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">binomen</span> <span class="operator">=</span> <span class="string">&quot;Canis familiaris&quot;</span>;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-3-public-static-void-main-String-args"><a href="#1-2-3-public-static-void-main-String-args" class="headerlink" title="1.2.3 public static void main (String[] args)"></a>1.2.3 public static void main (String[] args)</h4><p>Demystification of the declaration used for the main method:  </p>
+<ul>
+<li><code>public</code>: Most of our methods start with this keyword.</li>
+<li><code>static</code>: It is a static method, not associated with any particular instance.</li>
+<li><code>void</code>: It has no return type.</li>
+<li><code>main</code>: Specific name of the method.</li>
+<li><code>String[] args</code>: A particular parameter that is passed to the main method.</li>
+</ul>
+<p><strong>Command Line Arguments</strong><br>Since <code>main</code> is called by the Java interpreter itself rather than another Java class, it is the interpreter’s job to supply these arguments. They refer usually to the command line arguments. </p>
+<p>For example:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ArgsDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(args[<span class="number">0</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This program prints out the 0th command line argument:  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">java ArgsDemo these are <span class="built_in">command</span> line arguments</span></span><br><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash">&gt;these</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-4-Using-Libraries"><a href="#1-2-4-Using-Libraries" class="headerlink" title="1.2.4 Using Libraries"></a>1.2.4 Using Libraries</h4><p>Knowing how to find and use existing libraries is often possible to save yourself tons of work and debugging by turning to the web for help.  </p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/cv/">CV</a></li>
+        
+          <li><a href="/catalog/">Catalog</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-Essentials"><span class="toc-number">1.</span> <span class="toc-text">1.1 Essentials</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-Hello-World"><span class="toc-number">1.1.</span> <span class="toc-text">1.1.1 Hello World</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-2-Running-a-Java-Program"><span class="toc-number">1.2.</span> <span class="toc-text">1.1.2 Running a Java Program</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-3-Variables-and-Loops"><span class="toc-number">1.3.</span> <span class="toc-text">1.1.3 Variables and Loops</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-4-Static-Typing"><span class="toc-number">1.4.</span> <span class="toc-text">1.1.4 Static Typing</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-5-Functions"><span class="toc-number">1.5.</span> <span class="toc-text">1.1.5 Functions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-6-Comments"><span class="toc-number">1.6.</span> <span class="toc-text">1.1.6 Comments</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Objects-Defining-and-Using-Classes"><span class="toc-number">2.</span> <span class="toc-text">1.2 Objects (Defining and Using Classes)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1-Static-and-Non-Static-Methods"><span class="toc-number">2.1.</span> <span class="toc-text">1.2.1 Static and Non-Static Methods</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-2-Class-Methods-and-Instance-Methods"><span class="toc-number">2.2.</span> <span class="toc-text">1.2.2 Class Methods and Instance Methods</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-3-public-static-void-main-String-args"><span class="toc-number">2.3.</span> <span class="toc-text">1.2.3 public static void main (String[] args)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-4-Using-Libraries"><span class="toc-number">2.4.</span> <span class="toc-text">1.2.4 Using Libraries</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://greatxue.github.io/2023/06/29/ds-1/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://greatxue.github.io/2023/06/29/ds-1/&text=DS-1 | 1. Intruduction to Java"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://greatxue.github.io/2023/06/29/ds-1/&title=DS-1 | 1. Intruduction to Java"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://greatxue.github.io/2023/06/29/ds-1/&is_video=false&description=DS-1 | 1. Intruduction to Java"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=DS-1 | 1. Intruduction to Java&body=Check out this article: http://greatxue.github.io/2023/06/29/ds-1/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://greatxue.github.io/2023/06/29/ds-1/&title=DS-1 | 1. Intruduction to Java"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://greatxue.github.io/2023/06/29/ds-1/&title=DS-1 | 1. Intruduction to Java"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://greatxue.github.io/2023/06/29/ds-1/&title=DS-1 | 1. Intruduction to Java"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://greatxue.github.io/2023/06/29/ds-1/&title=DS-1 | 1. Intruduction to Java"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://greatxue.github.io/2023/06/29/ds-1/&name=DS-1 | 1. Intruduction to Java&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://greatxue.github.io/2023/06/29/ds-1/&t=DS-1 | 1. Intruduction to Java"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2022-2023
+    Kevin Shuey
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/cv/">CV</a></li><!--
+     --><!--
+       --><li><a href="/catalog/">Catalog</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="This note is highly dependent on CS61B offered at UC-Berkley. This time we continue with lists.  2.1 Introduction2.1.1 Mystery of the WalrusCase 1: 123456Walrus a &#x3D; new Walrus(1000, 8.3);Walrus b;b &#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DS-2 | 2. Implementation of Lists">
+<meta property="og:url" content="http://greatxue.github.io/2023/06/29/ds-2/index.html">
+<meta property="og:site_name" content="Fantasy of Poseidon">
+<meta property="og:description" content="This note is highly dependent on CS61B offered at UC-Berkley. This time we continue with lists.  2.1 Introduction2.1.1 Mystery of the WalrusCase 1: 123456Walrus a &#x3D; new Walrus(1000, 8.3);Walrus b;b &#x3D;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-06-29T14:27:30.000Z">
+<meta property="article:modified_time" content="2023-06-29T14:30:42.349Z">
+<meta property="article:author" content="Kevin Shuey">
+<meta property="article:tag" content="CS Reference">
+<meta property="article:tag" content="Data Structure">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>DS-2 | 2. Implementation of Lists</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/cv/">CV</a></li><!--
+     --><!--
+       --><li><a href="/catalog/">Catalog</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2023/06/29/ds-1/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://greatxue.github.io/2023/06/29/ds-2/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://greatxue.github.io/2023/06/29/ds-2/&text=DS-2 | 2. Implementation of Lists"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Implementation of Lists"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://greatxue.github.io/2023/06/29/ds-2/&is_video=false&description=DS-2 | 2. Implementation of Lists"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=DS-2 | 2. Implementation of Lists&body=Check out this article: http://greatxue.github.io/2023/06/29/ds-2/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Implementation of Lists"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Implementation of Lists"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Implementation of Lists"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Implementation of Lists"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://greatxue.github.io/2023/06/29/ds-2/&name=DS-2 | 2. Implementation of Lists&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://greatxue.github.io/2023/06/29/ds-2/&t=DS-2 | 2. Implementation of Lists"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <div id="toc-div" class="toc-article" >
+          
+                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Introduction"><span class="toc-number">1.</span> <span class="toc-text">2.1 Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-Mystery-of-the-Walrus"><span class="toc-number">1.1.</span> <span class="toc-text">2.1.1 Mystery of the Walrus</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-Reference-Types"><span class="toc-number">1.2.</span> <span class="toc-text">2.1.2 Reference Types</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-3-Parameter-Passing"><span class="toc-number">1.3.</span> <span class="toc-text">2.1.3 Parameter Passing</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-4-Instantiation-of-Arrays"><span class="toc-number">1.4.</span> <span class="toc-text">2.1.4 Instantiation of Arrays</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-5-IntList"><span class="toc-number">1.5.</span> <span class="toc-text">2.1.5 IntList</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-SLList"><span class="toc-number">2.</span> <span class="toc-text">2.2 SLList</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-DLList"><span class="toc-number">3.</span> <span class="toc-text">2.3 DLList</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-1-Implementation-of-DLList"><span class="toc-number">3.1.</span> <span class="toc-text">2.3.1 Implementation of DLList</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-2-Generic-DLLists"><span class="toc-number">3.2.</span> <span class="toc-text">2.3.2 Generic DLLists</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-Arrays"><span class="toc-number">4.</span> <span class="toc-text">2.4 Arrays</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-1-Array-Knowledge"><span class="toc-number">4.1.</span> <span class="toc-text">2.4.1 Array Knowledge</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-2-AList"><span class="toc-number">4.2.</span> <span class="toc-text">2.4.2 AList</span></a></li></ol></li></ol>
+                  
+        </div>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        DS-2 | 2. Implementation of Lists
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Kevin Shuey</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-06-29T14:27:30.000Z" class="dt-published" itemprop="datePublished">2023-06-29</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/CS-Reference/" rel="tag">CS Reference</a>, <a class="p-category" href="/tags/Data-Structure/" rel="tag">Data Structure</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p><em>This note is highly dependent on CS61B offered at UC-Berkley.</em></p>
+<p>This time we continue with <strong>lists</strong>.</p>
+<hr>
+<h3 id="2-1-Introduction"><a href="#2-1-Introduction" class="headerlink" title="2.1 Introduction"></a>2.1 Introduction</h3><h4 id="2-1-1-Mystery-of-the-Walrus"><a href="#2-1-1-Mystery-of-the-Walrus" class="headerlink" title="2.1.1 Mystery of the Walrus"></a>2.1.1 Mystery of the Walrus</h4><p>Case 1:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Walrus</span> <span class="variable">a</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Walrus</span>(<span class="number">1000</span>, <span class="number">8.3</span>);</span><br><span class="line">Walrus b;</span><br><span class="line">b = a;</span><br><span class="line">b.weight = <span class="number">5</span>;</span><br><span class="line">System.out.println(a);      <span class="comment">// 5, 8.30</span></span><br><span class="line">System.out.println(b);      <span class="comment">// 5, 8.30</span></span><br></pre></td></tr></table></figure>
+<p>Case 2:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">5</span>;</span><br><span class="line"><span class="type">int</span> y;</span><br><span class="line">y = x;</span><br><span class="line">x = <span class="number">2</span>;</span><br><span class="line">System.out.println(<span class="string">&quot;x is: &quot;</span> + x);   <span class="comment">// 2</span></span><br><span class="line">System.out.println(<span class="string">&quot;y is: &quot;</span> + y);   <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Bits</strong>  </p>
+<ul>
+<li>All information in the computer is stored in <strong>memory</strong> as a sequence of binary digits.</li>
+<li>When declaring a variable of a certain type, it sets aside enough bits for the variable, and creates an internal table mapping each variable name to a location.</li>
+</ul>
+<p><strong>The Golden Rule of Equals (GRoE)</strong></p>
+<ul>
+<li>When writing <code>y = x</code>, Java interpreter is told to copy the bits from x into y. </li>
+<li>This simple idea of copying the bits is true for ANY assignment using <code>=</code> in Java.</li>
+</ul>
+<h4 id="2-1-2-Reference-Types"><a href="#2-1-2-Reference-Types" class="headerlink" title="2.1.2 Reference Types"></a>2.1.2 Reference Types</h4><p>In Java, there are 8 <code>primitive type</code>s: byte, short, int, long, float, double, boolean, char. Others are thought of as a <code>reference type</code>.</p>
+<ul>
+<li>When declaring a variable of any reference type, Java allocates a box of 64 bits <strong>refering to the address</strong>, no matter what type of object.</li>
+<li>Reference Types obey GRoE as well.</li>
+</ul>
+<h4 id="2-1-3-Parameter-Passing"><a href="#2-1-3-Parameter-Passing" class="headerlink" title="2.1.3 Parameter Passing"></a>2.1.3 Parameter Passing</h4><ul>
+<li>Passing Parameters obeys the rule of <strong>copying the bits</strong>, also called “pass by value”.</li>
+<li>In Java, one <strong>always</strong> passes by value.</li>
+</ul>
+<p>For example, the call to <code>doStuff</code> would not change <code>x</code> but <code>walrus</code> here.  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PassByValueFigure</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">           <span class="type">Walrus</span> <span class="variable">walrus</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Walrus</span>(<span class="number">3500</span>, <span class="number">10.5</span>);</span><br><span class="line">           <span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">9</span>;</span><br><span class="line"></span><br><span class="line">           doStuff(walrus, x);</span><br><span class="line">           System.out.println(walrus);</span><br><span class="line">           System.out.println(x);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">doStuff</span><span class="params">(Walrus W, <span class="type">int</span> x)</span> &#123;</span><br><span class="line">           W.weight = W.weight - <span class="number">100</span>;</span><br><span class="line">           x = x - <span class="number">5</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-4-Instantiation-of-Arrays"><a href="#2-1-4-Instantiation-of-Arrays" class="headerlink" title="2.1.4 Instantiation of Arrays"></a>2.1.4 Instantiation of Arrays</h4><p>Instantiating an array is very similar to instantiating an object.<br>For example, </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>[] x;        <span class="comment">// x can only hold the address of an int array. </span></span><br><span class="line">x = <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span> ,<span class="number">95</span>, <span class="number">4</span>&#125;</span><br><span class="line">                <span class="comment">/* The new keyword creates 5 boxes of 32 bits each and   </span></span><br><span class="line"><span class="comment">                   returns the address of the overall object for assignment to x. */</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-5-IntList"><a href="#2-1-5-IntList" class="headerlink" title="2.1.5 IntList"></a>2.1.5 IntList</h4><p>Here is the implementation of the “Linked List”:  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">IntList</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> first;</span><br><span class="line">    <span class="keyword">public</span> IntList rest;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">IntList</span><span class="params">(<span class="type">int</span> f, IntList r)</span> &#123;</span><br><span class="line">        first = f;</span><br><span class="line">        rest = r;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Return the size of the list using recursion. */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">size</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (rest == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span> + <span class="built_in">this</span>.rest.size();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Return the size using no recursion. */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">iterativeSize</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">IntList</span> <span class="variable">p</span> <span class="operator">=</span> <span class="built_in">this</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">totalSize</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (p != <span class="literal">null</span>) &#123;</span><br><span class="line">            totalSize += <span class="number">1</span>;</span><br><span class="line">            p = p.rest;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> totalSize;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Return the ith item of the IntList. */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">get</span><span class="params">(<span class="type">int</span> i)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (i == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> first;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> rest.get(i - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">IntList</span> <span class="variable">L</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IntList</span>(<span class="number">15</span>, <span class="literal">null</span>);</span><br><span class="line">        L = <span class="keyword">new</span> <span class="title class_">IntList</span>(<span class="number">10</span>, L);</span><br><span class="line">        L = <span class="keyword">new</span> <span class="title class_">IntList</span>(<span class="number">5</span>, L);</span><br><span class="line"></span><br><span class="line">        System.out.println(L.size());</span><br><span class="line">        System.out.println(L.iterativeSize());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Remark:  </p>
+<ul>
+<li>Syntax like <code>if (this == null)&#123;return 0&#125;;</code> won’t always work, as there would be a <code>NullPointer</code> error if object L is null.   </li>
+<li>It is adviced to use <code>p</code> as a reminder of the variable holding a pointer. <code>this</code> cannot be reassigned in Java.     </li>
+<li>The method above takes linear time with respect to list size.</li>
+</ul>
+<h3 id="2-2-SLList"><a href="#2-2-SLList" class="headerlink" title="2.2 SLList"></a>2.2 SLList</h3><p>Here is the implementation:   </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SLList</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">IntNode</span> &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="type">int</span> item;</span><br><span class="line">        <span class="keyword">public</span> IntNode next;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="title function_">IntNode</span><span class="params">(<span class="type">int</span> i, IntNode n)</span> &#123;</span><br><span class="line">            item = i;</span><br><span class="line">            next = n;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> IntNode sentinel;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> size;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Create an empty list */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">SLList</span><span class="params">()</span> &#123;</span><br><span class="line">        sentinel = <span class="keyword">new</span> <span class="title class_">IntNode</span>(<span class="number">66</span>, <span class="literal">null</span>);</span><br><span class="line">        size = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">SLList</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">        sentinel = <span class="keyword">new</span> <span class="title class_">IntNode</span>(<span class="number">66</span>, <span class="literal">null</span>);</span><br><span class="line">        sentinel.next = <span class="keyword">new</span> <span class="title class_">IntNode</span>(x, <span class="literal">null</span>);</span><br><span class="line">        size = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Add x to the front of the list. */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addFirst</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">        size += <span class="number">1</span>;</span><br><span class="line">        sentinel.next = <span class="keyword">new</span> <span class="title class_">IntNode</span>(x, sentinel.next);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Return the first item of the list. */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getFirst</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> sentinel.next.item;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Add an item to the end of the list. */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addLast</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">        size += <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">IntNode</span> <span class="variable">p</span> <span class="operator">=</span> sentinel;</span><br><span class="line">        <span class="keyword">while</span> (p.next != <span class="literal">null</span>) &#123;</span><br><span class="line">            p = p.next;</span><br><span class="line">        &#125;</span><br><span class="line">        p.next = <span class="keyword">new</span> <span class="title class_">IntNode</span>(x, <span class="literal">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Return the size of the list. */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">size</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> size;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">/* Create a list of one integer 5 */</span></span><br><span class="line">        <span class="type">SLList</span> <span class="variable">L</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SLList</span>();</span><br><span class="line">        L.addFirst(<span class="number">10</span>);</span><br><span class="line">        L.addLast(<span class="number">5</span>);</span><br><span class="line">        System.out.println(L.size());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Remark:  </p>
+<p><strong>Rebranding:</strong></p>
+<ul>
+<li>The <code>SLList</code> hides the detail of the <code>null</code> link from the user, compares to <code> IntList L1 = new IntList(5, null)</code>.</li>
+<li>While the <strong>Naked recursion</strong> allows the <code>IntList</code> user to potentionally have variables pointing to the middle of the structure,<br><code>SLList</code> class acts as a middle man hiding user from the raw data structure.</li>
+</ul>
+<p><strong>Private and Public:</strong></p>
+<ul>
+<li><code>private</code> keyword is applied to prevent codes from other classes from using members or constructor of a class.  </li>
+<li><strong>Restricting access</strong> is to hide implementation details from users of the class, both easier to understand and safer for later change.  </li>
+<li>Nested classes are useful when one class is subordinate to another class.</li>
+</ul>
+<p><strong>Nested Class:</strong></p>
+<ul>
+<li><code>IntNode</code> class never uses any instance members of the outer class, hence keyword <code>static</code> could be applied.</li>
+</ul>
+<p><strong>Methods:</strong>  </p>
+<ul>
+<li>Two methods with the same name but different signatures are overloaded and allowed in Java.</li>
+</ul>
+<p><strong>Caching:</strong></p>
+<ul>
+<li>The practice of saving important data to speed up retrieval is known as <strong>caching</strong>.</li>
+</ul>
+<p><strong>Sentinel Nodes:</strong></p>
+<ul>
+<li>Based on the structure containing <code>first</code>, one solution to fix <code>addLast</code> bug for the empty list is like:  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (first == <span class="literal">null</span>)&#123;</span><br><span class="line">  first = <span class="keyword">new</span> <span class="title class_">IntNode</span>(x, <span class="literal">null</span>);</span><br><span class="line">  <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>However, to keep complexity under control wherever possible, a <code>sentinel node</code> could be created to unify all cases. That’s why the data structure is improved.</li>
+</ul>
+<p><strong>Invariants:</strong>  </p>
+<ul>
+<li>An invariant is a fact about a data structure that is guaranteed to be true.</li>
+</ul>
+<h3 id="2-3-DLList"><a href="#2-3-DLList" class="headerlink" title="2.3 DLList"></a>2.3 DLList</h3><h4 id="2-3-1-Implementation-of-DLList"><a href="#2-3-1-Implementation-of-DLList" class="headerlink" title="2.3.1 Implementation of DLList"></a>2.3.1 Implementation of DLList</h4><p>Here is the implementation:   </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DLList</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">IntNode</span> &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="type">int</span> item;</span><br><span class="line">        <span class="keyword">public</span> IntNode prev;</span><br><span class="line">        <span class="keyword">public</span> IntNode next;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">public</span> <span class="title function_">IntNode</span><span class="params">(<span class="type">int</span> i, IntNode p, IntNode n)</span> &#123;</span><br><span class="line">            item = i;</span><br><span class="line">            prev = p;</span><br><span class="line">            next = n;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> IntNode sentinel;</span><br><span class="line">    <span class="keyword">private</span> IntNode rearguard;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> size;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">DLList</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">        sentinel = <span class="keyword">new</span> <span class="title class_">IntNode</span>(<span class="number">66</span>, <span class="literal">null</span>, <span class="literal">null</span>);</span><br><span class="line">        rearguard = <span class="keyword">new</span> <span class="title class_">IntNode</span>(<span class="number">33</span>, <span class="literal">null</span>, <span class="literal">null</span>);</span><br><span class="line">        sentinel.next = <span class="keyword">new</span> <span class="title class_">IntNode</span>(x, sentinel, rearguard);</span><br><span class="line">        rearguard.prev = sentinel.next;</span><br><span class="line">        size = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Create an empty list. */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">DLList</span><span class="params">()</span> &#123;</span><br><span class="line">        sentinel = <span class="keyword">new</span> <span class="title class_">IntNode</span>(<span class="number">66</span>, <span class="literal">null</span>, <span class="literal">null</span>);</span><br><span class="line">        rearguard = <span class="keyword">new</span> <span class="title class_">IntNode</span>(<span class="number">33</span>, <span class="literal">null</span>, <span class="literal">null</span>);</span><br><span class="line">        sentinel.next = rearguard;</span><br><span class="line">        rearguard.prev = sentinel;</span><br><span class="line">        size = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Add x to the front of the list. */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addFirst</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">        size += <span class="number">1</span>;</span><br><span class="line">        <span class="type">IntNode</span> <span class="variable">newNode</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IntNode</span>(x, sentinel, sentinel.next);</span><br><span class="line">        sentinel.next.prev = newNode;</span><br><span class="line">        sentinel.next = newNode;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Return the 1st item of the list. */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getFirst</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> sentinel.next.item;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Add an item to the end of the list. */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addLast</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">        size += <span class="number">1</span>;</span><br><span class="line">        <span class="type">IntNode</span> <span class="variable">newNode</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IntNode</span>(x, rearguard.prev, rearguard);</span><br><span class="line">        rearguard.prev.next = newNode;</span><br><span class="line">        rearguard.prev = newNode;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Return the size of the list. */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">size</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> size;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">/* Create a list of one integer 5 */</span></span><br><span class="line">        <span class="type">DLList</span> <span class="variable">L</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DLList</span>(<span class="number">10</span>);</span><br><span class="line">        L.addFirst(<span class="number">10</span>);</span><br><span class="line">        L.addLast(<span class="number">5</span>);</span><br><span class="line">        System.out.println(L.size());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Another implementation with circulated version: </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CirList</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">IntNode</span> &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="type">int</span> item;</span><br><span class="line">        <span class="keyword">public</span> IntNode prev;</span><br><span class="line">        <span class="keyword">public</span> IntNode next;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">public</span> <span class="title function_">IntNode</span><span class="params">(<span class="type">int</span> i, IntNode p, IntNode n)</span> &#123;</span><br><span class="line">            item = i;</span><br><span class="line">            prev = p;</span><br><span class="line">            next = n;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> IntNode sentinel;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> size;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">CirList</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">        sentinel = <span class="keyword">new</span> <span class="title class_">IntNode</span>(<span class="number">66</span>, <span class="literal">null</span>, <span class="literal">null</span>);</span><br><span class="line">        sentinel.next = <span class="keyword">new</span> <span class="title class_">IntNode</span>(x, sentinel, sentinel);</span><br><span class="line">        sentinel.prev = sentinel.next;</span><br><span class="line">        size = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Create an empty list. */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">CirList</span><span class="params">()</span> &#123;</span><br><span class="line">        sentinel = <span class="keyword">new</span> <span class="title class_">IntNode</span>(<span class="number">66</span>, <span class="literal">null</span>, <span class="literal">null</span>);</span><br><span class="line">        sentinel.next = sentinel;</span><br><span class="line">        sentinel.prev = sentinel;</span><br><span class="line">        size = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Add x to the front of the list. */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addFirst</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">        size += <span class="number">1</span>;</span><br><span class="line">        <span class="type">IntNode</span> <span class="variable">newNode</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IntNode</span>(x, sentinel, sentinel.next);</span><br><span class="line">        sentinel.next.prev = newNode;</span><br><span class="line">        sentinel.next = newNode;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Return the 1st item of the list. */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getFirst</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> sentinel.next.item;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Add an item to the end of the list. */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addLast</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">        size += <span class="number">1</span>;</span><br><span class="line">        <span class="type">IntNode</span> <span class="variable">newNode</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IntNode</span>(x, sentinel.prev, sentinel);</span><br><span class="line">        sentinel.prev.next = newNode;</span><br><span class="line">        sentinel.prev = newNode;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Return the size of the list. */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">size</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> size;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">/* Create a list of one integer 5 */</span></span><br><span class="line">        <span class="type">CirList</span> <span class="variable">L</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CirList</span>(<span class="number">10</span>);</span><br><span class="line">        L.addFirst(<span class="number">10</span>);</span><br><span class="line">        L.addLast(<span class="number">5</span>);</span><br><span class="line">        System.out.println(L.size());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Remark:</p>
+<p><strong>addLast</strong></p>
+<ul>
+<li><code>addLast</code> and <code>getLast</code> could be fast, but <code>removeLast</code> could not, as there is no easy way to get the <strong>second-to-last node</strong>.  </li>
+<li>For example, <code>addLast</code> could be advanced like:<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addLast</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">      last.next = <span class="keyword">new</span> <span class="title class_">IntNode</span>(x, <span class="literal">null</span>);</span><br><span class="line">      last = last.next;</span><br><span class="line">      size += <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<strong>Back Pointers</strong><br>Back pointers allow a list to support adding, getting, and removing the front and back of a list in constant time, with <code>prev</code> and <code>next</code>.</li>
+</ul>
+<p><strong>Sentinel Upgrade</strong><br>There is a subtle issue  where the last pointer sometimes points at the sentinel node, and sometimes at a real node:</p>
+<ul>
+<li>One fix is to add a second sentinel node to the <strong>back</strong> of the list. </li>
+<li>An alternate approach is to implement the list so that it is <strong>circular</strong>, with the front and back pointers sharing the same sentinel node.</li>
+</ul>
+<h4 id="2-3-2-Generic-DLLists"><a href="#2-3-2-Generic-DLLists" class="headerlink" title="2.3.2 Generic DLLists"></a>2.3.2 Generic DLLists</h4><p>To implement a <strong>generic list</strong>, codes could be replaced like:  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GenDLList</span>&lt;LochNess&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">class</span> <span class="title class_">PubNode</span> &#123;</span><br><span class="line">        <span class="keyword">public</span> LochNess item;</span><br><span class="line">        <span class="keyword">public</span> PubNode prev;</span><br><span class="line">        <span class="keyword">public</span> PubNode next;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">public</span> <span class="title function_">PubNode</span><span class="params">(LochNess i, PubNode p, PubNode n)</span> &#123;</span><br><span class="line">            item = i;</span><br><span class="line">            prev = p;</span><br><span class="line">            next = n;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> PubNode sentinel;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> size;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">GenDLList</span><span class="params">(LochNess x)</span> &#123;</span><br><span class="line">        sentinel = <span class="keyword">new</span> <span class="title class_">PubNode</span>(<span class="literal">null</span>, <span class="literal">null</span>, <span class="literal">null</span>);</span><br><span class="line">        sentinel.next = <span class="keyword">new</span> <span class="title class_">PubNode</span>(x, sentinel, sentinel);</span><br><span class="line">        sentinel.prev = sentinel.next;</span><br><span class="line">        size = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>A special syntax is also needed to initiate the class. Remember to use <strong>reference types</strong> instead of <strong>peimitives</strong>, that is, <code>Integer</code> instead of <code>int</code>.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DLList&lt;Integer&gt; d1 = <span class="keyword">new</span> <span class="title class_">DLList</span>&lt;&gt;(<span class="number">5</span>);</span><br><span class="line">d1.insertFront(<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+<p>Some rules working with generic lists:</p>
+<ul>
+<li>Always try to use <code>Integer</code>, <code>Double</code>, <code>Character</code>, <code>Boolean</code>, <code>Long</code>, <code>Short</code>, <code>Byte</code>, or <code>Float</code> instead of primitive equivalents.</li>
+<li>In the <code>.java</code> file implementing a data structure, specify your generic type name only once at the very top of the file after the class name.</li>
+<li>In other <code>.java</code> files using data structure, specify the specific desired type during declaration, and use the empty diamond operator during instantiation.</li>
+<li>Though redundant, the one below is also perfectly valid:<br><code>DLList&lt;Integer&gt; d1 = new DLList&lt;Integer&gt;(5);</code></li>
+</ul>
+<h3 id="2-4-Arrays"><a href="#2-4-Arrays" class="headerlink" title="2.4 Arrays"></a>2.4 Arrays</h3><h4 id="2-4-1-Array-Knowledge"><a href="#2-4-1-Array-Knowledge" class="headerlink" title="2.4.1 Array Knowledge"></a>2.4.1 Array Knowledge</h4><p><strong>Array Basics</strong><br>Arrays are a special type of object that consists of a numbered sequence of memory boxes.   </p>
+<p>Arrays consist of  </p>
+<ul>
+<li>A fixed integer length, N  </li>
+<li>A sequence of N memory boxes of <strong>the same type</strong>, and are numbered <strong>0 through (N - 1)</strong>.</li>
+</ul>
+<p>Unlike classes, arrays do <strong>NOT</strong> have methods.</p>
+<p><strong>Array Creation</strong><br>There valid notations:  </p>
+<ul>
+<li>Create array containing 3 int boxes with default value:<br><code>x = new int[3];</code> </li>
+<li><code>y = new int[]&#123;1, 2, 3, 4, 5&#125;;</code></li>
+<li><code>new</code> could be omited  foe declaring a vlue:<br><code>int[] z = &#123;9, 10, 11, 12, 13&#125;;</code></li>
+</ul>
+<p><strong>Array Access and Modification</strong><br>Understand following codes well:  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>[] z = <span class="literal">null</span>;</span><br><span class="line"><span class="type">int</span>[] x, y;</span><br><span class="line"></span><br><span class="line">x = <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line">y = x;</span><br><span class="line">x = <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;-<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">99</span>&#125;;</span><br><span class="line">y = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">3</span>];</span><br><span class="line">z = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">0</span>];</span><br><span class="line"><span class="type">int</span> <span class="variable">xL</span> <span class="operator">=</span> x.length;</span><br><span class="line"></span><br><span class="line">String[] s = <span class="keyword">new</span> <span class="title class_">String</span>[<span class="number">6</span>];</span><br><span class="line">s[<span class="number">4</span>] = <span class="string">&quot;ketchup&quot;</span>;</span><br><span class="line">s[x[<span class="number">3</span>] - x[<span class="number">1</span>]] = <span class="string">&quot;muffins&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span>[] b = &#123;<span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>&#125;;</span><br><span class="line">System.arraycopy(b, <span class="number">0</span>, x, <span class="number">3</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+<p>For <code>Arraycopy</code>, it is likely to be faster compared to “item by item with a loop”:  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.arraycopy(b, <span class="number">0</span>,x, <span class="number">3</span>, <span class="number">2</span>)  <span class="comment">// Java</span></span><br></pre></td></tr></table></figure>
+<p>which is the equivalent of  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x[<span class="number">3</span>:<span class="number">5</span>] = b[<span class="number">0</span>:<span class="number">2</span>]  <span class="comment"># Python</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>2D Arrays</strong></p>
+<p>Understand following codes well:  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>[][] pascalsTriangle;</span><br><span class="line">pascalsTriangle = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">4</span>][];</span><br><span class="line"><span class="type">int</span>[] rowZero = pascalsTriangle[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">pascalsTriangle[<span class="number">0</span>] = <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;<span class="number">1</span>&#125;;</span><br><span class="line">pascalsTriangle[<span class="number">1</span>] = <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;<span class="number">1</span>, <span class="number">1</span>&#125;;</span><br><span class="line">pascalsTriangle[<span class="number">2</span>] = <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>&#125;;</span><br><span class="line">pascalsTriangle[<span class="number">3</span>] = <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">1</span>&#125;;</span><br><span class="line"><span class="type">int</span>[] rowTwo = pascalsTriangle[<span class="number">2</span>];</span><br><span class="line">rowTwo[<span class="number">1</span>] = -<span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span>[][] matrix;</span><br><span class="line">matrix = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">4</span>][];</span><br><span class="line">matrix = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">4</span>][<span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="type">int</span>[][] pascalAgain = <span class="keyword">new</span> <span class="title class_">int</span>[][]&#123;&#123;<span class="number">1</span>&#125;, &#123;<span class="number">1</span>, <span class="number">1</span>&#125;,</span><br><span class="line">                        &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>&#125;, &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">1</span>&#125;&#125;;</span><br><span class="line">            </span><br></pre></td></tr></table></figure>
+
+<p><strong>Arrays vs Classes</strong><br>The key differences between memory boxes in arrays and classes:</p>
+<ul>
+<li>Array boxes are numbered and accessed using <code>[]</code> notation, and class boxes are named and accessed using dot notation.  </li>
+<li>Array boxes must all be the same type. Class boxes can be different types.</li>
+</ul>
+<p>One particularly impact is that <code>[]</code> notation allows specifying index at runtime.<br>For example, consider the code below:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">indexOfInterest</span> <span class="operator">=</span> askUserForInteger();</span><br><span class="line"><span class="type">int</span>[] x = &#123;<span class="number">100</span>, <span class="number">101</span>, <span class="number">102</span>, <span class="number">103</span>&#125;;</span><br><span class="line"><span class="type">int</span> <span class="variable">k</span> <span class="operator">=</span> x[indexOfInterest];</span><br><span class="line">System.out.println(k);</span><br></pre></td></tr></table></figure>
+<p>It is forbidden as follows:  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">fieldOfInterest</span> <span class="operator">=</span> <span class="string">&quot;mass&quot;</span>;</span><br><span class="line"><span class="type">Planet</span> <span class="variable">p</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Planet</span>(<span class="number">6e24</span>, <span class="string">&quot;earth&quot;</span>);</span><br><span class="line"><span class="type">double</span> <span class="variable">mass</span> <span class="operator">=</span> p[fieldOfInterest];</span><br></pre></td></tr></table></figure>
+<p>or <code>double mass = p.fieldOfInterest;</code></p>
+<p>There is a way to specify desired fields at runtime called <strong>reflection</strong>, but it is considered very bad coding style for typical programs.  </p>
+<p><strong>Arrays in Java</strong><br>Compared to arrays in other languages, Java arrays:</p>
+<ul>
+<li>Have no special syntax for “slicing” (such as in <code>Python</code>).</li>
+<li>Cannot be shrunk or expanded (such as in <code>Ruby</code>).</li>
+<li>Do not have member methods (such as in <code>Javascript</code>).</li>
+<li>Must contain values only of the same type (unlike <code>Python</code>).</li>
+</ul>
+<h4 id="2-4-2-AList"><a href="#2-4-2-AList" class="headerlink" title="2.4.2 AList"></a>2.4.2 AList</h4><p>Here is the implementation:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AList</span>&lt;Item&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> Item[] items;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> size;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Create an empty list. */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">AList</span><span class="params">()</span> &#123;</span><br><span class="line">        items = (Item[]) <span class="keyword">new</span> <span class="title class_">Object</span>[<span class="number">100</span>];</span><br><span class="line">        size = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Insert an item to the end of the list. */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addLast</span><span class="params">(Item x)</span> &#123;</span><br><span class="line">        items[size] = x;</span><br><span class="line">        size += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Adjust the size of the list. */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">resize</span><span class="params">(<span class="type">int</span> capacity)</span> &#123;</span><br><span class="line">        <span class="type">int</span>[] a = <span class="keyword">new</span> <span class="title class_">int</span>[capacity];</span><br><span class="line">        System.arraycopy(items, <span class="number">0</span>, a, <span class="number">0</span>, size);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Insert an item at the end of thelist, even if out-of-range. */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">insertBack</span><span class="params">(Item x)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">RFACTOR</span> <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (size == items.length) &#123;</span><br><span class="line">               resize(size * RFACTOR);</span><br><span class="line">        &#125;</span><br><span class="line">        items[size] = x;</span><br><span class="line">        size += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Return the last item of the list. */</span></span><br><span class="line">    <span class="keyword">public</span> Item <span class="title function_">getLast</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> items[size - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Get the (i+1)th item of the list. */</span></span><br><span class="line">    <span class="keyword">public</span> Item <span class="title function_">get</span><span class="params">(<span class="type">int</span> i)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> items[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Return the size of the list. */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">size</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> size;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Delete item from back of the list and return deleted item. */</span></span><br><span class="line">    <span class="keyword">public</span> Item <span class="title function_">deleteBack</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">Item</span> <span class="variable">x</span> <span class="operator">=</span> getLast();</span><br><span class="line">        items[size - <span class="number">1</span>] = <span class="literal">null</span>;</span><br><span class="line">        size -= <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Linked List Performance</strong><br>Since there are only references to the <code>first</code> and <code>last</code> items of the list, the worst case execution time for <code>get</code> or <code>getBack</code> is linear in the size of the entire list.</p>
+<p><strong>Naive Array Based List</strong><br>ALists have constant time access, with invariants as follows:</p>
+<ul>
+<li>The position of the next item to-be-inserted is always <code>size</code>.</li>
+<li>The number of items in the AList is always <code>size</code>.</li>
+<li>The position of the last item in the list is always <code>size - 1</code>.</li>
+</ul>
+<p><strong>removeLast</strong><br>To remove the last item, decide which of <code>size</code>, <code>items</code>, and <code>items[i]</code> needs to change so that our invariants are preserved after the operation.<br>As <code>size</code> has been decreased by 1, the last <code>int</code> item has logically been deleted. <code>items[size - 1] = null;</code> will not do any harm, but not necessary.<br>However, for <code>objects</code> it is not the case. Recall that Java only destroys objects when the last reference has been lost. That is why reference should be nulled out to avoid “lotering”.</p>
+<p><strong>Resizing the array</strong><br>The naive array list shows a parabola, for following implements:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">insertBack</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (size == items.length) &#123;</span><br><span class="line">        resize(size + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    items[size] = x;</span><br><span class="line">    size += <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>The performance problems could be fixed by growing the size of our array by a <strong>multiplicative</strong> amount, rather than an <strong>additive</strong> amount, which is how <code>Python</code> works:   </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">insertBack</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (size == items.length) &#123;</span><br><span class="line">           resize(size * RFACTOR);</span><br><span class="line">    &#125;</span><br><span class="line">    items[size] = x;</span><br><span class="line">    size += <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Also, the size of the array should be halved when ratio R falls to less than 0.25.<br>R &#x3D; (size of the list) &#x2F; (length of the items array)</p>
+<p><strong>Generic ALists</strong><br>Java does not allow us to create an array of generic objects due to an obscure issue with the way generics are implemented. So we need to use technic <code>cast</code>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Item[] items = (Item []) <span class="keyword">new</span> <span class="title class_">Object</span>[<span class="number">8</span>];</span><br></pre></td></tr></table></figure>
+
+<p>The other change is that any “delete” items should be nulled out.</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/cv/">CV</a></li>
+        
+          <li><a href="/catalog/">Catalog</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Introduction"><span class="toc-number">1.</span> <span class="toc-text">2.1 Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-Mystery-of-the-Walrus"><span class="toc-number">1.1.</span> <span class="toc-text">2.1.1 Mystery of the Walrus</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-Reference-Types"><span class="toc-number">1.2.</span> <span class="toc-text">2.1.2 Reference Types</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-3-Parameter-Passing"><span class="toc-number">1.3.</span> <span class="toc-text">2.1.3 Parameter Passing</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-4-Instantiation-of-Arrays"><span class="toc-number">1.4.</span> <span class="toc-text">2.1.4 Instantiation of Arrays</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-5-IntList"><span class="toc-number">1.5.</span> <span class="toc-text">2.1.5 IntList</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-SLList"><span class="toc-number">2.</span> <span class="toc-text">2.2 SLList</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-DLList"><span class="toc-number">3.</span> <span class="toc-text">2.3 DLList</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-1-Implementation-of-DLList"><span class="toc-number">3.1.</span> <span class="toc-text">2.3.1 Implementation of DLList</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-2-Generic-DLLists"><span class="toc-number">3.2.</span> <span class="toc-text">2.3.2 Generic DLLists</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-Arrays"><span class="toc-number">4.</span> <span class="toc-text">2.4 Arrays</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-1-Array-Knowledge"><span class="toc-number">4.1.</span> <span class="toc-text">2.4.1 Array Knowledge</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-2-AList"><span class="toc-number">4.2.</span> <span class="toc-text">2.4.2 AList</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://greatxue.github.io/2023/06/29/ds-2/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://greatxue.github.io/2023/06/29/ds-2/&text=DS-2 | 2. Implementation of Lists"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Implementation of Lists"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://greatxue.github.io/2023/06/29/ds-2/&is_video=false&description=DS-2 | 2. Implementation of Lists"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=DS-2 | 2. Implementation of Lists&body=Check out this article: http://greatxue.github.io/2023/06/29/ds-2/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Implementation of Lists"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Implementation of Lists"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Implementation of Lists"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Implementation of Lists"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://greatxue.github.io/2023/06/29/ds-2/&name=DS-2 | 2. Implementation of Lists&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://greatxue.github.io/2023/06/29/ds-2/&t=DS-2 | 2. Implementation of Lists"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2022-2023
+    Kevin Shuey
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/cv/">CV</a></li><!--
+     --><!--
+       --><li><a href="/catalog/">Catalog</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
