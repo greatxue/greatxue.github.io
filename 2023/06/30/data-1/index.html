@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="This note is highly dependent on Data100 offered at UC-Berkley. Data analysis is the process of inspecting, transforming, and modeling data to uncover meaningful patterns, insights, and trends. It inv">
+<meta property="og:type" content="article">
+<meta property="og:title" content="data-1 | Numpy">
+<meta property="og:url" content="http://greatxue.github.io/2023/06/30/data-1/index.html">
+<meta property="og:site_name" content="Fantasy of Poseidon">
+<meta property="og:description" content="This note is highly dependent on Data100 offered at UC-Berkley. Data analysis is the process of inspecting, transforming, and modeling data to uncover meaningful patterns, insights, and trends. It inv">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://greatxue.github.io/images/end.jpg">
+<meta property="article:published_time" content="2023-06-30T07:41:14.000Z">
+<meta property="article:modified_time" content="2023-06-30T07:51:57.530Z">
+<meta property="article:author" content="Kevin Shuey">
+<meta property="article:tag" content="CS Reference">
+<meta property="article:tag" content="Data Analysis">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://greatxue.github.io/images/end.jpg">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>data-1 | Numpy</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/cv/">CV</a></li><!--
+     --><!--
+       --><li><a href="/catalog/">Catalog</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2023/06/29/ds-2/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://greatxue.github.io/2023/06/30/data-1/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://greatxue.github.io/2023/06/30/data-1/&text=data-1 | Numpy"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://greatxue.github.io/2023/06/30/data-1/&title=data-1 | Numpy"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://greatxue.github.io/2023/06/30/data-1/&is_video=false&description=data-1 | Numpy"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=data-1 | Numpy&body=Check out this article: http://greatxue.github.io/2023/06/30/data-1/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://greatxue.github.io/2023/06/30/data-1/&title=data-1 | Numpy"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://greatxue.github.io/2023/06/30/data-1/&title=data-1 | Numpy"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://greatxue.github.io/2023/06/30/data-1/&title=data-1 | Numpy"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://greatxue.github.io/2023/06/30/data-1/&title=data-1 | Numpy"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://greatxue.github.io/2023/06/30/data-1/&name=data-1 | Numpy&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://greatxue.github.io/2023/06/30/data-1/&t=data-1 | Numpy"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <div id="toc-div" class="toc-article" >
+          
+                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Creating-Arrays"><span class="toc-number">1.</span> <span class="toc-text">1. Creating Arrays</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Indexing"><span class="toc-number">2.</span> <span class="toc-text">2. Indexing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Properties-of-Arrays"><span class="toc-number">3.</span> <span class="toc-text">3. Properties of Arrays</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Mathematical-Operations"><span class="toc-number">4.</span> <span class="toc-text">4. Mathematical Operations</span></a></li></ol>
+                  
+        </div>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        data-1 | Numpy
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Kevin Shuey</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-06-30T07:41:14.000Z" class="dt-published" itemprop="datePublished">2023-06-30</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/CS-Reference/" rel="tag">CS Reference</a>, <a class="p-category" href="/tags/Data-Analysis/" rel="tag">Data Analysis</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p><em>This note is highly dependent on Data100 offered at UC-Berkley.</em></p>
+<p><strong>Data analysis</strong> is the process of inspecting, transforming, and modeling data to uncover meaningful patterns, insights, and trends. It involves using various statistical and computational techniques to interpret vast amounts of information and derive valuable conclusions.</p>
+<p>Data analysis encompasses a wide range of techniques, including descriptive statistics, inferential statistics, regression analysis, clustering, classification, and data mining. It requires a combination of domain knowledge, analytical skills, and proficiency in tools such as Python, R, and SQL. </p>
+<p>This note is based on <strong>Jupyter Notebook</strong>. Taking simplicity into account, we will offer instructions in Markdown again, instead of Jupyter interface. When in doubt, type it into Jupyter for precise output.</p>
+<p>Today we will go over <strong>Numpy</strong> quickly. Have fun!</p>
+<hr>
+<p>Before the journey, import <em>numpy</em> like</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-Creating-Arrays"><a href="#1-Creating-Arrays" class="headerlink" title="1. Creating Arrays"></a>1. Creating Arrays</h3><p>Here are basic usages:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">np.array([[<span class="number">1.</span>,<span class="number">2.</span>], [<span class="number">3.</span>,<span class="number">4.</span>]])</span><br><span class="line"><span class="comment"># array([[ 1.,  2.],</span></span><br><span class="line"><span class="comment">#       [ 3.,  4.]])</span></span><br><span class="line"></span><br><span class="line">np.array([x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>)])</span><br><span class="line"><span class="comment">#array([0, 1, 2, 3, 4])</span></span><br></pre></td></tr></table></figure>
+
+<p>To conclude special elements,</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">np.zeros(<span class="number">5</span>)</span><br><span class="line">np.ones([<span class="number">3</span>,<span class="number">2</span>])</span><br><span class="line"><span class="comment"># array([[ 1.,  1.],</span></span><br><span class="line"><span class="comment">#       [ 1.,  1.],</span></span><br><span class="line"><span class="comment">#       [ 1.,  1.]])</span></span><br><span class="line"></span><br><span class="line">np.eye(<span class="number">4</span>)</span><br><span class="line"><span class="comment"># array([[ 1.,  0.,  0.,  0.],</span></span><br><span class="line"><span class="comment">#       [ 0.,  1.,  0.,  0.],</span></span><br><span class="line"><span class="comment">#       [ 0.,  0.,  1.,  0.],</span></span><br><span class="line"><span class="comment">#       [ 0.,  0.,  0.,  1.]])</span></span><br></pre></td></tr></table></figure>
+
+<p>To follow special regularities,</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">np.arange(<span class="number">0</span>, <span class="number">10</span>, <span class="number">2</span>)     <span class="comment"># np.arange(start, stop, step)</span></span><br><span class="line">np.linspace(<span class="number">0</span>, <span class="number">5</span>, <span class="number">10</span>)   <span class="comment"># linspace(start, end, num)</span></span><br></pre></td></tr></table></figure>
+
+<p>To create random ones,</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">np.random.randn(<span class="number">3</span>,<span class="number">2</span>)                  </span><br><span class="line"><span class="comment"># &#x27;randn&#x27; generates random numbers from a Normal(mean=0, var=1) distribution.</span></span><br><span class="line">np.random.rand(<span class="number">3</span>,<span class="number">2</span>)</span><br><span class="line"><span class="comment"># &#x27;rand&#x27; generates random numbers from a Uniform(low=0, high=1) distribution.</span></span><br><span class="line">np.random.permutation(<span class="built_in">range</span>(<span class="number">0</span>,<span class="number">10</span>))</span><br><span class="line"><span class="comment"># &#x27;permutation&#x27; generates a random permutation of a sequence of numbers.</span></span><br></pre></td></tr></table></figure>
+
+<p>There is even a kind of <strong>Jagged Arrays</strong>, which may be tough to use:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>], [<span class="number">6</span>]])</span><br><span class="line">A[<span class="number">0</span>][<span class="number">1</span>]                                     <span class="comment"># 2, difficult to index</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Indexing"><a href="#2-Indexing" class="headerlink" title="2. Indexing"></a>2. Indexing</h3><p>Understand the slice syntax <code>begin:end:stride</code> well:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x[:, <span class="number">0</span>]</span><br><span class="line">x[<span class="number">0</span>, :]</span><br><span class="line">x[:<span class="number">2</span>, <span class="number">1</span>:] = <span class="number">0</span></span><br><span class="line">x[<span class="number">0</span>::<span class="number">2</span>, :]</span><br></pre></td></tr></table></figure>
+
+<p>Boolean indexing could be applied as well, </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A = np.array([[  <span class="number">1.</span>,   <span class="number">2.</span>,   <span class="number">3.</span>],</span><br><span class="line">              [  <span class="number">4.</span>,   <span class="number">5.</span>,   -<span class="number">999.0</span>],</span><br><span class="line">              [  <span class="number">7.</span>,   <span class="number">8.</span>,   <span class="number">9.</span>],</span><br><span class="line">              [ <span class="number">10.</span>,  -<span class="number">999.0</span>,  -<span class="number">999.0</span>]])</span><br><span class="line"></span><br><span class="line">A &gt; <span class="number">3</span></span><br><span class="line">A[A &gt; <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Properties-of-Arrays"><a href="#3-Properties-of-Arrays" class="headerlink" title="3. Properties of Arrays"></a>3. Properties of Arrays</h3><p>Here are basic properties of arrays:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">A.shape</span><br><span class="line">A.dtype                                   <span class="comment"># e.g. dtype(&#x27;float64&#x27;)</span></span><br><span class="line">np.arange(<span class="number">1</span>,<span class="number">5</span>).dtype</span><br><span class="line"></span><br><span class="line">np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]).astype(<span class="built_in">float</span>)           <span class="comment"># change type of an array</span></span><br><span class="line">A = np.arange(<span class="number">1</span>,<span class="number">13</span>).reshape(<span class="number">4</span>,<span class="number">3</span>)          <span class="comment"># reshape an array with row (&#x27;C&#x27;) indexing</span></span><br><span class="line">np.arange(<span class="number">1</span>,<span class="number">13</span>).reshape(<span class="number">4</span>,<span class="number">3</span>, order=<span class="string">&#x27;F&#x27;</span>)   <span class="comment"># Fortran ordering (column indexing)</span></span><br><span class="line">A.flatten()                               <span class="comment"># flat a matrix/higher-demensional array</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-Mathematical-Operations"><a href="#4-Mathematical-Operations" class="headerlink" title="4. Mathematical Operations"></a>4. Mathematical Operations</h3><p>Here are basic mathematical operations:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">A * <span class="number">0.5</span> + <span class="number">3</span></span><br><span class="line">A.<span class="built_in">sum</span>()</span><br><span class="line">A.mean()</span><br><span class="line"></span><br><span class="line">np.isclose        <span class="comment"># consider using this when there is float inaccuracy</span></span><br></pre></td></tr></table></figure>
+
+<p>Here are specific calculations for matrices:</p>
+<ul>
+<li><p>For basic operations,</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A.T</span><br><span class="line">A.<span class="built_in">sum</span>(axis=<span class="number">1</span>)     <span class="comment"># grouping by col</span></span><br><span class="line">A.<span class="built_in">sum</span>(axis=<span class="number">0</span>)     <span class="comment"># grouping by row</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Here are some linear-algebra calculations:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">A = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line">b = np.ones(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">A * b             <span class="comment"># element-wise product in numpy</span></span><br><span class="line">A.dot(b)</span><br><span class="line">A @ b             <span class="comment"># matrix multiplication</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>For solving linear systems,</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">A = np.array([[<span class="number">5</span>, -<span class="number">3</span>], [-<span class="number">9</span>, <span class="number">2</span>]])</span><br><span class="line">b = np.array([<span class="number">2</span>,-<span class="number">7</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> numpy.linalg <span class="keyword">import</span> inv</span><br><span class="line">inv(A) @ b</span><br><span class="line"><span class="comment"># equivalent to</span></span><br><span class="line"><span class="keyword">from</span> numpy.linalg <span class="keyword">import</span> solve</span><br><span class="line">solve(A, b)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>More advanced usages still awaits exploring.</p>
+<p><img src="/../images/end.jpg" alt="end"></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/cv/">CV</a></li>
+        
+          <li><a href="/catalog/">Catalog</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Creating-Arrays"><span class="toc-number">1.</span> <span class="toc-text">1. Creating Arrays</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Indexing"><span class="toc-number">2.</span> <span class="toc-text">2. Indexing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Properties-of-Arrays"><span class="toc-number">3.</span> <span class="toc-text">3. Properties of Arrays</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Mathematical-Operations"><span class="toc-number">4.</span> <span class="toc-text">4. Mathematical Operations</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://greatxue.github.io/2023/06/30/data-1/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://greatxue.github.io/2023/06/30/data-1/&text=data-1 | Numpy"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://greatxue.github.io/2023/06/30/data-1/&title=data-1 | Numpy"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://greatxue.github.io/2023/06/30/data-1/&is_video=false&description=data-1 | Numpy"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=data-1 | Numpy&body=Check out this article: http://greatxue.github.io/2023/06/30/data-1/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://greatxue.github.io/2023/06/30/data-1/&title=data-1 | Numpy"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://greatxue.github.io/2023/06/30/data-1/&title=data-1 | Numpy"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://greatxue.github.io/2023/06/30/data-1/&title=data-1 | Numpy"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://greatxue.github.io/2023/06/30/data-1/&title=data-1 | Numpy"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://greatxue.github.io/2023/06/30/data-1/&name=data-1 | Numpy&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://greatxue.github.io/2023/06/30/data-1/&t=data-1 | Numpy"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2022-2023
+    Kevin Shuey
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/cv/">CV</a></li><!--
+     --><!--
+       --><li><a href="/catalog/">Catalog</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
