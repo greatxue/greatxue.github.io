@@ -15,7 +15,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://greatxue.github.io/images/end.jpg">
 <meta property="article:published_time" content="2023-06-30T07:41:14.000Z">
-<meta property="article:modified_time" content="2023-06-30T07:51:57.530Z">
+<meta property="article:modified_time" content="2023-06-30T07:58:46.308Z">
 <meta property="article:author" content="Kevin Shuey">
 <meta property="article:tag" content="CS Reference">
 <meta property="article:tag" content="Data Analysis">
@@ -128,7 +128,7 @@
       <div id="toc">
         <div id="toc-div" class="toc-article" >
           
-                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Creating-Arrays"><span class="toc-number">1.</span> <span class="toc-text">1. Creating Arrays</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Indexing"><span class="toc-number">2.</span> <span class="toc-text">2. Indexing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Properties-of-Arrays"><span class="toc-number">3.</span> <span class="toc-text">3. Properties of Arrays</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Mathematical-Operations"><span class="toc-number">4.</span> <span class="toc-text">4. Mathematical Operations</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Numpy"><span class="toc-number">1.</span> <span class="toc-text">Numpy</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Creating-Arrays"><span class="toc-number">1.0.1.</span> <span class="toc-text">1. Creating Arrays</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Indexing"><span class="toc-number">1.0.2.</span> <span class="toc-text">2. Indexing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Properties-of-Arrays"><span class="toc-number">1.0.3.</span> <span class="toc-text">3. Properties of Arrays</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Mathematical-Operations"><span class="toc-number">1.0.4.</span> <span class="toc-text">4. Mathematical Operations</span></a></li></ol></li></ol></li></ol>
                   
         </div>
       </div>
@@ -181,7 +181,7 @@
 <p>This note is based on <strong>Jupyter Notebook</strong>. Taking simplicity into account, we will offer instructions in Markdown again, instead of Jupyter interface. When in doubt, type it into Jupyter for precise output.</p>
 <p>Today we will go over <strong>Numpy</strong> quickly. Have fun!</p>
 <hr>
-<p>Before the journey, import <em>numpy</em> like</p>
+<h1 id="Numpy"><a href="#Numpy" class="headerlink" title="Numpy"></a>Numpy</h1><p>Before the journey, import <em>numpy</em> like</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
 
 <h3 id="1-Creating-Arrays"><a href="#1-Creating-Arrays" class="headerlink" title="1. Creating Arrays"></a>1. Creating Arrays</h3><p>Here are basic usages:</p>
@@ -222,7 +222,7 @@
 <li><p>For solving linear systems,</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">A = np.array([[<span class="number">5</span>, -<span class="number">3</span>], [-<span class="number">9</span>, <span class="number">2</span>]])</span><br><span class="line">b = np.array([<span class="number">2</span>,-<span class="number">7</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> numpy.linalg <span class="keyword">import</span> inv</span><br><span class="line">inv(A) @ b</span><br><span class="line"><span class="comment"># equivalent to</span></span><br><span class="line"><span class="keyword">from</span> numpy.linalg <span class="keyword">import</span> solve</span><br><span class="line">solve(A, b)</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>More advanced usages still awaits exploring.</p>
+<p>More advanced usages still await exploring.</p>
 <p><img src="/../images/end.jpg" alt="end"></p>
 
   </div>
@@ -251,7 +251,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Creating-Arrays"><span class="toc-number">1.</span> <span class="toc-text">1. Creating Arrays</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Indexing"><span class="toc-number">2.</span> <span class="toc-text">2. Indexing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Properties-of-Arrays"><span class="toc-number">3.</span> <span class="toc-text">3. Properties of Arrays</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Mathematical-Operations"><span class="toc-number">4.</span> <span class="toc-text">4. Mathematical Operations</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Numpy"><span class="toc-number">1.</span> <span class="toc-text">Numpy</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Creating-Arrays"><span class="toc-number">1.0.1.</span> <span class="toc-text">1. Creating Arrays</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Indexing"><span class="toc-number">1.0.2.</span> <span class="toc-text">2. Indexing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Properties-of-Arrays"><span class="toc-number">1.0.3.</span> <span class="toc-text">3. Properties of Arrays</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Mathematical-Operations"><span class="toc-number">1.0.4.</span> <span class="toc-text">4. Mathematical Operations</span></a></li></ol></li></ol></li></ol>
       </div>
     
 
