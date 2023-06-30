@@ -8,17 +8,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
     <meta name="description" content="This note is highly dependent on CS61B offered at UC-Berkley. This time we continue with lists.  2.1 Introduction2.1.1 Mystery of the WalrusCase 1: 123456Walrus a &#x3D; new Walrus(1000, 8.3);Walrus b;b &#x3D;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DS-2 | 2. Implementation of Lists">
+<meta property="og:title" content="DS-2 | 2. Lists">
 <meta property="og:url" content="http://greatxue.github.io/2023/06/29/ds-2/index.html">
 <meta property="og:site_name" content="Fantasy of Poseidon">
 <meta property="og:description" content="This note is highly dependent on CS61B offered at UC-Berkley. This time we continue with lists.  2.1 Introduction2.1.1 Mystery of the WalrusCase 1: 123456Walrus a &#x3D; new Walrus(1000, 8.3);Walrus b;b &#x3D;">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://greatxue.github.io/images/end.jpg">
 <meta property="article:published_time" content="2023-06-29T14:27:30.000Z">
-<meta property="article:modified_time" content="2023-06-29T14:30:42.349Z">
+<meta property="article:modified_time" content="2023-06-30T02:07:26.974Z">
 <meta property="article:author" content="Kevin Shuey">
 <meta property="article:tag" content="CS Reference">
 <meta property="article:tag" content="Data Structure">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://greatxue.github.io/images/end.jpg">
     
     
       
@@ -38,7 +40,7 @@
       
     
     <!-- title -->
-    <title>DS-2 | 2. Implementation of Lists</title>
+    <title>DS-2 | 2. Lists</title>
     <!-- async scripts -->
     <!-- Google Analytics -->
 
@@ -108,16 +110,16 @@
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://greatxue.github.io/2023/06/29/ds-2/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://greatxue.github.io/2023/06/29/ds-2/&text=DS-2 | 2. Implementation of Lists"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Implementation of Lists"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://greatxue.github.io/2023/06/29/ds-2/&is_video=false&description=DS-2 | 2. Implementation of Lists"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=DS-2 | 2. Implementation of Lists&body=Check out this article: http://greatxue.github.io/2023/06/29/ds-2/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Implementation of Lists"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Implementation of Lists"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Implementation of Lists"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Implementation of Lists"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://greatxue.github.io/2023/06/29/ds-2/&name=DS-2 | 2. Implementation of Lists&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://greatxue.github.io/2023/06/29/ds-2/&t=DS-2 | 2. Implementation of Lists"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://greatxue.github.io/2023/06/29/ds-2/&text=DS-2 | 2. Lists"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Lists"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://greatxue.github.io/2023/06/29/ds-2/&is_video=false&description=DS-2 | 2. Lists"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=DS-2 | 2. Lists&body=Check out this article: http://greatxue.github.io/2023/06/29/ds-2/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Lists"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Lists"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Lists"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Lists"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://greatxue.github.io/2023/06/29/ds-2/&name=DS-2 | 2. Lists&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://greatxue.github.io/2023/06/29/ds-2/&t=DS-2 | 2. Lists"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -141,7 +143,7 @@
   <header>
     
     <h1 class="posttitle p-name" itemprop="name headline">
-        DS-2 | 2. Implementation of Lists
+        DS-2 | 2. Lists
     </h1>
 
 
@@ -347,6 +349,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Item[] items = (Item []) <span class="keyword">new</span> <span class="title class_">Object</span>[<span class="number">8</span>];</span><br></pre></td></tr></table></figure>
 
 <p>The other change is that any “delete” items should be nulled out.</p>
+<p><img src="/../images/end.jpg" alt="end"></p>
 
   </div>
 </article>
@@ -381,16 +384,16 @@
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://greatxue.github.io/2023/06/29/ds-2/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://greatxue.github.io/2023/06/29/ds-2/&text=DS-2 | 2. Implementation of Lists"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Implementation of Lists"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://greatxue.github.io/2023/06/29/ds-2/&is_video=false&description=DS-2 | 2. Implementation of Lists"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=DS-2 | 2. Implementation of Lists&body=Check out this article: http://greatxue.github.io/2023/06/29/ds-2/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Implementation of Lists"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Implementation of Lists"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Implementation of Lists"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Implementation of Lists"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://greatxue.github.io/2023/06/29/ds-2/&name=DS-2 | 2. Implementation of Lists&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://greatxue.github.io/2023/06/29/ds-2/&t=DS-2 | 2. Implementation of Lists"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://greatxue.github.io/2023/06/29/ds-2/&text=DS-2 | 2. Lists"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Lists"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://greatxue.github.io/2023/06/29/ds-2/&is_video=false&description=DS-2 | 2. Lists"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=DS-2 | 2. Lists&body=Check out this article: http://greatxue.github.io/2023/06/29/ds-2/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Lists"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Lists"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Lists"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://greatxue.github.io/2023/06/29/ds-2/&title=DS-2 | 2. Lists"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://greatxue.github.io/2023/06/29/ds-2/&name=DS-2 | 2. Lists&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://greatxue.github.io/2023/06/29/ds-2/&t=DS-2 | 2. Lists"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
