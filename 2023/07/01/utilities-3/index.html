@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="LaTeX is a typesetting system commonly used for creating documents with high-quality mathematical and scientific content. It provides a powerful and flexible way to produce professional-looking docume">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Utilities-TUT-1 | Linux">
+<meta property="og:url" content="http://greatxue.github.io/2023/07/01/utilities-3/index.html">
+<meta property="og:site_name" content="Fantasy of Poseidon">
+<meta property="og:description" content="LaTeX is a typesetting system commonly used for creating documents with high-quality mathematical and scientific content. It provides a powerful and flexible way to produce professional-looking docume">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://greatxue.github.io/images/end.jpg">
+<meta property="article:published_time" content="2023-06-30T17:34:51.000Z">
+<meta property="article:modified_time" content="2023-06-30T17:41:10.765Z">
+<meta property="article:author" content="Kevin Shuey">
+<meta property="article:tag" content="CS Reference">
+<meta property="article:tag" content="Utilities">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://greatxue.github.io/images/end.jpg">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Utilities-TUT-1 | Linux</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/cv/">CV</a></li><!--
+     --><!--
+       --><li><a href="/catalog/">Catalog</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2023/06/30/data-1/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://greatxue.github.io/2023/07/01/utilities-3/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://greatxue.github.io/2023/07/01/utilities-3/&text=Utilities-TUT-1 | Linux"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://greatxue.github.io/2023/07/01/utilities-3/&title=Utilities-TUT-1 | Linux"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://greatxue.github.io/2023/07/01/utilities-3/&is_video=false&description=Utilities-TUT-1 | Linux"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Utilities-TUT-1 | Linux&body=Check out this article: http://greatxue.github.io/2023/07/01/utilities-3/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://greatxue.github.io/2023/07/01/utilities-3/&title=Utilities-TUT-1 | Linux"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://greatxue.github.io/2023/07/01/utilities-3/&title=Utilities-TUT-1 | Linux"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://greatxue.github.io/2023/07/01/utilities-3/&title=Utilities-TUT-1 | Linux"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://greatxue.github.io/2023/07/01/utilities-3/&title=Utilities-TUT-1 | Linux"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://greatxue.github.io/2023/07/01/utilities-3/&name=Utilities-TUT-1 | Linux&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://greatxue.github.io/2023/07/01/utilities-3/&t=Utilities-TUT-1 | Linux"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <div id="toc-div" class="toc-article" >
+          
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#LaTeX"><span class="toc-number">1.</span> <span class="toc-text">LaTeX</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Introduction"><span class="toc-number">1.1.</span> <span class="toc-text">1. Introduction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-PART-I"><span class="toc-number">1.2.</span> <span class="toc-text">2. PART I</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-Basic-Structure"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 Basic Structure</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-Typesetting-Text"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 Typesetting Text</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-Typesetting-Mathematicis"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 Typesetting Mathematicis</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-Interlude"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.4 Interlude</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-Examples-with-amsmath"><span class="toc-number">1.2.5.</span> <span class="toc-text">2.5 Examples with amsmath</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-PART-II"><span class="toc-number">1.3.</span> <span class="toc-text">3. PART II</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-Structured-Documents"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1 Structured Documents</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-Figures-and-Tables"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2 Figures and Tables</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-Bibliographies"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.3 Bibliographies</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-More-details"><span class="toc-number">1.3.4.</span> <span class="toc-text">3.4 More details</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Reference"><span class="toc-number">1.4.</span> <span class="toc-text">4. Reference</span></a></li></ol></li></ol>
+                  
+        </div>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Utilities-TUT-1 | Linux
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Kevin Shuey</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-06-30T17:34:51.000Z" class="dt-published" itemprop="datePublished">2023-07-01</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/CS-Reference/" rel="tag">CS Reference</a>, <a class="p-category" href="/tags/Utilities/" rel="tag">Utilities</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p><strong>LaTeX</strong> is a typesetting system commonly used for creating documents with high-quality mathematical and scientific content. It provides a powerful and flexible way to produce professional-looking documents, such as research papers, reports, and presentations.</p>
+<p>Hope it will help!</p>
+<hr>
+<h2 id="LaTeX"><a href="#LaTeX" class="headerlink" title="LaTeX"></a>LaTeX</h2><h3 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h3><p>LaTex allows writing document in plain text with commands that describe its structure and meaning:      </p>
+<ul>
+<li>The latex program processes your text and commands to produce a beautifully formatted document. </li>
+<li>Use commands to describe ‘what it is’, not ‘how it looks’</li>
+<li>Focus on the content, and let LaTeX do its job.</li>
+</ul>
+<h3 id="2-PART-I"><a href="#2-PART-I" class="headerlink" title="2. PART I"></a>2. PART I</h3><h4 id="2-1-Basic-Structure"><a href="#2-1-Basic-Structure" class="headerlink" title="2.1 Basic Structure"></a>2.1 Basic Structure</h4><p>For a minimal LaTeX document,</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line">Hello World! <span class="comment">% contents </span></span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Commands start with a backslash <code>\</code>.</li>
+<li>Every document starts with a <code>\documentclass</code> command.</li>
+<li>The argument in curly braces <code>&#123; &#125;</code> tells the kind of document.</li>
+<li><code>%</code> starts a comment, which will be ignored.</li>
+</ul>
+<h4 id="2-2-Typesetting-Text"><a href="#2-2-Typesetting-Text" class="headerlink" title="2.2 Typesetting Text"></a>2.2 Typesetting Text</h4><p><strong>Normal</strong></p>
+<ul>
+<li>Type text between <code>\begin&#123;document&#125;</code> and <code>\end&#123;document&#125;</code>.</li>
+<li>Space in the source file is collapsed in the output.</li>
+</ul>
+<p><strong>Caveats</strong></p>
+<ul>
+<li><p>Quotation: use a backtick on the left and an apostrophe on the right.</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">`text&#x27;   <span class="comment">% Single quotes</span></span><br><span class="line">``text&#x27;&#x27;  <span class="comment">% Double quotes</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Escape special characters like <code>\$</code>, <code>\%</code>, <code>\&amp;</code>, <code>\#</code>.</p>
+</li>
+</ul>
+<h4 id="2-3-Typesetting-Mathematicis"><a href="#2-3-Typesetting-Mathematicis" class="headerlink" title="2.3 Typesetting Mathematicis"></a>2.3 Typesetting Mathematicis</h4><p><strong>Dollar Signs</strong>  </p>
+<ul>
+<li><code>$</code> is used to mark mathematics in text.</li>
+<li>Always use <code>$</code> in pairs.</li>
+<li>LaTex handles spacing automatically; it ignores intentional spaces.</li>
+</ul>
+<p>For example:  </p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Let <span class="built_in">$</span>a<span class="built_in">$</span> and <span class="built_in">$</span>b<span class="built_in">$</span> be distinct positive integers, and let <span class="built_in">$</span>c = a - b + 1<span class="built_in">$</span>.</span><br></pre></td></tr></table></figure>
+
+<p>Let $a$ and $b$ be distinct positive integers, and let $c &#x3D; a - b + 1$.</p>
+<p><strong>Notation</strong></p>
+<ul>
+<li>Use caret <code>^</code> for superscripts and underscore <code>_</code> for subscripts.</li>
+<li>Use curly braces <code>&#123; &#125;</code> to group superscripts and subscripts.</li>
+<li>There are commands for Greek letters and common notation.</li>
+</ul>
+<p>For example:</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span>y = c<span class="built_in">_</span>2 x<span class="built_in">^</span>2 + c<span class="built_in">_</span>1 x + c<span class="built_in">_</span>0<span class="built_in">$</span></span><br><span class="line"><span class="built_in">$</span>F<span class="built_in">_</span>n = F<span class="built_in">_</span>&#123;n-1&#125; + F<span class="built_in">_</span>&#123;n-2&#125;<span class="built_in">$</span> </span><br><span class="line"><span class="built_in">$</span><span class="keyword">\mu</span> = A e<span class="built_in">^</span>&#123;Q/RT&#125;<span class="built_in">$</span></span><br><span class="line"><span class="built_in">$</span><span class="keyword">\Omega</span> = <span class="keyword">\sum</span><span class="built_in">_</span>&#123;k=1&#125;<span class="built_in">^</span>&#123;n&#125; <span class="keyword">\omega</span><span class="built_in">_</span>k<span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+
+<p>$y &#x3D; c_2 x^2 + c_1 x + c_0$<br>$F_n &#x3D; F_{n-1} + F_{n-2}$<br>$\mu &#x3D; A e^{Q&#x2F;RT}$<br>$\Omega &#x3D; \sum_{k&#x3D;1}^{n} \omega_k$  </p>
+<p><strong>Displayed Equations</strong></p>
+<ul>
+<li>For big and scary equations, display it on its own line using <code>\begin&#123;equation&#125;</code> and <code>\end&#123;equation&#125;</code>.</li>
+<li>Never leave blank lines in equations.</li>
+</ul>
+<p>For example:  </p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">The roots of a quadratic equation are given by</span><br><span class="line"><span class="keyword">\begin</span>&#123;equation&#125;</span><br><span class="line">x = <span class="keyword">\frac</span>&#123;-b <span class="keyword">\pm</span> <span class="keyword">\sqrt</span>&#123;b<span class="built_in">^</span>2 - 4ac&#125;&#125;</span><br><span class="line">         &#123;2a&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;equation&#125;</span><br><span class="line">where <span class="built_in">$</span>a<span class="built_in">$</span>, <span class="built_in">$</span>b<span class="built_in">$</span> and <span class="built_in">$</span>c<span class="built_in">$</span> are <span class="keyword">\ldots</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-4-Interlude"><a href="#2-4-Interlude" class="headerlink" title="2.4 Interlude"></a>2.4 Interlude</h4><p><strong>Environments</strong><br>A command can produce different output in different contexts: </p>
+<ul>
+<li>Note <code>Σ</code> could be bigger in the equation environment, and subscripts and superscripts would change position, even though the same commands is used.</li>
+<li>In fact, we could have written <code>$...$</code> as <code>\begin&#123;math&#125;...\end&#123;math&#125;</code>.</li>
+</ul>
+<p>For example:  </p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">We can write</span><br><span class="line"><span class="built_in">$</span> <span class="keyword">\Omega</span> = <span class="keyword">\sum</span><span class="built_in">_</span>&#123;k=1&#125;<span class="built_in">^</span>&#123;n&#125; <span class="keyword">\omega</span><span class="built_in">_</span>k <span class="built_in">$</span>   <span class="comment">% smaller</span></span><br><span class="line">in text, or we can write</span><br><span class="line"><span class="keyword">\begin</span>&#123;equation&#125;       </span><br><span class="line">  <span class="keyword">\Omega</span> = <span class="keyword">\sum</span><span class="built_in">_</span>&#123;k=1&#125;<span class="built_in">^</span>&#123;n&#125; <span class="keyword">\omega</span><span class="built_in">_</span>k   <span class="comment">% bigger</span></span><br><span class="line"><span class="keyword">\end</span>&#123;equation&#125;</span><br><span class="line">to display it.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Lists</strong></p>
+<ul>
+<li>The <code>\begin</code> and <code>\end</code> commands are used to create many different environments.</li>
+</ul>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;itemize&#125;    <span class="comment">% for bullet points </span></span><br><span class="line"><span class="keyword">\item</span> Biscuits</span><br><span class="line"><span class="keyword">\item</span> Tea</span><br><span class="line"><span class="keyword">\end</span>&#123;itemize&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;enumerate&#125;    <span class="comment">% for numbers</span></span><br><span class="line"><span class="keyword">\item</span> Biscuits</span><br><span class="line"><span class="keyword">\item</span> Tea</span><br><span class="line"><span class="keyword">\end</span>&#123;enumerate&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Packages</strong></p>
+<ul>
+<li>Packages are libraries of extra commands and environments.</li>
+<li>Each of the packages could be loaded with <code>\usepackage</code> command in the preamble.</li>
+</ul>
+<p>For example:</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;amsmath&#125;    <span class="comment">% preamble </span></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line">   <span class="comment">% Start commands from amsmath here... </span></span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Definition</strong></p>
+<ul>
+<li><p>Define specific command for a complicated equation:  </p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\newcommand</span>&#123;<span class="keyword">\rperf</span>&#125;&#123;<span class="comment">% </span></span><br><span class="line">  <span class="keyword">\rho</span><span class="built_in">_</span>&#123;<span class="keyword">\text</span>&#123;perf&#125;&#125;&#125;</span><br><span class="line"><span class="built_in">$</span><span class="built_in">$</span></span><br><span class="line"><span class="keyword">\rperf</span> = &#123;<span class="keyword">\bf</span> c&#125;&#x27;&#123;<span class="keyword">\bf</span> X&#125; + <span class="keyword">\varepsilon</span></span><br><span class="line"><span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="2-5-Examples-with-amsmath"><a href="#2-5-Examples-with-amsmath" class="headerlink" title="2.5 Examples with amsmath"></a>2.5 Examples with <code>amsmath</code></h4><p>Example 1:</p>
+<ul>
+<li><p>Use <code>equation*</code> (“equation-star”) for unnumbered equations.</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;equation*&#125;</span><br><span class="line">  <span class="keyword">\Omega</span> = <span class="keyword">\sum</span><span class="built_in">_</span>&#123;k=1&#125;<span class="built_in">^</span>&#123;n&#125; <span class="keyword">\omega</span><span class="built_in">_</span>k</span><br><span class="line"><span class="keyword">\end</span>&#123;equation*&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>Example 2:</p>
+<ul>
+<li><p>LaTeX reats adjacent letters as variables multiplied together, while <code>amsmath</code> defines commands for many common mathematical operators.</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;equation*&#125; </span><br><span class="line"><span class="keyword">\min</span><span class="built_in">_</span>&#123;x,y&#125;&#123;(1-x)<span class="built_in">^</span>2 + 100(y-x<span class="built_in">^</span>2)<span class="built_in">^</span>2&#125; </span><br><span class="line"><span class="keyword">\end</span>&#123;equation*&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Use <code>\operatorname</code> for others.</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;equation*&#125;</span><br><span class="line"><span class="keyword">\beta</span><span class="built_in">_</span>i =</span><br><span class="line"><span class="keyword">\frac</span>&#123;<span class="keyword">\operatorname</span>&#123;Cov&#125;(R<span class="built_in">_</span>i, R<span class="built_in">_</span>m)&#125;</span><br><span class="line">   &#123;<span class="keyword">\operatorname</span>&#123;Var&#125;(R<span class="built_in">_</span>m)&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;equation*&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>Example 3:</p>
+<ul>
+<li><p>Align a sequence of equations at <code>=</code> sign with <code>align*</code>.</p>
+</li>
+<li><p>An ampersand <code>&amp;</code> separates the left column (before the <code>=</code>) from the right column (after the <code>=</code>).  </p>
+</li>
+<li><p>A double backslash <code>\\</code> starts a new line.    </p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;align*&#125;</span><br><span class="line">(x+1)<span class="built_in">^</span>3 <span class="built_in">&amp;</span>= (x+1)(x+1)(x+1) <span class="keyword">\\</span></span><br><span class="line">      <span class="built_in">&amp;</span>= (x+1)(x<span class="built_in">^</span>2 + 2x + 1) <span class="keyword">\\</span></span><br><span class="line">      <span class="built_in">&amp;</span>= x<span class="built_in">^</span>3 + 3x<span class="built_in">^</span>2 + 3x + 1</span><br><span class="line"><span class="keyword">\end</span>&#123;align*&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="3-PART-II"><a href="#3-PART-II" class="headerlink" title="3. PART II"></a>3. PART II</h3><h4 id="3-1-Structured-Documents"><a href="#3-1-Structured-Documents" class="headerlink" title="3.1 Structured Documents"></a>3.1 Structured Documents</h4><p><strong>Title and Abstract</strong></p>
+<ul>
+<li>Tell LaTeX the <code>\title</code> and <code>\author</code> names in the preamble.  </li>
+<li>Then use <code>\maketitle</code> in the document to actually create the title.</li>
+<li>Use the abstract environment to make an abstract.</li>
+</ul>
+<p>For example:  </p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\title</span>&#123;The Title&#125;</span><br><span class="line"><span class="keyword">\author</span>&#123;A. Author&#125;</span><br><span class="line"><span class="keyword">\date</span>&#123;<span class="keyword">\today</span>&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"><span class="keyword">\maketitle</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;abstract&#125;</span><br><span class="line">   <span class="comment">% Abstract goes here...</span></span><br><span class="line"><span class="keyword">\end</span>&#123;abstract&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Sections</strong></p>
+<ul>
+<li>Just use <code>\section</code> and <code>\subsection</code>.</li>
+</ul>
+<p>For example:</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"><span class="keyword">\section</span>&#123;Introduction&#125;</span><br><span class="line">  The problem of <span class="keyword">\ldots</span></span><br><span class="line"><span class="keyword">\section</span>&#123;Method&#125;</span><br><span class="line">  We investigate <span class="keyword">\ldots</span></span><br><span class="line"><span class="keyword">\subsection</span>&#123;Sample Preparation&#125;</span><br><span class="line"><span class="keyword">\subsection</span>&#123;Data Collection&#125;</span><br><span class="line"><span class="keyword">\section</span>&#123;Results&#125;</span><br><span class="line"><span class="keyword">\section</span>&#123;Conclusion&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Labels and Cross-References</strong></p>
+<ul>
+<li>Use <code>\label</code> and <code>\ref</code> for automatic numbering.  </li>
+<li>The <code>amsmath</code> package provides <code>\eqref</code> for referencing equations.</li>
+</ul>
+<p>For example：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125; </span><br><span class="line"><span class="keyword">\usepackage</span>&#123;amsmath&#125; <span class="comment">% for \eqref </span></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\section</span>&#123;Introduction&#125;</span><br><span class="line"><span class="keyword">\label</span>&#123;sec:intro&#125;</span><br><span class="line"></span><br><span class="line">In Section <span class="keyword">\ref</span>&#123;sec:method&#125;, we <span class="keyword">\ldots</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\section</span>&#123;Method&#125;</span><br><span class="line"><span class="keyword">\label</span>&#123;sec:method&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;equation&#125;</span><br><span class="line"><span class="keyword">\label</span>&#123;eq:euler&#125;</span><br><span class="line">e<span class="built_in">^</span>&#123;i<span class="keyword">\pi</span>&#125; + 1 = 0</span><br><span class="line"><span class="keyword">\end</span>&#123;equation&#125;</span><br><span class="line"></span><br><span class="line">By <span class="keyword">\eqref</span>&#123;eq:euler&#125;, we have <span class="keyword">\ldots</span></span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-Figures-and-Tables"><a href="#3-2-Figures-and-Tables" class="headerlink" title="3.2 Figures and Tables"></a>3.2 Figures and Tables</h4><p><strong>Graphics</strong>  </p>
+<ul>
+<li>Requires the graphicx package, which provides the <code>\includegraphics</code> command.</li>
+<li>Supported graphics formats include JPEG, PNG and PDF (usually).</li>
+</ul>
+<p>For example:</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\includegraphics</span>[</span><br><span class="line">  width=0.5<span class="keyword">\textwidth</span>]&#123;gerbil&#125;   <span class="comment">% makes the image take up 50% of the width of the surrounding text</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\includegraphics</span>[</span><br><span class="line">  width=0.3<span class="keyword">\textwidth</span>,</span><br><span class="line">  angle=270]&#123;gerbil&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Optional arguments</strong></p>
+<ul>
+<li><p>Use square brackets <code>[ ]</code> for optional arguments, instead of braces<code>&#123; &#125;</code>.</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>[12pt,twocolumn]&#123;article&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>Floats</strong></p>
+<ul>
+<li><p>Figures could be arranged properly, with a caption given by <code>\ref</code></p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;graphicx&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"></span><br><span class="line">Figure <span class="keyword">\ref</span>&#123;fig:gerbil&#125; shows <span class="keyword">\ldots</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;figure&#125; </span><br><span class="line"><span class="keyword">\centering</span> </span><br><span class="line"><span class="keyword">\includegraphics</span>[<span class="comment">%</span></span><br><span class="line">   width=0.5<span class="keyword">\textwidth</span>]&#123;gerbil&#125;</span><br><span class="line"><span class="keyword">\caption</span>&#123;<span class="keyword">\label</span>&#123;fig:gerbil&#125;Aww<span class="keyword">\ldots</span>.&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>Tables</strong></p>
+<ul>
+<li><p>Use the <code>tabular</code> environment from the <code>tabularx</code> package.</p>
+</li>
+<li><p>The argument specifies column alignment – left, right, right.</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;tabular&#125;&#123;lrr&#125;</span><br><span class="line">Item   <span class="built_in">&amp;</span> Qty <span class="built_in">&amp;</span> Unit <span class="keyword">\$</span> <span class="keyword">\\</span></span><br><span class="line">Widget <span class="built_in">&amp;</span> 1  <span class="built_in">&amp;</span> 199.99  <span class="keyword">\\</span></span><br><span class="line">Gadget <span class="built_in">&amp;</span> 2  <span class="built_in">&amp;</span> 399.99  <span class="keyword">\\</span></span><br><span class="line">Cable  <span class="built_in">&amp;</span> 3  <span class="built_in">&amp;</span> 19.99   <span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\end</span>&#123;tabular&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>To specify column alignment, use <code>\hlinde</code> for horizonal lines.</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;tabular&#125;&#123;|l|r|r|&#125; <span class="keyword">\hline</span></span><br><span class="line">Item   <span class="built_in">&amp;</span> Qty <span class="built_in">&amp;</span> Unit <span class="keyword">\$</span> <span class="keyword">\\</span><span class="keyword">\hline</span></span><br><span class="line">Widget <span class="built_in">&amp;</span> 1  <span class="built_in">&amp;</span> 199.99  <span class="keyword">\\</span></span><br><span class="line">Gadget <span class="built_in">&amp;</span> 2  <span class="built_in">&amp;</span> 399.99  <span class="keyword">\\</span></span><br><span class="line">Cable  <span class="built_in">&amp;</span> 3  <span class="built_in">&amp;</span> 19.99   <span class="keyword">\\</span><span class="keyword">\hline</span></span><br><span class="line"><span class="keyword">\end</span>&#123;tabular&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Use an ampersand <code>&amp;</code> to separate columns and a double backslash <code>\\</code> to start a new row.</p>
+</li>
+</ul>
+<h4 id="3-3-Bibliographies"><a href="#3-3-Bibliographies" class="headerlink" title="3.3 Bibliographies"></a>3.3 Bibliographies</h4><ul>
+<li>Put your references in a <code>.bib</code> file in ‘bibtex’ database format.  </li>
+<li>Each entry in the <code>.bib</code> file has a <strong>key</strong> that you can use to reference it in the document.</li>
+<li>Use the natbib package2 with <code>\citet</code> and <code>\citep</code>. </li>
+<li>Reference <code>\bibliography</code> at the end, and specify a<br><code>\bibliographystyle</code>.</li>
+</ul>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;natbib&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"><span class="keyword">\citet</span>&#123;Brooks1997Methodology&#125;</span><br><span class="line">show that <span class="keyword">\ldots</span>. Clearly,</span><br><span class="line">all odd numbers are prime</span><br><span class="line"><span class="keyword">\citep</span>&#123;Jacobson1999Towards&#125;.</span><br><span class="line"><span class="keyword">\bibliography</span>&#123;bib-example&#125;</span><br><span class="line"><span class="comment">% if `bib-example&#x27; is the name of % your bib file</span></span><br><span class="line"><span class="keyword">\bibliographystyle</span>&#123;plainnat&#125; <span class="comment">% try changing to abbrvnat</span></span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-4-More-details"><a href="#3-4-More-details" class="headerlink" title="3.4 More details"></a>3.4 More details</h4><p><strong>Packages</strong>  </p>
+<ul>
+<li><code>beamer</code>: for presentations  </li>
+<li><code>todonotes</code>: comments and to-do management  </li>
+<li><code>tikz</code>: make amazing graphics  </li>
+<li><code>pgfplots</code>: create graphs in LaTeX</li>
+<li><code>listings</code>: source code printer for LaTeX</li>
+<li><code>spreadtab</code>: create spreadsheets in LaTeX<br>…</li>
+</ul>
+<p><strong>Application</strong>  </p>
+<ul>
+<li>LaTeX can be applied not only on papers, but on presentations and more.</li>
+</ul>
+<h3 id="4-Reference"><a href="#4-Reference" class="headerlink" title="4. Reference"></a>4. Reference</h3><ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.overleaf.com/latex/learn/free-online-introduction-to-latex-part-1"><strong>Overleaf:</strong> Intro to LaTeX 1</a>  </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.overleaf.com/latex/learnfree-online-introduction-to-latex-part-2"><strong>Overleaf:</strong> Intro to LaTeX 2</a>  </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.overleaf.com/latex/learn/free-online-introduction-to-latex-part-3"><strong>Overleaf:</strong> Intro to LaTeX 3</a>  </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.overleaf.com/latex/examples"><strong>Overleaf:</strong> Examples</a>  </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://texample.net/"><strong>TEXample.net</strong></a></p>
+</li>
+</ul>
+<p><img src="/../images/end.jpg" alt="end"></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/cv/">CV</a></li>
+        
+          <li><a href="/catalog/">Catalog</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#LaTeX"><span class="toc-number">1.</span> <span class="toc-text">LaTeX</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Introduction"><span class="toc-number">1.1.</span> <span class="toc-text">1. Introduction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-PART-I"><span class="toc-number">1.2.</span> <span class="toc-text">2. PART I</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-Basic-Structure"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 Basic Structure</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-Typesetting-Text"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 Typesetting Text</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-Typesetting-Mathematicis"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 Typesetting Mathematicis</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-Interlude"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.4 Interlude</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-Examples-with-amsmath"><span class="toc-number">1.2.5.</span> <span class="toc-text">2.5 Examples with amsmath</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-PART-II"><span class="toc-number">1.3.</span> <span class="toc-text">3. PART II</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-Structured-Documents"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1 Structured Documents</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-Figures-and-Tables"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2 Figures and Tables</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-Bibliographies"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.3 Bibliographies</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-More-details"><span class="toc-number">1.3.4.</span> <span class="toc-text">3.4 More details</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Reference"><span class="toc-number">1.4.</span> <span class="toc-text">4. Reference</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://greatxue.github.io/2023/07/01/utilities-3/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://greatxue.github.io/2023/07/01/utilities-3/&text=Utilities-TUT-1 | Linux"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://greatxue.github.io/2023/07/01/utilities-3/&title=Utilities-TUT-1 | Linux"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://greatxue.github.io/2023/07/01/utilities-3/&is_video=false&description=Utilities-TUT-1 | Linux"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Utilities-TUT-1 | Linux&body=Check out this article: http://greatxue.github.io/2023/07/01/utilities-3/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://greatxue.github.io/2023/07/01/utilities-3/&title=Utilities-TUT-1 | Linux"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://greatxue.github.io/2023/07/01/utilities-3/&title=Utilities-TUT-1 | Linux"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://greatxue.github.io/2023/07/01/utilities-3/&title=Utilities-TUT-1 | Linux"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://greatxue.github.io/2023/07/01/utilities-3/&title=Utilities-TUT-1 | Linux"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://greatxue.github.io/2023/07/01/utilities-3/&name=Utilities-TUT-1 | Linux&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://greatxue.github.io/2023/07/01/utilities-3/&t=Utilities-TUT-1 | Linux"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2022-2023
+    Kevin Shuey
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/cv/">CV</a></li><!--
+     --><!--
+       --><li><a href="/catalog/">Catalog</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
