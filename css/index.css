@@ -1504,7 +1504,7 @@ input::placeholder {
   z-index: -999;
   width: 100%;
   height: 100%;
-  background: https://pic.imgdb.cn/item/65df66c39f345e8d034e7f52.png;
+  background: url(https://pic.imgdb.cn/item/65df66c39f345e8d034e7f52.png);
   background-attachment: local;
   background-position: center;
   background-size: cover;
