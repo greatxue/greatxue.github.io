@@ -4,15 +4,234 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zhongkai Xue</title>
-  <script>
-    if (window.location.hostname === "www.zhongkai-xue.com") {
-      window.location.href = "https://zhongkai-xue.com";
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+      line-height: 1.6;
+      background-color: #f9f9f9;
     }
-  </script>
+    h1, h2 {
+      color: #333;
+    }
+    h1 {
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 20px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+      margin-top: 30px;
+    }
+    .contact, .section {
+      margin-top: 10px;
+    }
+    .item {
+      margin-top: 15px;
+      background: #fff;
+      padding: 15px;
+      border-left: 4px solid #4a90e2;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .item-content {
+      flex: 1;
+      padding-right: 10px;
+    }
+    .item img.logo {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-left: 15px;
+    }
+    .date-tag {
+      background: transparent;
+      color: #888;
+      font-style: italic;
+      padding: 0;
+      font-size: 13px;
+    }
+    .bold {
+      font-weight: bold;
+    }
+    .italic {
+      font-style: italic;
+    }
+    .link {
+      color: #0366d6;
+      text-decoration: none;
+    }
+    ul {
+      padding-left: 20px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      list-style-type: '• ';
+    }
+    ul li {
+      margin-bottom: 6px;
+      padding-left: 4px;
+    }
+    .publication {
+      background: #fff;
+      padding: 10px 15px;
+      margin-top: 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+    .publication-title {
+      font-weight: bold;
+    }
+    .publication-meta {
+      font-style: italic;
+      color: #555;
+    }
+    .header-container {
+      text-align: center;
+    }
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+      border: 2px solid #ccc;
+    }
+    .meta-info {
+      color: #666;
+      font-size: 14px;
+      font-style: italic;
+      margin-top: 4px;
+    }
+    .highlight {
+      font-weight: bold;
+      color: #2a4d9b;
+    }
+  </style>
 </head>
 <body>
-  <h1>Welcome to Zhongkai Xue's Website</h1>
-  <p>This site is hosted on GitHub Pages!</p>
+  <div class="header-container">
+    <img src="https://pic1.imgdb.cn/item/67edf3240ba3d5a1d7eb8585.jpg" alt="Zhongkai Xue" class="avatar" />
+    <h1>Zhongkai Xue</h1>
+    <div class="contact">
+      📍 New Haven, US |
+      📧 <a href="mailto:zhongkai.xue@yale.edu" class="link">zhongkai.xue@yale.edu</a> |
+      🌐 <a href="https://www.zhongkai-xue.com" class="link">zhongkai-xue.com</a> |
+      <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 16 16" fill="currentColor" style="vertical-align: middle; margin-right: 4px;">
+  <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38v-1.33c-2.23.49-2.7-1.07-2.7-1.07-.36-.91-.88-1.16-.88-1.16-.72-.49.05-.48.05-.48.8.06 1.22.82 1.22.82.71 1.21 1.86.86 2.31.66.07-.52.28-.86.5-1.06-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.1 0 0 .67-.22 2.2.82a7.62 7.62 0 012.01-.27c.68 0 1.37.09 2.01.27 1.52-1.04 2.2-.82 2.2-.82.44 1.09.16 1.9.08 2.1.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0016 8c0-4.42-3.58-8-8-8z" /></svg> <a href="https://github.com/greatxue" class="link">greatxue</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Objective</h2>
+    <p>I am an undergraduate with a goal of pursuing a PhD in Computer Science starting in <span class="bold">Fall 2026</span>. My research interest spans broadly across multimodal foundation models and their intersections with others. I am also interested in RAG.</p>
+  </div>
+
+  <div class="section">
+    <h2>Education</h2>
+    <div class="item">
+      <div class="item-content">
+        🎓 <span class="highlight">Chinese University of Hong Kong, Shenzhen</span><br>
+        <div class="meta-info">B.B.A in Financial Engineering • GPA: 3.85 / 4.0 (Top 4%)</div>
+        <span class="date-tag">Sep 2024 - Jun 2026</span>
+      </div>
+      <img class="logo" src="https://pic1.imgdb.cn/item/67edf4760ba3d5a1d7eb8608.png" alt="CUHK-SZ Logo" />
+    </div>
+    <div class="item">
+      <div class="item-content">
+        🎓 <span class="highlight">University of Oxford</span><br>
+        <div class="meta-info">Visiting Student in Math & Statistics • Grade: A</div>
+        <span class="date-tag">Oct 2024 - Mar 2025</span>
+      </div>
+      <img class="logo" src="https://pic1.imgdb.cn/item/67edf29c0ba3d5a1d7eb854f.png" alt="Oxford Logo" />
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Research Experience</h2>
+    <div class="item">
+      <div class="item-content">
+        🔬 <span class="highlight">Visiting Intern</span> -- Graph and Geometric Learning Lab, Yale<br>
+        <div class="meta-info">Topic: Foundation Models, Hyperbolic Learning, RAG • Host: Rex Ying</div>
+        <span class="date-tag">Apr 2025 - Sep 2025</span>
+        <ul>
+          <li>To explore the potential of hyperbolic learning -- Better performance with higher efficiency.</li>
+          <li>To investigated the development opportunities of multimodal foundation models.</li>
+        </ul>
+      </div>
+      <img class="logo" src="https://pic1.imgdb.cn/item/67edf39a0ba3d5a1d7eb85ac.png" alt="Yale Logo" />
+    </div>
+    <div class="item">
+      <div class="item-content">
+        🔬 <span class="highlight">RA</span> -- Learning of Graph and Optimization (LOGO) Lab, CUHK-SZ<br>
+        <div class="meta-info">Topic: Graph Representation & Reasoning • Advisor: Tianshu Yu</div>
+        <span class="date-tag">Dec 2024 - Mar 2025</span>
+        <ul>
+          <li>Explored the graph-structured data representation and reasoning in the era of LLMs.</li>
+          <li>Studied potential of molecular graph pretraining and solved real-life challenges.</li>
+        </ul>
+      </div>
+      <img class="logo" src="https://pic1.imgdb.cn/item/67edf4760ba3d5a1d7eb8608.png" alt="CUHK-SZ Logo" />
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Publications</h2>
+    <div class="publication">
+      <div class="publication-title">📄 To reveal very soon...</div>
+      <div class="publication-meta">Preprint -- Zhongkai Xue, Huichi Zhou</div>
+    </div>
+    <div class="publication">
+      <div class="publication-title">📄 From Pixels to Graphs: Visualization-Based Graph Vision Models</div>
+      <div class="publication-meta">Preprint -- Xinjian Zhao*, Zhongkai Xue*, Shu Wu, Tianshu Yu et al.</div>
+    </div>
+    <div class="publication">
+      <div class="publication-title">📄 Pinpointing the Challenges: LLMs for Political Science</div>
+      <div class="publication-meta">Under review -- Lincai Li ... Zhongkai Xue, Yue Zhao, Yushun Dong et al.</div>
+      [<a class="link" href="https://arxiv.org/abs/2412.06864">arxiv</a>] [<a class="link" href="https://political-llm.org">site</a>]
+    </div>
+    <div class="publication">
+      <div class="publication-title">📄 MJ-VIDEO: Benchmarking Video Preferences in Generation</div>
+      <div class="publication-meta">Under review -- Haibo Tong ... Zhongkai Xue, Huaxiu Yao, et al.</div>
+      [<a class="link" href="https://arxiv.org/abs/2502.01719">arxiv</a>] [<a class="link" href="https://github.com/aiming-lab/MJ-Video">code</a>] [<a class="link" href="https://aiming-lab.github.io/MJ-VIDEO.github.io/">site</a>]
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Work & Teaching</h2>
+    <div class="item">
+      <div class="item-content">
+        📊 <span class="highlight">Quantitative Researcher</span> -- Jupyter Investment, Shenzhen<br>
+        <div class="meta-info">Project: GNNs for Order Flow Modeling • Leader: Guixian Lin</div>
+        <span class="date-tag">Jun 2024 - Oct 2024</span>
+      </div>
+      <img class="logo" src="https://pic1.imgdb.cn/item/67edfc550ba3d5a1d7eb8a40.png" alt="Jupyter Logo" />
+    </div>
+    <div class="item">
+      <div class="item-content">
+        👨‍🏫 <span class="highlight">Undergraduate Teaching Assistant x2</span> -- CUHK-SZ<br>
+        <div class="meta-info">Courses: Financial Management, Introduction to C++</div>
+        <span class="date-tag">Feb 2024 - Jun 2024</span>
+      </div>
+      <img class="logo" src="https://pic1.imgdb.cn/item/67edf4760ba3d5a1d7eb8608.png" alt="CUHK-SZ Logo" />
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Awards & Scholarship</h2>
+    <p>🏅 <span class="highlight">Dean's List x2</span>, <span class="highlight">Undergraduate Research Award x2</span> -- School of Data Science, CUHK-SZ</p>
+    <p>🥈 <span class="highlight">Silver Medal (Top 2%)</span>, Kaggle '23 -- <a class="link" href="https://www.kaggle.com/competitions/optiver-trading-at-the-close/leaderboard">Trading at the Close</a></p>
+  </div>
+
+  <div class="section">
+    <h2>Misc</h2>
+    <p>📷 <span class="highlight">Hobby:</span> I enjoy film photography in my free time -- I am a Canon A-1 holder.</p>
+  </div>
 </body>
 </html>
 
