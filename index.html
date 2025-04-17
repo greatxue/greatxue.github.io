@@ -138,7 +138,22 @@
       font-size: 15px;
       margin: 40px 0 0px;
     }
-  </style>
+.award-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+.award-item .award-year {
+  color: #888;
+  font-size: 14px;
+  font-style: italic;
+  white-space: nowrap;
+}
+.misc-item {
+  margin-top: 8px;
+}
+</style>
 
 </head>
 <body>
@@ -334,18 +349,32 @@
       <img class="logo" src="https://pic1.imgdb.cn/item/67edf16f0ba3d5a1d7eb8457.jpg" alt="Jupyter Logo" />
     </div>
 
-  <div class="section">
-    <h2>Awards & Scholarship</h2>
-    <p>🏅 <span class="highlight">Dean's List x2</span>, <span class="highlight">Undergraduate Research Award</span> -- School of Data Science, CUHK-SZ</p>
-    <p>🥈 <span class="highlight">Silver Medal (Top 2%)</span>, Kaggle Competition -- <a class="link" href="https://www.kaggle.com/competitions/optiver-trading-at-the-close/leaderboard">Optiver '23: Trading at the Close</a></p>
+<div class="section">
+  <h2>Awards & Scholarship</h2>
+
+  <div class="award-item">
+    <div>🏅 <span class="highlight">Dean's List x2</span> -- School of Data Science, CUHK-SZ</div>
+    <span class="award-year">2023, 2024</span>
   </div>
 
-  <div class="section">
-    <h2>Misc</h2>
-    <p>👨‍🏫 <span class="highlight">Teaching:</span> I was Undergraduate TA of <em>FIN2010 (Financial Management)</em> and <em>CSC3002 (Introduction to C++)</em> at CUHK-SZ.
-    <p>📷 <span class="highlight">Interest:</span> I enjoy <a href="https://en.wikipedia.org/wiki/Analog_photography" class="link">analog photography</a> in my free time -- I am a Canon A1 camera holder and spend much on different films.      
-    </p>
+  <div class="award-item">
+    <div>🏅 <span class="highlight">Undergraduate Research Award</span> -- URA Committee, CUHK-SZ</div>
+    <span class="award-year">2024</span>
   </div>
+
+  <div class="award-item">
+    <div>🥈 <span class="highlight">Silver Medal (Top 2%)</span>, Kaggle Challenge -- <a class="link" href="https://www.kaggle.com/competitions/optiver-trading-at-the-close/leaderboard" target="_blank">Optiver: Trading at the Close</a></div>
+    <span class="award-year">2023</span>
+  </div>
+
+</div>
+
+ <div class="section">
+ <h2>Misc</h2>
+<div class="misc-item">👨‍🏫 <span class="highlight">Teaching:</span> I served as a TA for <em>FIN2010 (Financial Management)</em> and <em>CSC3002 (Introduction to C++)</em> at CUHK-SZ.</div>
+
+<div class="misc-item">📷 <span class="highlight">Interest:</span> Enjoy <a href="https://en.wikipedia.org/wiki/Analog_photography" class="link">analog photography</a> in my free time -- I am a Canon A1 camera holder and spend much on different films.</div>
+</div>
   
   <footer style="text-align: center; font-size: 14px; color: #999; margin-top: 40px; padding-top: 20px;">
     © 2025 Zhongkai Xue. Hosted by GitHub Pages.
