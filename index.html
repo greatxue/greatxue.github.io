@@ -126,7 +126,7 @@
       color: #666;
       font-size: 14px;
       font-style: italic;
-      margin-top: 4px;
+      margin-top: 2px;
     }
     .highlight {
       font-weight: bold;
@@ -139,22 +139,31 @@
       font-size: 15px;
       margin: 40px 0 0px;
     }
-.award-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 8px;
-}
-.award-item .award-year {
-  color: #888;
-  font-size: 14px;
-  font-style: italic;
-  white-space: nowrap;
-}
-.misc-item {
-  margin-top: 8px;
-}
-</style>
+  .award-card {
+    background: #fff;
+    padding: 15px;
+    margin-top: 10px;
+    border-left: 4px solid #f39c12; /* 你可以换成别的颜色，比如橙色 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .award-card .award-info {
+    flex: 1;
+    padding-right: 10px;
+  }
+  .award-card .award-year {
+    color: #888;
+    font-size: 14px;
+    font-style: italic;
+    white-space: nowrap;
+  }
+  .misc-item {
+    margin-top: 8px;
+  }
+  </style>
 
 </head>
 <body>
@@ -355,15 +364,21 @@
 <div class="section">
   <h2>Awards & Scholarship</h2>
 
-  <div class="award-item">
-    <div>🏅 <span class="highlight">Undergraduate Research Award</span> -- URA Committee, CUHK-SZ</div>
-    <span class="award-year">2024</span>
+  <div class="award-card">
+    <div class="award-info">
+      🏅 <span class="highlight">Undergraduate Research Award</span><br>
+      <span class="meta-info">URA Committee, CUHK-SZ</span>
+    </div>
+    <div class="award-year">2024</div>
   </div>
 
-  <div class="award-item">
-    <div>🥈 <span class="highlight">Silver Medal (Top 2%)</span>, <a class="link" href="https://www.kaggle.com/competitions/optiver-trading-at-the-close/leaderboard" target="_blank">Trading at the Close</a> --  Kaggle Challenge, Optiver</div>
-    <span class="award-year">2023</span>
+<div class="award-card">
+  <div class="award-info">
+    🥈 <span class="highlight">Silver Medal (Top 2%)</span>, <a class="link" href="https://www.kaggle.com/competitions/optiver-trading-at-the-close/leaderboard" target="_blank">Trading at the Close</a><br>
+    <span class="meta-info">Kaggle Challenge, Optiver</span>
   </div>
+  <div class="award-year">2023</div>
+</div>
 
 </div>
 
