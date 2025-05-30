@@ -1,392 +1,502 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-67XDYXYKQJ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-67XDYXYKQJ');
-  </script>
-  <link href="https://fonts.loli.net/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zhongkai Xue</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="https://pic1.imgdb.cn/item/67f046810ba3d5a1d7ed807c.png" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-67XDYXYKQJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-67XDYXYKQJ');
+    </script>
+    <link href="https://fonts.loli.net/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zhongkai Xue</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://pic1.imgdb.cn/item/67f046810ba3d5a1d7ed807c.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+
+<style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 1rem; /* 16px */
       max-width: 900px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 2.5rem 1.25rem;
       line-height: 1.6;
       background-color: #f9f9f9;
     }
+    
     h1, h2 {
       color: #333;
     }
+    
     h1 {
-      font-size: 32px;
+      font-size: 2rem; /* 32px */
       text-align: center;
-      margin-bottom: 10px;
+      margin-bottom: 0.625rem;
     }
+    
     h2 {
-      font-size: 20px;
+      font-size: 1.25rem; /* 20px */
       border-bottom: 1px solid #ccc;
-      padding-bottom: 5px;
-      margin-top: 30px;
+      padding-bottom: 0.3125rem;
+      margin-top: 1.875rem;
     }
+    
     .contact, .section {
-      margin-top: 10px;
+      margin-top: 0.625rem;
+      font-size: 1rem; 
     }
+    
     .item {
-      margin-top: 15px;
+      margin-top: 0.9375rem;
       background: #fff;
-      padding: 15px;
+      padding: 0.9375rem;
       border-left: 4px solid #4a90e2;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      box-shadow: 0 0.125rem 0.3125rem rgba(0,0,0,0.05);
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
     }
+    
     .item-content {
       flex: 1;
-      padding-right: 10px;
+      padding-right: 0.625rem;
     }
+    
     .item img.logo {
-      width: 60px;
-      height: 60px;
+      width: 3.75rem;
+      height: 3.75rem;
       object-fit: contain;
-      margin-left: 15px;
+      margin-left: 0.9375rem;
     }
+    
     .date-tag {
       background: transparent;
       color: #888;
       font-style: italic;
       padding: 0;
-      font-size: 13px;
+      font-size: 0.8125rem;
     }
+    
     .bold {
-      font-weight: bold;
+      font-weight: 600;
     }
+    
     .italic {
       font-style: italic;
     }
+    
     .link {
-      color: #0366d6;
+      color: #555;
       text-decoration: none;
+      transition: color 0.2s ease;
     }
+    
+    .link:hover {
+      color: #e74c3c;
+    }
+    
     ul {
-      padding-left: 20px;
-      margin-top: 10px;
-      margin-bottom: 10px;
+      padding-left: 1.25rem;
+      margin-top: 0.625rem;
+      margin-bottom: 0.625rem;
       list-style-type: '• ';
     }
+    
     ul li {
-      margin-bottom: 6px;
-      padding-left: 4px;
+      margin-bottom: 0.375rem;
+      padding-left: 0.25rem;
     }
-    .publication {
-      background: #fff;
-      padding: 10px 15px;
-      margin-top: 10px;
-      border: 1px solid #ddd;
-      border-left: 4px solid #e74c3c; 
-      border-radius: 6px;
-    }
-    .publication-title {
-      font-weight: bold;
-    }
-    .publication-meta {
-      font-style: italic;
-      color: #555;
-    }
-   .publication-abstract {
-     margin-top: 8px;
-     font-size: 14px;
-     color: #333;
-     line-height: 1.5;
-   }
+    
+    
     .header-container {
       text-align: center;
       background-color: #eef3fb;
-      padding: 30px 20px;
-      border-radius: 12px;
+      padding: 1.875rem 1.25rem;
+      border-radius: 0.75rem;
     }
+    
     .avatar {
-      width: 120px;
-      height: 120px;
+      width: 7.5rem;
+      height: 7.5rem;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 10px;
+      margin-bottom: 0.625rem;
       border: 2px solid #ccc;
     }
+    
     .meta-info {
       color: #666;
-      font-size: 14px;
+      font-size: 1rem; 
       font-style: italic;
-      margin-top: 2px;
+      margin-top: 0.125rem;
     }
+    
     .highlight {
-      font-weight: bold;
+      font-weight: 600;
       color: #2a4d9b;
     }
+    
     .quote-minimal {
       font-style: italic;
       color: #444;
       text-align: center;
-      font-size: 15px;
-      margin: 40px 0 0px;
+      font-size: 1rem; 
+      margin: 2.5rem 0 0;
     }
-  .award-card {
-    background: #fff;
-    padding: 15px;
-    margin-top: 10px;
-    border-left: 4px solid #f39c12;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    border-radius: 6px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .award-card .award-info {
-    flex: 1;
-    padding-right: 10px;
-  }
-  .award-card .award-year {
-    color: #888;
-    font-size: 14px;
-    font-style: italic;
-    white-space: nowrap;
-  }
-  .misc-item {
-    margin-top: 8px;
-  }
-  </style>
+    
+    .misc-item {
+      margin-top: 0.5rem;
+      font-size: 1rem; 
+    }
+    
+    .award-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-top: 0.625rem;
+      flex-wrap: wrap;
+    }
+    
+    .award-left {
+      font-size: 1rem; 
+      font-weight: normal;
+      color: #333;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.1875rem;
+    }
+    
+    .award-right {
+      font-size: 1rem; 
+      font-style: italic;
+      color: #777;
+      white-space: nowrap;
+      margin-left: 0.5rem;
+    }
+    
+    .experience-block {
+      margin-top: 1.25rem;
+      padding: 0;
+      border: none;
+      background: none;
+      box-shadow: none;
+    }
+    
+    .publication {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 0;
+      margin-top: 1.5rem;
+      margin-bottom: 3rem;
+      border: none;
+      box-shadow: none;
+      border-radius: 0;
+      background: none;
+      flex-wrap: nowrap;
+    }
+    
+    
+    .publication-image {
+      width: 100%;
+      max-width: 360px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    
+    .publication-info {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .publication-title {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    
+    .publication-meta {
+      font-style: italic;
+      color: #555;
+      font-size: 0.95rem; 
+      margin-bottom: 0.5rem;
+    }
+    
+    .publication-abstract {
+      font-size: 0.875rem;
+      color: #333;
+      line-height: 1.5;
+      margin-bottom: 0.5rem;
+    }
+    
+    .publication-links a {
+      margin-right: 0.5rem;
+    }
+</style>
 
-</head>
+
 <body>
-  <div class="header-container">
-    <img src="https://pic1.imgdb.cn/item/67fbca8988c538a9b5ce6829.jpg" alt="Zhongkai Xue" class="avatar" />
-<div style="font-family: 'Dancing Script', cursive; font-weight: 600; font-size: 36px; display: flex; justify-content: center; align-items: center; gap: 12px;">
-  <div>Zhongkai Xue</div>
-</div>
-<div class="contact">
-  <i class="fas fa-map-marker-alt"></i> New Haven, U.S. |
-  <i class="fas fa-envelope"></i> <a href="mailto:zhongkai.xue@yale.edu" class="link">email</a> |
-  <i class="fas fa-globe"></i> <a href="https://www.zhongkai-xue.com" class="link">website</a> |
-  <i class="fas fa-graduation-cap"></i> <a href="https://scholar.google.com/citations?user=IcbVX1cAAAAJ&hl=en" class="link">scholar</a> |
-  <i class="fab fa-github"></i> <a href="https://github.com/greatxue" class="link">github</a> |
-  <i class="fab fa-x-twitter"></i> <a href="https://x.com/greatxue_33" class="link">twitter</a> |
-  <i class="fas fa-file-alt"></i> <a href="https://drive.google.com/file/d/1M1XV8-Ui4Awe0cZ2ZLXRwhjUf29IHVSU/view?usp=share_link" class="link" target="_blank">résumé</a> 
-</div>
-  </div>
 
-  <div class="quote-minimal">
-   春日宴，綠酒一杯歌一遍<br>
-   "A springtide banquet, green wine in hand -- and lo, the song is sung but once, then lost to time."
-   </div>
-  <div class="section">
-    <h2>Introduction</h2>
-     <p>I am an undergraduate with a goal of pursuing a CS PhD starting in <span class="bold">Fall 2026</span>. My research interest currently spans broadly across <span class="bold">multimodal learning and reasoning with large language models</span>. I am always open to new opportunities!</p>
-  </div>
+    <div class="header-container">
+        <img src="https://pic1.imgdb.cn/item/67fbca8988c538a9b5ce6829.jpg" alt="Zhongkai Xue" class="avatar" />
+        <div style="font-family: 'Dancing Script', cursive; font-weight: 600; font-size: 36px; display: flex; justify-content: center; align-items: center; gap: 12px;">
+            <div>Zhongkai Xue</div>
+        </div>
 
-  <div class="section">
-    <h2>Education</h2>
-    <div class="item">
-      <div class="item-content">
-        🎓 <span class="highlight">Chinese University of Hong Kong, Shenzhen</span><br>
-        <div class="meta-info">Bachelor in Financial Engineering • GPA: 3.85 / 4.0 (Top 4%)</div>
-        <span class="date-tag">Sep 2022 - Jun 2026</span>
-      </div>
-      <img class="logo" src="https://pic1.imgdb.cn/item/67edf4760ba3d5a1d7eb8608.png" alt="CUHK-SZ Logo" />
-    </div>
-    
-    <div class="item">
-      <div class="item-content">
-        🎓 <span class="highlight">University of Oxford</span><br>
-        <div class="meta-info">Exchange Student in Math & Statistics, St Hilda's College • Grade: A</div>
-        <span class="date-tag">Oct 2024 - Mar 2025</span>
-      </div>
-      <img class="logo" src="https://pic1.imgdb.cn/item/67edf29c0ba3d5a1d7eb854f.png" alt="Oxford Logo" />
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>Research Experience</h2>
-    <div class="item">
-      <div class="item-content">
-        🔬 <span class="highlight">Visiting Intern</span> -- Graph and Geometric Learning Lab, Yale<br>
-        <div class="meta-info">Topic: Foundation Models, Hyperbolic Learning • Host: Rex Ying</div>
-        <span class="date-tag">Apr 2025 - Sep 2025</span>
-        <ul>
-          <li>Exploring cross-modality hierarchical relationships through hyperbolic representation.</li>
-          <li>Developing more efficient and capable foundation models with Riemannian Geometry.</li>
-        </ul>
-      </div>
-      <img class="logo" src="https://pic1.imgdb.cn/item/67edf39a0ba3d5a1d7eb85ac.png" alt="Yale Logo" />
-    </div>
-    
-    <div class="item">
-      <div class="item-content">
-        🔬 <span class="highlight">RA</span> -- Learning of Graph and Optimization (LOGO) Lab, CUHK-SZ<br>
-        <div class="meta-info">Topic: Graph Representation & Reasoning • Advisor: Tianshu Yu</div>
-        <span class="date-tag">Jan 2025 - Jun 2026</span>
-        <ul>
-          <li>Exploring the graph-structured data representation and reasoning in the era of LLMs.</li>
-        </ul>
-      </div>
-      <img class="logo" src="https://pic1.imgdb.cn/item/67edf4760ba3d5a1d7eb8608.png" alt="CUHK-SZ Logo" />
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>Publications</h2>
-    
-<div class="publication">
-  <div class="publication-title">
-    📄 VGM (TBD)
-  </div>
-
-  <div class="publication-meta">
-    Preprint '25 --
-
-    <span class="author-list-full">
-      A, B, C, D
-    </span>
-  </div>
-
-  <div class="publication-abstract">
-   <strong>Abstract:</strong> We conduct a systematic analysis that uncovers how visual perception and message‑passing offer complementary strengths in graph understanding, and introduce a novel benchmark to showcase these insights. To validate our observations, we also propose a preliminary Vision‑Graph Model (VGM) that fuses both modalities and achieves strong performance on this benchmark.
-  </div>
-
-  [<a class="link" href="https://zhongkai-xue.com">arxiv</a>] 
-  [<a class="link" href="https://zhongkai-xue.com">code</a>] 
-</div>
-    
- 
-<div class="publication">
-  <div class="publication-title">
-    📄 Political-LLM: Large Language Models in Political Science
-  </div>
-
-  <div class="publication-meta">
-    Under review '25 --
-
-    <span class="author-list-folded">
-      Lincan Li, Jiaqi Li, Catherine Chen, Fred Gui, Hongjia Yang, Chenxiao Yu, Zhengguang Wang, Jianing Cai, Junlong Aaron Zhou, Bolin Shen, Alex Qian, Weixin Chen, <u>Zhongkai Xue</u> ... Yue Zhao, Yushun Dong et al.
-    </span>
-
-    <span class="author-list-full" style="display: none;">
-      Lincan Li, Jiaqi Li, Catherine Chen, Fred Gui, Hongjia Yang, Chenxiao Yu, Zhengguang Wang, Jianing Cai, Junlong Aaron Zhou, Bolin Shen, Alex Qian, Weixin Chen, <u>Zhongkai Xue</u>, Lichao Sun, Lifang He, Hanjie Chen, Kaize Ding, Zijian Du, Fangzhou Mu, Jiaxin Pei, Jieyu Zhao, Swabha Swayamdipta, Willie Neiswanger, Hua Wei, Xiyang Hu, Shixiang Zhu, Tianlong Chen, Yingzhou Lu, Yang Shi, Lianhui Qin, Tianfan Fu, Zhengzhong Tu, Yuzhe Yang, Jaemin Yoo, Jiaheng Zhang, Ryan Rossi, Liang Zhan, Liang Zhao, Emilio Ferrara, Yan Liu, Furong Huang, Xiangliang Zhang, Lawrence Rothenberg, Shuiwang Ji, Philip S. Yu, Yue Zhao, Yushun Dong
-    </span>
-
-    <button class="toggle-btn" onclick="toggleAuthorText(this)">Full</button>
-  </div>
-
-  <div class="publication-abstract">
-    <strong>Abstract:</strong> We propose Political-LLM, a framework that bridges large language models with political science. It provides a dual-perspective taxonomy, political tasks and computational methods, while outlining key challenges and future directions, aiming to guide ethical and effective AI use in political research.
-  </div>
-   [<a class="link" href="https://arxiv.org/abs/2412.06864">arxiv</a>] 
-   [<a class="link" href="https://political-llm.org">site</a>]
-</div>
-
-<script>
-  function toggleAuthorText(button) {
-    const parent = button.parentElement;
-    const folded = parent.querySelector('.author-list-folded');
-    const full = parent.querySelector('.author-list-full');
-    const isFolded = folded.style.display !== 'none';
-
-    folded.style.display = isFolded ? 'none' : 'inline';
-    full.style.display = isFolded ? 'inline' : 'none';
-    button.textContent = isFolded ? 'Collapse' : 'Full';
-  }
-</script>
-
-<div class="publication">
-  <div class="publication-title">
-    📄 MJ-VIDEO: Fine-Grained Benchmarking and Rewarding Video Preferences in Video Generation
-  </div>
-
-  <div class="publication-meta">
-    Under review '25 --
-
-    <span class="author-list-full">
-      Haibo Tong, Zhaoyang Wang, Zhaorun Chen, Haonian Ji, Shi Qiu, Siwei Han, Kexin Geng, <u>Zhongkai Xue</u>, Yiyang Zhou, Peng Xia, Mingyu Ding, Rafael Rafailov, Chelsea Finn, Huaxiu Yao
-    </span>
-  </div>
-
-  <div class="publication-abstract">
-    <strong>Abstract:</strong> We present MJ-VIDEO, a Mixture-of-Experts reward model for fine-grained video preference evaluation, which is built upon MJ-BENCH-VIDEO, a large-scale benchmark covering alignment, safety, coherence, and bias. Our model achieves significant improvements in preference judgment and enhances alignment in video generation.
-  </div>
-
-  [<a class="link" href="https://arxiv.org/abs/2502.01719">arxiv</a>] 
-  [<a class="link" href="https://github.com/aiming-lab/MJ-Video">code</a>] 
-  [<a class="link" href="https://aiming-lab.github.io/MJ-VIDEO.github.io/">site</a>]
-</div>
-    
-
-  <div class="section">
-    <h2>Industry Experience</h2>
-
-    <div class="item">
-      <div class="item-content">
-        📊 <span class="highlight">Research Engineer</span> -- Shenzhen Research Institute of Big Data (SRIBD)<br>
-        <div class="meta-info">Project: LLM Deployment in Medical Service Workflows</div>
-      <span class="date-tag">Oct 2024 - Jan 2025</span>
-       <ul>
-          <li>Developed a prototype pipeline integrating LLMs with medical imaging data for clinical decision support.</li>
-          <li>Engineered a system tailored to data, achieving a 20% reduction in response time across test scenarios.</li>
-        </ul>
-    </div>
-    <img class="logo" src="https://pic1.imgdb.cn/item/67fc473a88c538a9b5cf15be.png" alt="SIBD Logo" />
-  </div>
-
-    <div class="item">
-      <div class="item-content">
-        📊 <span class="highlight">Quantitative Researcher</span> -- Jupyter (Ju Bo Hua) Investment, Shenzhen<br>
-        <div class="meta-info">Project: GNNs for Order Flow Modeling • Leader: Guixian Lin</div>
-        <span class="date-tag">Jun 2024 - Oct 2024</span>
-        <ul>
-          <li>Designed and implemented GNN architectures to capture temporal patterns in high-frequency trading data.</li>
-          <li>Achieved a 12.7% improvement in prediction acc over baseline, parts adopted for live trading evaluation.</li>
-        </ul>
-      </div>
-      <img class="logo" src="https://pic1.imgdb.cn/item/67edf16f0ba3d5a1d7eb8457.jpg" alt="Jupyter Logo" />
+        <div class="quote-minimal">
+            春日宴，綠酒一杯歌一遍<br>
+            <span class="quote-translation">
+                "A springtide banquet, green wine in hand; and lo, the song is sung but once, then lost to time."
+            </span>
+        </div>
+        <div class="contact">
+            <i class="fas fa-map-marker-alt"></i> New Haven, U.S. |
+            <i class="fas fa-envelope"></i> <a href="mailto:zhongkai.xue@yale.edu" class="link">email</a> |
+            <i class="fas fa-globe"></i> <a href="https://www.zhongkai-xue.com" class="link">website</a> |
+            <i class="fas fa-graduation-cap"></i> <a href="https://scholar.google.com/citations?user=IcbVX1cAAAAJ&hl=en" class="link">scholar</a> |
+            <i class="fab fa-github"></i> <a href="https://github.com/greatxue" class="link">github</a> |
+            <i class="fab fa-x-twitter"></i> <a href="https://x.com/greatxue_33" class="link">twitter</a> |
+            <i class="fas fa-file-alt"></i> <a href="https://drive.google.com/file/d/1M1XV8-Ui4Awe0cZ2ZLXRwhjUf29IHVSU/view?usp=share_link" class="link" target="_blank">résumé</a>
+        </div>
     </div>
 
-<div class="section">
-  <h2>Awards & Scholarship</h2>
+    <div class="section">
+        <h2>🎓 Introduction</h2>
 
-  <div class="award-card">
-    <div class="award-info">
-      🏅 <span class="highlight">Undergraduate Research Award, Dean's List x2</span><br>
-      <span class="meta-info">School of Data Science, CUHK-SZ</span>
+        <p>👋 Hi! I’m currently an undergraduate student, looking for graduate research opportunities starting from <span class="bold">Fall 2026</span>.</p>
+
+        <p>🤔 My current research interests span <span class="bold">Multimodal Foundation Models</span> and <span class="bold">Reinforcement Learning for LLMs</span>.</p>
+
+        <p>🚀 I'm passionate about learning, building, and collaborating! </p>
     </div>
-    <div class="award-year">2024</div>
-  </div>
 
-<div class="award-card">
-  <div class="award-info">
-    🥈 <span class="highlight">Silver Medal (Top 2%)</span>, <a class="link" href="https://www.kaggle.com/competitions/optiver-trading-at-the-close/leaderboard" target="_blank">Trading at the Close</a><br>
-    <span class="meta-info">Kaggle Challenge, Optiver</span>
-  </div>
-  <div class="award-year">2023</div>
-</div>
+    <div class="section">
+        <h2>Education</h2>
 
-</div>
+        <div class="award-line">
+            <div class="award-left">
+                🎓 <span class="highlight">Bachelor in Financial Engineering</span> @
+                <a class="link" href="https://www.cuhk.edu.cn/en" target="_blank">
+                    The Chinese University of Hong Kong, Shenzhen
+                </a>
+            </div>
+            <div class="award-right">Sep 2022 – Jun 2026</div>
+        </div>
 
- <div class="section">
- <h2>Miscellaneous</h2>
-<div class="misc-item">👨‍🏫 <span class="highlight">Teaching:</span> I served as a TA for <em>FIN2010 (Financial Management)</em> and <em>CSC3002 (Introduction to C++)</em> at CUHK-SZ.</div>
+        <div class="award-line">
+            <div class="award-left">
+                🎓 <span class="highlight">Exchange Student in Math & Statistics</span> @
+                <a class="link" href="https://www.ox.ac.uk/" target="_blank">
+                    University of Oxford, St Hilda's College
+                </a>
+            </div>
+            <div class="award-right">Oct 2024 – Mar 2025</div>
+        </div>
+    </div>
 
-<div class="misc-item">📷 <span class="highlight">Interest:</span> I enjoy <a href="https://en.wikipedia.org/wiki/Analog_photography" class="link">analog photography</a> in my free time; I am a Canon A1 camera holder and spend much on different films.</div>
-</div>
-  
-  <footer style="text-align: center; font-size: 14px; color: #999; margin-top: 40px; padding-top: 20px;">
-    © 2025 Zhongkai Xue. Hosted by GitHub Pages.
-  </footer>
+    <div class="section">
+        <h2>Publications</h2>
+
+        <div class="publication">
+            <img class="publication-image" src="https://pic1.imgdb.cn/item/68391b7a58cb8da5c81bcea4.png" alt="VIS-GNN" />
+            <div class="publication-info">
+                <div class="publication-title">
+                    📄 The Underappreciated Power of Vision Models for Graph Structural Understanding
+                </div>
+
+                <div class="publication-meta">
+                    Under review '25 --
+
+                    <span class="author-list-full">
+                        Xinjian Zhao*, Wei Pang*, Zhongkai Xue*, Xiangru Jian, Lei Zhang, Yaoyao Xu, Xiaozhuang Song, Shu Wu, Tianshu Yu
+                    </span>
+                </div>
+
+                <div class="publication-abstract">
+                    <strong>Abstract:</strong> We conduct a systematic analysis that uncovers how visual perception and message‑passing offer complementary strengths in graph understanding, and introduce a novel benchmark to showcase these insights. Our findings reveal that vision models can significantly enhance graph structural understanding, outperforming traditional GNNs in various tasks.
+                </div>
+
+                [<a class="link" href="https://zhongkai-xue.com">arxiv</a>]
+                [<a class="link" href="https://zhongkai-xue.com">code</a>] (To be released soon)
+            </div>
+        </div>
+
+        <div class="publication">
+            <img class="publication-image" src="https://pic1.imgdb.cn/item/68391ee658cb8da5c81bd326.png" alt="Political-LLM" />
+            <div class="publication-info">
+                <div class="publication-title">
+                    📄 Political-LLM: Large Language Models in Political Science
+                </div>
+
+                <div class="publication-meta">
+                    Under review '25 --
+
+                    <span class="author-list-folded">
+                        Lincan Li, Jiaqi Li, Catherine Chen, Fred Gui, Hongjia Yang, Chenxiao Yu, Zhengguang Wang, Jianing Cai, Junlong Aaron Zhou, Bolin Shen, Alex Qian, Weixin Chen, <u>Zhongkai Xue</u> ... Yue Zhao, Yushun Dong et al.
+                    </span>
+
+                    <span class="author-list-full" style="display: none;">
+                        Lincan Li, Jiaqi Li, Catherine Chen, Fred Gui, Hongjia Yang, Chenxiao Yu, Zhengguang Wang, Jianing Cai, Junlong Aaron Zhou, Bolin Shen, Alex Qian, Weixin Chen, <u>Zhongkai Xue</u>, Lichao Sun, Lifang He, Hanjie Chen, Kaize Ding, Zijian Du, Fangzhou Mu, Jiaxin Pei, Jieyu Zhao, Swabha Swayamdipta, Willie Neiswanger, Hua Wei, Xiyang Hu, Shixiang Zhu, Tianlong Chen, Yingzhou Lu, Yang Shi, Lianhui Qin, Tianfan Fu, Zhengzhong Tu, Yuzhe Yang, Jaemin Yoo, Jiaheng Zhang, Ryan Rossi, Liang Zhan, Liang Zhao, Emilio Ferrara, Yan Liu, Furong Huang, Xiangliang Zhang, Lawrence Rothenberg, Shuiwang Ji, Philip S. Yu, Yue Zhao, Yushun Dong
+                    </span>
+
+                    <button class="toggle-btn" onclick="toggleAuthorText(this)">Full</button>
+                </div>
+
+                <div class="publication-abstract">
+                    <strong>Abstract:</strong> We propose Political-LLM, a framework that bridges large language models with political science. It provides a dual-perspective taxonomy, political tasks and computational methods, while outlining key challenges and future directions, aiming to guide ethical and effective AI use in political research.
+                </div>
+                [<a class="link" href="https://arxiv.org/abs/2412.06864">arxiv</a>]
+                [<a class="link" href="https://political-llm.org">site</a>]
+            </div>
+        </div>
+
+        <script>
+            function toggleAuthorText(button) {
+              const parent = button.parentElement;
+              const folded = parent.querySelector('.author-list-folded');
+              const full = parent.querySelector('.author-list-full');
+              const isFolded = folded.style.display !== 'none';
+            
+              folded.style.display = isFolded ? 'none' : 'inline';
+              full.style.display = isFolded ? 'inline' : 'none';
+              button.textContent = isFolded ? 'Collapse' : 'Full';
+            }
+        </script>
+
+        <div class="publication">
+            <img class="publication-image" src="https://pic1.imgdb.cn/item/68391e5458cb8da5c81bd225.png" alt="MJ-VIDEO" />
+            <div class="publication-info">
+
+                <div class="publication-title">
+                    📄 MJ-VIDEO: Fine-Grained Benchmarking and Rewarding Video Preferences in Video Generation
+                </div>
+
+                <div class="publication-meta">
+                    Under review '25 --
+
+                    <span class="author-list-full">
+                        Haibo Tong, Zhaoyang Wang, Zhaorun Chen, Haonian Ji, Shi Qiu, Siwei Han, Kexin Geng, <u>Zhongkai Xue</u>, Yiyang Zhou, Peng Xia, Mingyu Ding, Rafael Rafailov, Chelsea Finn, Huaxiu Yao
+                    </span>
+                </div>
+
+                <div class="publication-abstract">
+                    <strong>Abstract:</strong> We present MJ-VIDEO, a Mixture-of-Experts reward model for fine-grained video preference evaluation, which is built upon MJ-BENCH-VIDEO, a large-scale benchmark covering alignment, safety, coherence, and bias. Our model achieves significant improvements in preference judgment and enhances alignment in video generation.
+                </div>
+
+                [<a class="link" href="https://arxiv.org/abs/2502.01719">arxiv</a>]
+                [<a class="link" href="https://github.com/aiming-lab/MJ-Video">code</a>]
+                [<a class="link" href="https://aiming-lab.github.io/MJ-VIDEO.github.io/">site</a>]
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="section">
+            <h2>Research Experience</h2>
+
+            <div class="award-line">
+                <div class="award-left">
+                    🔬 <span class="highlight">Visiting Research Assistant</span> @
+                    <a class="link" href="https://graph-and-geometric-learning.github.io/people" target="_blank">
+                        Graph and Geometric Learning Lab, Yale University
+                    </a>
+                </div>
+                <div class="award-right">Apr 2025 – Sep 2025</div>
+            </div>
+
+            <div class="award-line">
+                <div class="award-left">
+                    🔬 <span class="highlight">Research Assistant</span> @
+                    <a class="link" href="https://mypage.cuhk.edu.cn/academics/yutianshu/index.html" target="_blank">
+                        LOGO Lab, The Chinese University of Hong Kong, Shenzhen
+                    </a>
+                </div>
+                <div class="award-right">Jan 2025 – Jun 2026</div>
+            </div>
+        </div>
+
+
+
+
+        <div class="section">
+            <h2>Industry Experience</h2>
+
+            <div class="award-line">
+                <div class="award-left">
+                    💼 <span class="highlight">Research Engineer</span> @
+                    <a class="link" href="https://www.sribd.cn/en" target="_blank">Shenzhen Research Institute of Big Data (SRIBD)</a>
+                </div>
+                <div class="award-right">Oct 2024 – Jan 2025</div>
+            </div>
+
+            <div class="award-line">
+                <div class="award-left">
+                    💼 <span class="highlight">Quantitative Researcher</span> @
+                    <a class="link" href="https://gs.amac.org.cn/amac-infodisc/res/pof/manager/101000024658.html" target="_blank">
+                        Jupyter Investment, Shenzhen
+                    </a>
+                </div>
+                <div class="award-right">Jun 2024 – Oct 2024</div>
+            </div>
+        </div>
+
+
+
+
+        <div class="section">
+            <h2>Awards & Scholarship</h2>
+            <div class="award-line">
+                <div class="award-left">
+                    🎖️ <span class="highlight">Lambda Research GPU Grant</span>
+                </div>
+                <div class="award-right">
+                    Lambda.ai, 2025
+                </div>
+            </div>
+
+            <div class="award-line">
+                <div class="award-left">
+                    🎖️ <span class="highlight">Undergraduate Research Award, Dean's List x2</span>
+                </div>
+                <div class="award-right">
+                    School of Data Science, CUHK-SZ, 2024
+                </div>
+            </div>
+
+            <div class="award-line">
+                <div class="award-left">
+                    🥈 <span class="highlight">Silver Medal (Top 2%)</span>,
+                    <a class="link" href="https://www.kaggle.com/competitions/optiver-trading-at-the-close/leaderboard" target="_blank">Trading at the Close</a>
+                </div>
+                <div class="award-right">
+                    Kaggle Challenge, Optiver, 2023
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="section">
+            <h2>Miscellaneous</h2>
+            <div class="misc-item">👨‍🏫 <span class="highlight">Teaching:</span> I served as a TA for <strong>FIN2010 (Financial Management)</strong> and <strong>CSC3002 (Introduction to C++)</strong> at CUHK-SZ.
+
+                <div class="misc-item">📷 <span class="highlight">Interest:</span> I enjoy <a href="https://en.wikipedia.org/wiki/Analog_photography" class="link">analog photography</a> in my free time; I am a Canon A1 camera holder and spend much on different films.</div>
+            </div>
+
+            <footer style="text-align: center; font-size: 14px; color: #999; margin-top: 40px; padding-top: 20px;">
+                © 2025 Zhongkai Xue. Hosted by GitHub Pages.
+            </footer>
 </body>
+
 </html>
