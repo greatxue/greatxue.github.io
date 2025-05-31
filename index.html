@@ -199,7 +199,7 @@
       box-shadow: none;
       border-radius: 0;
       background: none;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
     }
     
     
@@ -239,6 +239,67 @@
     .publication-links a {
       margin-right: 0.5rem;
     }
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.125rem;
+  }
+
+  .item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .item img.logo {
+    margin: 0.5rem 0 0;
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .publication {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .publication-image {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .award-line {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .award-right {
+    margin-left: 0;
+    margin-top: 0.25rem;
+  }
+
+  .header-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .avatar {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .contact {
+    font-size: 0.9rem;
+    word-break: break-word;
+  }
+}
+
 </style>
 
 
@@ -495,7 +556,5 @@
                 © 2025 Zhongkai Xue. Hosted by GitHub Pages.
             </footer>
 </body>
-
-</html>
 
 </html>
