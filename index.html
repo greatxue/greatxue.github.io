@@ -167,7 +167,7 @@
       font-size: 1rem; 
       font-weight: normal;
       color: #333;
-      display: inline-flex;
+      display: flex;
       align-items: center;
       gap: 0.1875rem;
     }
@@ -275,26 +275,32 @@
     max-width: 100%;
   }
 
-.award-line {
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 1rem;
-}
+  .award-line {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    }
 
-.award-left {
-  font-size: 0.95rem;
-  font-weight: 600;
-  line-height: 1.4;
-  color: #333;
-}
+   .award-left {
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #333;
+    }
+    .award-left .break-wrap {
+    display: block;
+    margin-top: 0.25rem;
+    color: #555;
+    font-weight: 400;
+    }
 
-.award-right {
-  font-size: 0.9rem;
-  font-style: italic;
-  color: #777;
-  margin-top: 0.25rem;
-  margin-left: 0;
-}
+  .award-right {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #777;
+    margin-top: 0.25rem;
+    margin-left: 0;
+    }
 
   .header-container {
     padding: 1.5rem 1rem;
@@ -352,20 +358,20 @@
 
         <div class="award-line">
             <div class="award-left">
-                🎓 <span class="highlight">Bachelor in Financial Engineering</span> @
-                <a class="link" href="https://www.cuhk.edu.cn/en" target="_blank">
+                🎓 <span class="highlight">Bachelor in Financial Engineering</span> 
+                <span class="break-wrap">@ <a class="link" href="https://www.cuhk.edu.cn/en" target="_blank">
                     The Chinese University of Hong Kong, Shenzhen
-                </a>
+                </a></span>
             </div>
             <div class="award-right">Sep 2022 – Jun 2026</div>
         </div>
 
         <div class="award-line">
             <div class="award-left">
-                🎓 <span class="highlight">Exchange Student in Math & Statistics</span> @
-                <a class="link" href="https://www.ox.ac.uk/" target="_blank">
+                🎓 <span class="highlight">Exchange Student in Math & Statistics</span>
+                <span class="break-wrap">@ <a class="link" href="https://www.ox.ac.uk/" target="_blank">
                     University of Oxford, St Hilda's College
-                </a>
+                </a></span>
             </div>
             <div class="award-right">Oct 2024 – Mar 2025</div>
         </div>
@@ -476,20 +482,20 @@
 
             <div class="award-line">
                 <div class="award-left">
-                    🔬 <span class="highlight">Visiting Research Assistant</span> @
-                    <a class="link" href="https://graph-and-geometric-learning.github.io/people" target="_blank">
+                    🔬 <span class="highlight">Visiting Research Assistant</span>
+                    <span class="break-wrap">@ <a class="link" href="https://graph-and-geometric-learning.github.io/people" target="_blank">
                         Graph and Geometric Learning Lab, Yale University
-                    </a>
+                    </a></span>
                 </div>
                 <div class="award-right">Apr 2025 – Sep 2025</div>
             </div>
 
             <div class="award-line">
                 <div class="award-left">
-                    🔬 <span class="highlight">Research Assistant</span> @
-                    <a class="link" href="https://mypage.cuhk.edu.cn/academics/yutianshu/index.html" target="_blank">
+                    🔬 <span class="highlight">Research Assistant</span>
+                    <span class="break-wrap">@ <a class="link" href="https://mypage.cuhk.edu.cn/academics/yutianshu/index.html" target="_blank">
                         LOGO Lab, The Chinese University of Hong Kong, Shenzhen
-                    </a>
+                    </a></span>
                 </div>
                 <div class="award-right">Jan 2025 – Jun 2026</div>
             </div>
@@ -503,18 +509,18 @@
 
             <div class="award-line">
                 <div class="award-left">
-                    💼 <span class="highlight">Research Engineer</span> @
-                    <a class="link" href="https://www.sribd.cn/en" target="_blank">Shenzhen Research Institute of Big Data (SRIBD)</a>
-                </div>
+                    💼 <span class="highlight">Research Engineer</span>
+                    <span class="break-wrap">@ <a class="link" href="https://www.sribd.cn/en" target="_blank">Shenzhen Research Institute of Big Data (SRIBD)</a>
+                </div></span>
                 <div class="award-right">Oct 2024 – Jan 2025</div>
             </div>
 
             <div class="award-line">
                 <div class="award-left">
-                    💼 <span class="highlight">Quantitative Researcher</span> @
-                    <a class="link" href="https://gs.amac.org.cn/amac-infodisc/res/pof/manager/101000024658.html" target="_blank">
+                    💼 <span class="highlight">Quantitative Researcher</span>
+                    <span class="break-wrap">@ <a class="link" href="https://gs.amac.org.cn/amac-infodisc/res/pof/manager/101000024658.html" target="_blank">
                         Jupyter Investment, Shenzhen
-                    </a>
+                    </a></span>
                 </div>
                 <div class="award-right">Jun 2024 – Oct 2024</div>
             </div>
