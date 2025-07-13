@@ -4,6 +4,7 @@
 
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-67XDYXYKQJ"></script>
+   <link rel="preload" href="/assets/fonts/FZNewKai.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -316,7 +317,20 @@
     word-break: break-word;
   }
 }
+   @font-face {
+      font-family: 'FZNewKai';
+      src: url('/assets/fonts/FZNewKai.woff2') format('woff2');
+      font-weight: 400; 
+      font-style: normal;
+      font-display: swap;
+  }
 
+
+   .font-kai{
+     font-family: 'FZNewKai', KaiTi, STKaiti, serif;
+     font-size: 30px;      
+     letter-spacing: -3px;
+   }
 </style>
 
 
@@ -326,6 +340,7 @@
     <img src="https://pic1.imgdb.cn/item/68662d4758cb8da5c88b94e9.jpg" alt="Zhongkai Xue" class="avatar" />
     <div style="font-family: 'Dancing Script', cursive; font-weight: 600; font-size: 36px; display: flex; justify-content: center; align-items: center; gap: 12px;">
         <div>Zhongkai Xue</div>
+        <div class="font-kai">薛中凱</div>
     </div>
         
 <div class="contact">
