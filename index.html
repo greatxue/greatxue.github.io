@@ -383,6 +383,19 @@
     <div class="section">
         <h2>Publications</h2>
 
+        <script>
+            function toggleAuthorText(button) {
+              const parent = button.parentElement;
+              const folded = parent.querySelector('.author-list-folded');
+              const full = parent.querySelector('.author-list-full');
+              const isFolded = folded.style.display !== 'none';
+            
+              folded.style.display = isFolded ? 'none' : 'inline';
+              full.style.display = isFolded ? 'inline' : 'none';
+              button.textContent = isFolded ? 'Collapse' : 'Full';
+            }
+        </script>
+
         <div class="publication">
             <img class="publication-image" src="https://pic1.imgdb.cn/item/68392bf558cb8da5c81c0a12.png" alt="VIS-GNN" />
             <div class="publication-info">
@@ -406,48 +419,6 @@
                 [<a class="link" href="https://zhongkai-xue.com">code</a>] (To be released soon due to co-authorship policy)
             </div>
         </div>
-
-        <div class="publication">
-            <img class="publication-image" src="https://pic1.imgdb.cn/item/68391ee658cb8da5c81bd326.png" alt="Political-LLM" />
-            <div class="publication-info">
-                <div class="publication-title">
-                    📄 Political-LLM: Large Language Models in Political Science
-                </div>
-
-                <div class="publication-meta">
-                    Under review '25 —
-
-                    <span class="author-list-folded">
-                        Lincan Li, Jiaqi Li, Catherine Chen, Fred Gui, Hongjia Yang, Chenxiao Yu, Zhengguang Wang, Jianing Cai, Junlong Aaron Zhou, Bolin Shen, Alex Qian, Weixin Chen, <u>Zhongkai Xue</u> ... Yue Zhao, Yushun Dong et al.
-                    </span>
-
-                    <span class="author-list-full" style="display: none;">
-                        Lincan Li, Jiaqi Li, Catherine Chen, Fred Gui, Hongjia Yang, Chenxiao Yu, Zhengguang Wang, Jianing Cai, Junlong Aaron Zhou, Bolin Shen, Alex Qian, Weixin Chen, <u>Zhongkai Xue</u> , Lichao Sun, Lifang He, Hanjie Chen, Kaize Ding, Zijian Du, Fangzhou Mu, Jiaxin Pei, Jieyu Zhao, Swabha Swayamdipta, Willie Neiswanger, Hua Wei, Xiyang Hu, Shixiang Zhu, Tianlong Chen, Yingzhou Lu, Yang Shi, Lianhui Qin, Tianfan Fu, Zhengzhong Tu, Yuzhe Yang, Jaemin Yoo, Jiaheng Zhang, Ryan Rossi, Liang Zhan, Liang Zhao, Emilio Ferrara, Yan Liu, Furong Huang, Xiangliang Zhang, Lawrence Rothenberg, Shuiwang Ji, Philip S. Yu, Yue Zhao, Yushun Dong
-                    </span>
-
-                    <button class="toggle-btn" onclick="toggleAuthorText(this)">Full</button>
-                </div>
-
-                <div class="publication-abstract">
-                    <strong>Abstract:</strong> We propose Political-LLM, a framework that bridges large language models with political science. It provides a dual-perspective taxonomy, political tasks and computational methods, while outlining key challenges and future directions, aiming to guide ethical and effective AI use in political research.
-                </div>
-                [<a class="link" href="https://arxiv.org/abs/2412.06864">arxiv</a>]
-                [<a class="link" href="https://political-llm.org">site</a>]
-            </div>
-        </div>
-
-        <script>
-            function toggleAuthorText(button) {
-              const parent = button.parentElement;
-              const folded = parent.querySelector('.author-list-folded');
-              const full = parent.querySelector('.author-list-full');
-              const isFolded = folded.style.display !== 'none';
-            
-              folded.style.display = isFolded ? 'none' : 'inline';
-              full.style.display = isFolded ? 'inline' : 'none';
-              button.textContent = isFolded ? 'Collapse' : 'Full';
-            }
-        </script>
 
         <div class="publication">
             <img class="publication-image" src="https://pic1.imgdb.cn/item/68391e5458cb8da5c81bd225.png" alt="MJ-VIDEO" />
@@ -474,12 +445,41 @@
                 [<a class="link" href="https://aiming-lab.github.io/MJ-VIDEO.github.io/">site</a>]
             </div>
         </div>
+
+
+            <div class="publication">
+            <img class="publication-image" src="https://pic1.imgdb.cn/item/68391ee658cb8da5c81bd326.png" alt="Political-LLM" />
+            <div class="publication-info">
+                <div class="publication-title">
+                    📄 Political-LLM: Large Language Models in Political Science
+                </div>
+
+                <div class="publication-meta">
+                    Arxiv '24 —
+
+                    <span class="author-list-folded">
+                        Lincan Li, Jiaqi Li, Catherine Chen, Fred Gui, Hongjia Yang, Chenxiao Yu, Zhengguang Wang, Jianing Cai, Junlong Aaron Zhou, Bolin Shen, Alex Qian, <u>Zhongkai Xue</u> ... Yue Zhao, Yushun Dong et al.
+                    </span>
+
+                    <span class="author-list-full" style="display: none;">
+                        Lincan Li, Jiaqi Li, Catherine Chen, Fred Gui, Hongjia Yang, Chenxiao Yu, Zhengguang Wang, Jianing Cai, Junlong Aaron Zhou, Bolin Shen, Alex Qian, <u>Zhongkai Xue</u> , Lichao Sun, Lifang He, Hanjie Chen, Kaize Ding, Zijian Du, Fangzhou Mu, Jiaxin Pei, Jieyu Zhao, Swabha Swayamdipta, Willie Neiswanger, Hua Wei, Xiyang Hu, Shixiang Zhu, Tianlong Chen, Yingzhou Lu, Yang Shi, Lianhui Qin, Tianfan Fu, Zhengzhong Tu, Yuzhe Yang, Jaemin Yoo, Jiaheng Zhang, Ryan Rossi, Liang Zhan, Liang Zhao, Emilio Ferrara, Yan Liu, Furong Huang, Xiangliang Zhang, Lawrence Rothenberg, Shuiwang Ji, Philip S. Yu, Yue Zhao, Yushun Dong
+                    </span>
+
+                    <button class="toggle-btn" onclick="toggleAuthorText(this)">Full</button>
+                </div>
+
+                <div class="publication-abstract">
+                    <strong>Abstract:</strong> We propose Political-LLM, a framework that bridges large language models with political science. It provides a dual-perspective taxonomy, political tasks and computational methods, while outlining key challenges and future directions, aiming to guide ethical and effective AI use in political research.
+                </div>
+                [<a class="link" href="https://arxiv.org/abs/2412.06864">arxiv</a>]
+                [<a class="link" href="https://github.com/CS-FSU/political-llm">code</a>]
+                [<a class="link" href="https://political-llm.org">site</a>]
+            </div>
+        </div>
+
         <p style="font-style: italic; font-size: 0.9rem; color: #666; margin-top: -1rem;">
              * indicates equal contribution.
-       </p>
-
-
-
+        </p>
 
 
 
