@@ -316,14 +316,17 @@
     word-break: break-word;
   }
 }
-
+  .pub-extra {
+     display: none;
+  }
+  
 </style>
 
 
 <body>
 
     <div class="header-container">
-    <img src="https://pic1.imgdb.cn/item/69391c5f07135a7c195e7e77.jpg" alt="Zhongkai Xue" class="avatar" />
+    <img src="https://pic1.imgdb.cn/item/6981b0064f83a817d7f81935.png" alt="Zhongkai Xue" class="avatar" />
     <div style="font-family: 'Dancing Script', sans-serif; font-weight: 600; font-size: 30px; display: flex; justify-content: center; align-items: center; gap: 65px;">
       <div style="position: relative; left: 50px;">Zhongkai Xue</div>
       <img src="https://pic1.imgdb.cn/item/6879d2de58cb8da5c8c0e8a9.png" alt="薛中凯" style="height: 35px; vertical-align: middle; margin-top: 8px;" />
@@ -350,21 +353,12 @@
 
       <p>👋 Nice to meet you! I am a final-year undergraduate student at 
 <a class="link" href="https://www.cuhk.edu.cn/en" target="_blank">The Chinese University of Hong Kong, Shenzhen (CUHK-SZ)</a>, 
-where I have been conducting research under the guidance of 
-<a class="link" href="https://mypage.cuhk.edu.cn/academics/yutianshu/" target="_blank">Prof. Tianshu Yu</a> 
-and Xinjian Zhao. I am deeply grateful for their invaluable mentorship and continuous support, which have greatly shaped my academic growth.</p>
+where I work with <a class="link" href="https://mypage.cuhk.edu.cn/academics/yutianshu/" target="_blank">Prof. Tianshu Yu</a> and Xinjian Zhao. Currently, I also intern at <a class="link" href="https://www.bytedance.com/en/" target="_blank">ByteDance</a>.
+Looking ahead, I will be joining the <a class="link" href="http://english.ia.cas.cn" target="_blank">Institute of Automation, Chinese Academy of Sciences (CASIA)</a> 
+as a PhD student supervised by 
+<a class="link" href="https://ia.cas.cn/rcdw/jcqn/202404/t20240422_7129880.html" target="_blank">Prof. Liang Wang</a>. </p>
 
-      <p>🧑‍🏫 Looking ahead, I will be joining the 
-<a class="link" href="http://english.ia.cas.cn" target="_blank">Institute of Automation, Chinese Academy of Sciences (CASIA)</a> 
-as a PhD student under the supervision of 
-<a class="link" href="https://ia.cas.cn/rcdw/jcqn/202404/t20240422_7129880.html" target="_blank">Prof. Liang Wang</a>. 
-I am genuinely excited to take on new challenges!</p>
-      
-      <p>🚀 Before starting my PhD at CASIA, I will be joining 
-<a class="link" href="https://www.bytedance.com/en/" target="_blank">ByteDance Shenzhen Office</a> 
-as an AIGC research intern. I am thrilled to explore real-world applications of AI and continue learning from outstanding researchers and engineers there.</p>
-      
-      <p>🤔 My general research interests span <span class="bold">Reinforcement Learning</span> and <span class="bold">AI for Science</span>. However, I am still exploring my long-term research direction and remain open to discussions and collaborations across related areas. </p>
+<p>💬 Let's connect and work on great projects together! </p>
         
   </div>
 
@@ -403,8 +397,34 @@ as an AIGC research intern. I am thrilled to explore real-world applications of 
     </div>
 
     <div class="section">
-        <h2>Publications</h2>
+        <h2>
+             Selected Publications
+             <button id="toggle-pubs"
+                     style="
+                     margin-left: 10px;
+                     font-size: 0.85rem;
+                     padding: 2px 8px;
+                     cursor: pointer;
+              ">
+             Full
+             </button>
+          </h2>
+  
+        <script>
+                const btn = document.getElementById("toggle-pubs");
+                let expanded = false;
 
+                btn.onclick = () => {
+                      const extras = document.querySelectorAll(".pub-extra");
+                      expanded = !expanded;
+
+                extras.forEach(p => {
+                      p.style.display = expanded ? "flex" : "none";
+                });
+
+                btn.textContent = expanded ? "Collapse" : "Full";
+                };
+              </script>
         <script>
             function toggleAuthorText(button) {
               const parent = button.parentElement;
@@ -417,6 +437,30 @@ as an AIGC research intern. I am thrilled to explore real-world applications of 
               button.textContent = isFolded ? 'Collapse' : 'Full';
             }
         </script>
+
+
+            <div class="publication pub-extra">
+            <img class="publication-image" src="https://pic1.imgdb.cn/item/6981ae274f83a817d7f81892.png" alt="Political-LLM" />
+            <div class="publication-info">
+                <div class="publication-title">
+                    📄 When Vision Meets Graphs: A Survey on Graph Reasoning and Learning
+                </div>
+
+                <div class="publication-meta">
+                    TechRxiv ’25 —
+
+                    <span class="author-list-full">
+                    Xinjian Zhao, Wei Pang, Zhixuan Yu, Xiangru Jian, Xiaozhuang Song, Yaoyao Xu, <u>Zhongkai Xue</u> , Dingshuo Chen, Shu Wu, Philip Torr，Tianshu Yu.
+                    </span>
+  
+                </div>
+
+                <div class="publication-abstract">
+                    <strong>Abstract:</strong> We survey recent advances at the intersection of vision and graph learning, highlighting how visual representations can complement symbolic graph reasoning.  Based on existing work into three major threads (vision for graph reasoning, vision for graph learning, and scientific graphs), we delve into a unified taxonomy and outline future directions toward more effective graph understanding.
+                </div>
+                [<a class="link" href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.177004261.15861585/v1">techrxiv</a>]
+            </div>
+             </div>
 
         <div class="publication">
             <img class="publication-image" src="https://pic1.imgdb.cn/item/68392bf558cb8da5c81c0a12.png" alt="VIS-GNN" />
@@ -454,7 +498,7 @@ as an AIGC research intern. I am thrilled to explore real-world applications of 
                    NeurIPS <span style="color: red; font-weight: bold;">Spotlight</span> '25  —
 
                     <span class="author-list-full">
-                        Haibo Tong, Zhaoyang Wang, Zhaorun Chen, Haonian Ji, Shi Qiu, Siwei Han, Kexin Geng, <u>Zhongkai Xue</u> , Yiyang Zhou, Peng Xia, Mingyu Ding, Rafael Rafailov, Chelsea Finn, Huaxiu Yao
+                        Haibo Tong, Zhaoyang Wang, Zhaorun Chen, Haonian Ji, Shi Qiu, Siwei Han, Kexin Geng, <u>Zhongkai Xue</u> , Yiyang Zhou, Peng Xia, Mingyu Ding, Rafael Rafailov, Chelsea Finn, Huaxiu Yao.
                     </span>
                 </div>
 
@@ -469,7 +513,7 @@ as an AIGC research intern. I am thrilled to explore real-world applications of 
         </div>
 
 
-            <div class="publication">
+            <div class="publication pub-extra">
             <img class="publication-image" src="https://pic1.imgdb.cn/item/68391ee658cb8da5c81bd326.png" alt="Political-LLM" />
             <div class="publication-info">
                 <div class="publication-title">
