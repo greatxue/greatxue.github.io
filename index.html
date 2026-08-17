@@ -44,6 +44,10 @@
             margin-top: 1.875rem;
         }
 
+        h2 .citation-badge {
+            margin-left: 0.45rem;
+        }
+
         a.link {
             color: #555;
             text-decoration: none;
@@ -107,6 +111,12 @@
             font-style: italic;
         }
 
+        .tagline-source {
+            display: block;
+            margin-top: 0.1rem;
+            font-size: 0.85rem;
+        }
+
         .contact {
             margin-top: 0.625rem;
             font-size: 1rem;
@@ -120,11 +130,17 @@
             font-size: 1rem;
         }
 
+        .introduction p {
+            text-align: justify;
+            -webkit-hyphens: auto;
+            hyphens: auto;
+        }
+
         /* ── Award / Experience lines ── */
         .award-line {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
+            align-items: center;
             margin-top: 0.625rem;
             flex-wrap: wrap;
         }
@@ -137,6 +153,37 @@
             gap: 0.1875rem;
         }
 
+        .institution-logo {
+            width: 2.625rem;
+            height: 2.625rem;
+            flex: 0 0 2.625rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+            overflow: hidden;
+            border: 1px solid #e3e7ec;
+            border-radius: 0.8rem;
+            background: #fff;
+            box-shadow: 0 3px 10px rgba(24, 43, 67, 0.08);
+            color: #17375e;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .institution-logo img {
+            width: 1.75rem;
+            height: 1.75rem;
+            object-fit: contain;
+        }
+
+        .institution-logo img.user-logo {
+            width: 2.15rem;
+            height: 2.15rem;
+        }
+
         .award-right {
             font-size: 1rem;
             font-style: italic;
@@ -146,6 +193,13 @@
         }
 
         /* ── Publications ── */
+        .publication-group-title {
+            margin: 1.5rem 0 0.5rem;
+            color: #777;
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
         .publication {
             display: flex;
             align-items: flex-start;
@@ -174,6 +228,22 @@
             margin-bottom: 0.5rem;
         }
 
+        .citation-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-left: 0.45rem;
+            padding: 0.15rem 0.45rem;
+            border: 1px solid #d8e2f1;
+            border-radius: 999px;
+            background: #f4f8fd;
+            color: #3869a5;
+            font-size: 0.78rem;
+            font-weight: 600;
+            white-space: nowrap;
+            vertical-align: middle;
+        }
+
         .publication-meta {
             font-style: italic;
             color: #555;
@@ -186,26 +256,9 @@
             color: #333;
             line-height: 1.5;
             margin-bottom: 0.5rem;
-        }
-
-
-        .pub-extra { display: none; }
-
-        .toggle-btn,
-        #toggle-pubs {
-            font-size: 0.85rem;
-            padding: 2px 8px;
-            cursor: pointer;
-            margin-left: 6px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background: #fff;
-            color: #555;
-            transition: background 0.2s;
-        }
-        .toggle-btn:hover,
-        #toggle-pubs:hover {
-            background: #eef3fb;
+            text-align: justify;
+            -webkit-hyphens: auto;
+            hyphens: auto;
         }
 
         /* ── Misc ── */
@@ -289,33 +342,39 @@
     </div>
 
     <div class="contact">
-        <i class="fas fa-map-marker-alt"></i> <a href="https://en.wikipedia.org/wiki/Shenzhen" class="link">Shenzhen</a>, China |
-        <i class="fas fa-envelope"></i> <a href="mailto:zhongkaixue@link.cuhk.edu.cn" class="link">email</a> |
+        <i class="fas fa-envelope"></i> <a href="mailto:zhongkaixue.casia@gmail.com" class="link">email</a> |
         <i class="fas fa-graduation-cap"></i> <a href="https://scholar.google.com/citations?user=IcbVX1cAAAAJ&hl=en" class="link">scholar</a> |
         <i class="fab fa-github"></i> <a href="https://github.com/greatxue" class="link">github</a> |
-        <i class="fab fa-x-twitter"></i> <a href="https://x.com/greatxue_33" class="link">twitter</a> |
-        <i class="fas fa-blog"></i> <a href="https://zhongkai-xue.com/blog/" class="link">blog</a>
+        <i class="fab fa-x-twitter"></i> <a href="https://x.com/greatxue_33" class="link">twitter</a>
     </div>
 
-    <div class="tagline">PhD Student @ CASIA</div>
+    <div class="tagline">
+        “That is why the soul never thinks without an image.”
+        <span class="tagline-source">— Aristotle, <cite><a class="link" href="https://classics.mit.edu/Aristotle/soul.html" target="_blank">On the Soul</a></cite>, Book III</span>
+    </div>
 </div>
 
 <!-- ════════════════ Introduction ════════════════ -->
-<div class="section">
+<div class="section introduction">
     <h2>Introduction</h2>
-    <p>👋 I am a first-year PhD student at the
-        <a class="link" href="http://english.ia.cas.cn" target="_blank">Institute of Automation, Chinese Academy of Sciences (CASIA)</a>,
-        supervised by
-        <a class="link" href="https://ia.cas.cn/rcdw/jcqn/202404/t20240422_7129880.html" target="_blank">Prof. Liang Wang</a>.
-        Previously, I obtained my bachelor's degree from
-        <a class="link" href="https://www.cuhk.edu.cn/en" target="_blank">The Chinese University of Hong Kong, Shenzhen (CUHK-Shenzhen)</a>,
-        where I worked with
-        <a class="link" href="https://mypage.cuhk.edu.cn/academics/yutianshu/" target="_blank">Prof. Tianshu Yu</a>
-        and Xinjian Zhao, and interned at
-        <a class="link" href="https://www.bytedance.com/en/" target="_blank">ByteDance</a>.
+    <p>I am currently pursuing my PhD in Computer Science at the
+        <a class="link" href="https://english.cas.cn/" target="_blank">Institute of Automation, Chinese Academy of Sciences (CASIA)</a>, supervised by
+        <a class="link" href="https://ia.cas.cn/rcdw/jcqn/202404/t20240422_7129880.html" target="_blank">Prof. Liang Wang</a>. Previously, I have been fortunate to learn from
+        <a class="link" href="https://www.cs.yale.edu/homes/ying-rex/" target="_blank">Prof. Rex Ying</a> and
+        <a class="link" href="https://mypage.cuhk.edu.cn/academics/yutianshu/" target="_blank">Prof. Tianshu Yu</a>.
     </p>
-    <p>🤖 I am currently working on building agent systems that efficiently structure, retrieve, and utilize knowledge.
-        Always happy to discuss research ideas or collaborations — feel free to reach out!</p>
+    
+    <p>
+    My research focuses on <strong>multimodal intelligence</strong>, particularly on how models perceive, remember, and interact with the world over time. I believe intelligence is inherently multimodal, thus capable AI systems should learn from and interact with the world through multiple modalities. My recent work has focused on these topics:
+    </p>
+
+    <ul>
+    <li><strong>Agent Memory Systems:</strong> enabling agents to retain, organize, and use knowledge from long-term experience.</li>
+    <li><strong>Streaming Omni Models:</strong> enabling real-time perception and interaction over continuous multimodal streams.</li>
+    <li><strong>Multimodal Generation:</strong> connecting multimodal understanding with generation and world modeling.</li>
+    </ul>
+
+    <p>I am always happy to discuss these topics, explore new ideas, and collaborate on interesting research questions!</p>
 </div>
 
 <!-- ════════════════ Education ════════════════ -->
@@ -324,15 +383,17 @@
 
     <div class="award-line">
         <div class="award-left">
-            🎓 <span class="highlight">PhD Student in Computer Science</span>
-            <span class="break-wrap">@ <a class="link" href="http://english.ia.cas.cn" target="_blank">Institute of Automation, Chinese Academy of Sciences</a></span>
+            <span class="institution-logo"><img src="https://pic1.imgdb.cn/i/0346nbRJlSU7LNklugAT2J.jpg" alt="CASIA logo" /></span>
+            <span class="highlight">PhD Student in Computer Science</span>
+            <span class="break-wrap">@ <a class="link" href="https://english.cas.cn/" target="_blank">Institute of Automation, Chinese Academy of Sciences</a></span>
         </div>
-        <div class="award-right">Sep 2026 – Present</div>
+        <div class="award-right">From Sep 2026</div>
     </div>
 
     <div class="award-line">
         <div class="award-left">
-            🎓 <span class="highlight">Exchange Student in Math &amp; Statistics</span>
+            <span class="institution-logo"><img src="https://pic1.imgdb.cn/i/0346nbRtXm90WzKcDYuMbr.png" alt="University of Oxford logo" /></span>
+            <span class="highlight">Exchange Student in Math &amp; Statistics</span>
             <span class="break-wrap">@ <a class="link" href="https://www.ox.ac.uk/" target="_blank">University of Oxford, St Hilda's College</a></span>
         </div>
         <div class="award-right">Oct 2024 – Mar 2025</div>
@@ -340,7 +401,8 @@
 
     <div class="award-line">
         <div class="award-left">
-            🎓 <span class="highlight">Bachelor in Financial Engineering</span>
+            <span class="institution-logo"><img src="https://pic1.imgdb.cn/i/0346nbRSpaFhCtVlKYENbu.png" alt="CUHK-Shenzhen logo" /></span>
+            <span class="highlight">Bachelor in Financial Engineering</span>
             <span class="break-wrap">@ <a class="link" href="https://www.cuhk.edu.cn/en" target="_blank">The Chinese University of Hong Kong, Shenzhen</a></span>
         </div>
         <div class="award-right">Sep 2022 – May 2026</div>
@@ -349,55 +411,27 @@
 
 <!-- ════════════════ Publications ════════════════ -->
 <div class="section">
-    <h2>
-        Selected Publications
-        <button id="toggle-pubs">Full</button>
-    </h2>
+    <h2>Publications <span class="citation-badge" title="Google Scholar citations"><i class="fas fa-graduation-cap"></i> <span>108</span> Citations</span></h2>
+
+    <h3 class="publication-group-title">Memory Systems</h3>
 
     <!-- [extra] RoboMemory -->
-    <div class="publication pub-extra">
-        <img class="publication-image" src="https://pic1.imgdb.cn/item/6a0e9c4675d6084f52ffc155.png" alt="RoboMemory" />
+    <div class="publication">
+        <img class="publication-image" src="https://pic1.imgdb.cn/i/0347gxb3HFgVm3H2QzhIwj.png" alt="RoboMemory" />
         <div class="publication-info">
             <div class="publication-title">
                 RoboMemory: A Brain-Inspired Multi-Memory Framework for Interactive Environmental Learning in Physical Embodied Systems
             </div>
-            <div class="publication-meta">
-                Under Review '26 —
-                <span class="author-list-folded">
-                    Mingcong Lei, Honghao Cai, Yuyuan Yang, Yimou Wu, Jinke Ren, Zezhou Cui, Liangchen Tan, Junkun Hong, Gehan Hu, Shuangyu Zhu, <u>Zhongkai Xue</u> ... Yatong Han et al.
-                </span>
-                <span class="author-list-full" style="display: none;">
-                    Mingcong Lei, Honghao Cai, Yuyuan Yang, Yimou Wu, Jinke Ren, Zezhou Cui, Liangchen Tan, Junkun Hong, Gehan Hu, Shuangyu Zhu, Shaohan Jiang, Ge Wang, Junyuan Tan, Zhenglin Wan, <u>Zhongkai Xue</u>, Li Zheng, Zhen Li, Shuguang Cui, Yiming Zhao, Yatong Han.
-                </span>
-                <button class="toggle-btn" onclick="toggleAuthorText(this)">Full</button>
-            </div>
+            <div class="publication-meta">Under Review, 2026</div>
             <div class="publication-abstract">
-                <strong>Abstract:</strong> We present RoboMemory, a brain-inspired framework that integrates spatial, temporal, episodic, and semantic memory within a parallelized architecture for embodied agents. Equipped with a dynamic spatial knowledge graph and a closed-loop planner with a critic module, RoboMemory enables efficient long-horizon planning and interactive environmental learning.
+                <strong>Abstract:</strong> We introduce RoboMemory, a framework inspired by the brain that brings spatial, temporal, episodic, and semantic memory together for embodied agents. It maintains a dynamic spatial knowledge graph for consistent memory updates and places a planner and critic in a closed feedback loop, supporting adaptive decisions, planning over long horizons, and cumulative learning through repeated interactions.
             </div>
             [<a class="link" href="https://arxiv.org/abs/2508.01415">arxiv</a>]
             [<a class="link" href="https://github.com/SP4595/robomemory">code</a>]
         </div>
     </div>
 
-    <!-- [extra] Graph Survey -->
-    <div class="publication pub-extra">
-        <img class="publication-image" src="https://pic1.imgdb.cn/item/6981ae274f83a817d7f81892.png" alt="Graph-Survey" />
-        <div class="publication-info">
-            <div class="publication-title">
-                When Vision Meets Graphs: A Survey on Graph Reasoning and Learning
-            </div>
-            <div class="publication-meta">
-                IJCAI '26 —
-                <span class="author-list-full">
-                    Xinjian Zhao, Wei Pang, Zhixuan Yu, Xiangru Jian, Xiaozhuang Song, Yaoyao Xu, <u>Zhongkai Xue</u>, Dingshuo Chen, Shu Wu, Philip Torr, Tianshu Yu.
-                </span>
-            </div>
-            <div class="publication-abstract">
-                <strong>Abstract:</strong> We survey recent advances at the intersection of vision and graph learning, highlighting how visual representations can complement symbolic graph reasoning. Based on existing work into three major threads (vision for graph reasoning, vision for graph learning, and scientific graphs), we delve into a unified taxonomy and outline future directions toward more effective graph understanding.
-            </div>
-            [<a class="link" href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.177004261.15861585/v1">techrxiv</a>]
-        </div>
-    </div>
+    <h3 class="publication-group-title">Multimodal Interactions</h3>
 
     <!-- VIS-GNN -->
     <div class="publication">
@@ -406,12 +440,9 @@
             <div class="publication-title">
                 The Underappreciated Power of Vision Models for Graph Structural Understanding
             </div>
-            <div class="publication-meta">
-                NeurIPS '25 —
-                <span>Xinjian Zhao*, Wei Pang*, <u>Zhongkai Xue</u>*, Xiangru Jian, Lei Zhang, Yaoyao Xu, Xiaozhuang Song, Shu Wu, Tianshu Yu.</span>
-            </div>
+            <div class="publication-meta">Conference on Neural Information Processing Systems, 2025</div>
             <div class="publication-abstract">
-                <strong>Abstract:</strong> We conduct a systematic analysis that uncovers how visual perception and message-passing offer complementary strengths in graph understanding, and introduce a novel benchmark to showcase these insights. Our findings reveal that vision models can significantly enhance graph structural understanding, outperforming traditional GNNs in various tasks.
+                <strong>Abstract:</strong> We study how vision models understand graph structure and introduce GraphAbstract, a benchmark that tests holistic perception of organizational patterns, symmetry, connectivity, and critical elements. Vision models surpass GNNs on global structural tasks and generalize across scales, showing that visual perception offers a promising path toward graph foundation models.
             </div>
             [<a class="link" href="https://www.arxiv.org/abs/2510.24788">arxiv</a>]
             [<a class="link" href="https://github.com/LOGO-CUHKSZ/GraphAbstract">code</a>]
@@ -425,12 +456,9 @@
             <div class="publication-title">
                 MJ-VIDEO: Fine-Grained Benchmarking and Rewarding Video Preferences in Video Generation
             </div>
-            <div class="publication-meta">
-                NeurIPS <span style="color: red; font-weight: bold;">Spotlight</span> '25 —
-                <span>Haibo Tong, Zhaoyang Wang, Zhaorun Chen, Haonian Ji, Shi Qiu, Siwei Han, Kexin Geng, <u>Zhongkai Xue</u>, Yiyang Zhou, Peng Xia, Mingyu Ding, Rafael Rafailov, Chelsea Finn, Huaxiu Yao.</span>
-            </div>
+            <div class="publication-meta">Conference on Neural Information Processing Systems, <span style="color: red; font-weight: bold;">Spotlight</span>, 2025</div>
             <div class="publication-abstract">
-                <strong>Abstract:</strong> We present MJ-VIDEO, a Mixture-of-Experts reward model for fine-grained video preference evaluation, which is built upon MJ-BENCH-VIDEO, a large-scale benchmark covering alignment, safety, coherence, and bias. Our model achieves significant improvements in preference judgment and enhances alignment in video generation.
+                <strong>Abstract:</strong> We introduce MJ-BENCH-VIDEO, a comprehensive benchmark with 28 criteria covering alignment, safety, fineness, coherence and consistency, and bias and fairness. Building on this benchmark, MJ-VIDEO uses a mixture of experts to select relevant evaluators dynamically, improving both overall and detailed preference judgments while helping video generation models better follow human preferences.
             </div>
             [<a class="link" href="https://arxiv.org/abs/2502.01719">arxiv</a>]
             [<a class="link" href="https://github.com/aiming-lab/MJ-Video">code</a>]
@@ -438,25 +466,33 @@
         </div>
     </div>
 
+    <h3 class="publication-group-title">Position & Reviews</h3>
+
+    <!-- [extra] Graph Survey -->
+    <div class="publication">
+        <img class="publication-image" src="https://pic1.imgdb.cn/item/6981ae274f83a817d7f81892.png" alt="Graph-Survey" />
+        <div class="publication-info">
+            <div class="publication-title">
+                When Vision Meets Graphs: A Survey on Graph Reasoning and Learning
+            </div>
+            <div class="publication-meta">International Joint Conference on Artificial Intelligence, 2026</div>
+            <div class="publication-abstract">
+                <strong>Abstract:</strong> We present the first systematic survey of vision meets graphs, an emerging area that treats visual depictions as direct inputs for graph reasoning and learning. Through a framework of rendering, perception, and inference, we organize prior work around vision for graph reasoning, vision for graph learning, and scientific graphs, then outline a path toward models that perceive and reason about graphs as scientists do.
+            </div>
+            [<a class="link" href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.177004261.15861585/v1">techrxiv</a>]
+        </div>
+    </div>
+
     <!-- [extra] Political-LLM -->
-    <div class="publication pub-extra">
+    <div class="publication">
         <img class="publication-image" src="https://pic1.imgdb.cn/item/68391ee658cb8da5c81bd326.png" alt="Political-LLM" />
         <div class="publication-info">
             <div class="publication-title">
                 Political-LLM: Large Language Models in Political Science
             </div>
-            <div class="publication-meta">
-                Arxiv '25 —
-                <span class="author-list-folded">
-                    Lincan Li, Jiaqi Li, Catherine Chen, Fred Gui, Hongjia Yang, Chenxiao Yu, Zhengguang Wang, Jianing Cai, Junlong Aaron Zhou, Bolin Shen, Alex Qian, <u>Zhongkai Xue</u> ... Yue Zhao, Yushun Dong et al.
-                </span>
-                <span class="author-list-full" style="display: none;">
-                    Lincan Li, Jiaqi Li, Catherine Chen, Fred Gui, Hongjia Yang, Chenxiao Yu, Zhengguang Wang, Jianing Cai, Junlong Aaron Zhou, Bolin Shen, Alex Qian, <u>Zhongkai Xue</u>, Lichao Sun, Lifang He, Hanjie Chen, Kaize Ding, Zijian Du, Fangzhou Mu, Jiaxin Pei, Jieyu Zhao, Swabha Swayamdipta, Willie Neiswanger, Hua Wei, Xiyang Hu, Shixiang Zhu, Tianlong Chen, Yingzhou Lu, Yang Shi, Lianhui Qin, Tianfan Fu, Zhengzhong Tu, Yuzhe Yang, Jaemin Yoo, Jiaheng Zhang, Ryan Rossi, Liang Zhan, Liang Zhao, Emilio Ferrara, Yan Liu, Furong Huang, Xiangliang Zhang, Lawrence Rothenberg, Shuiwang Ji, Philip S. Yu, Yue Zhao, Yushun Dong
-                </span>
-                <button class="toggle-btn" onclick="toggleAuthorText(this)">Full</button>
-            </div>
+            <div class="publication-meta">arXiv, 2025</div>
             <div class="publication-abstract">
-                <strong>Abstract:</strong> We propose Political-LLM, a framework that bridges large language models with political science. It provides a dual-perspective taxonomy, political tasks and computational methods, while outlining key challenges and future directions, aiming to guide ethical and effective AI use in political research.
+                <strong>Abstract:</strong> We present Political-LLM, a framework for understanding how LLMs are integrated into computational political science. Its dual perspective taxonomy connects political tasks such as prediction, generation, simulation, and causal inference with methods for data preparation, fine tuning, and evaluation. We also identify challenges involving domain data, bias and fairness, human expertise, and evaluation.
             </div>
             [<a class="link" href="https://arxiv.org/abs/2412.06864">arxiv</a>]
             [<a class="link" href="https://github.com/CS-FSU/political-llm">code</a>]
@@ -464,7 +500,6 @@
         </div>
     </div>
 
-    <p class="equal-note">* indicates equal contribution.</p>
 </div>
 
 <!-- ════════════════ Research Experience ════════════════ -->
@@ -473,7 +508,17 @@
 
     <div class="award-line">
         <div class="award-left">
-            🔬 <span class="highlight">Visiting Research Assistant</span>
+            <span class="institution-logo"><img src="https://pic1.imgdb.cn/i/0346nbRJlSU7LNklugAT2J.jpg" alt="CASIA logo" /></span>
+            <span class="highlight">PhD Student</span>
+            <span class="break-wrap">@ <a class="link" href="https://mais.ia.ac.cn" target="_blank">State Key Laboratory of Multimodal Artificial Intelligence Systems, CASIA</a></span>
+        </div>
+        <div class="award-right">From Sep 2026</div>
+    </div>
+
+    <div class="award-line">
+        <div class="award-left">
+            <span class="institution-logo"><img src="https://pic1.imgdb.cn/i/0346nbS21ZBGl45XTiViBE.png" alt="Yale University logo" /></span>
+            <span class="highlight">Visiting Research Assistant</span>
             <span class="break-wrap">@ <a class="link" href="https://graph-and-geometric-learning.github.io/people" target="_blank">Graph and Geometric Learning Lab, Yale University</a></span>
         </div>
         <div class="award-right">Apr 2025 – Aug 2025</div>
@@ -481,7 +526,8 @@
 
     <div class="award-line">
         <div class="award-left">
-            🔬 <span class="highlight">Research Assistant</span>
+            <span class="institution-logo"><img src="https://pic1.imgdb.cn/i/0346nbRSpaFhCtVlKYENbu.png" alt="CUHK-Shenzhen logo" /></span>
+            <span class="highlight">Research Assistant</span>
             <span class="break-wrap">@ <a class="link" href="https://mypage.cuhk.edu.cn/academics/yutianshu/index.html" target="_blank">LOGO Lab, The Chinese University of Hong Kong, Shenzhen</a></span>
         </div>
         <div class="award-right">Jan 2025 – Jun 2026</div>
@@ -494,16 +540,27 @@
 
     <div class="award-line">
         <div class="award-left">
-            💼 <span class="highlight">Generative AI Research Intern</span>
-            <span class="break-wrap">@ <a class="link" href="https://www.bytedance.com/en/" target="_blank">ByteDance Shenzhen Office</a></span>
+            <span class="institution-logo"><img class="user-logo" src="https://pic1.imgdb.cn/i/0346nbRbbZU2gQHHoaOhX5.png" alt="Microsoft logo" /></span>
+            <span class="highlight">Research Intern</span>
+            <span class="break-wrap">@ <a class="link" href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/" target="_blank">Microsoft Research Asia, Beijing</a></span>
         </div>
-        <div class="award-right">Nov 2025 – Present</div>
+        <div class="award-right">From Sep 2026</div>
     </div>
 
     <div class="award-line">
         <div class="award-left">
-            💼 <span class="highlight">Quantitative Research Intern (Machine Learning)</span>
-            <span class="break-wrap">@ <a class="link" href="https://gs.amac.org.cn/amac-infodisc/res/pof/manager/101000024658.html" target="_blank">Jupiter Investment (深圳巨博华投资)</a></span>
+            <span class="institution-logo"><img class="user-logo" src="https://pic1.imgdb.cn/i/0346nbRGwGvrhbSQJ2vLCj.png" alt="ByteDance logo" /></span>
+            <span class="highlight">Generative AI Research Intern</span>
+            <span class="break-wrap">@ <a class="link" href="https://www.bytedance.com/en/" target="_blank">ByteDance Ads</a></span>
+        </div>
+        <div class="award-right">Nov 2025 – Aug 2026</div>
+    </div>
+
+    <div class="award-line">
+        <div class="award-left">
+            <span class="institution-logo"><img class="user-logo" src="https://pic1.imgdb.cn/i/0346nbRorhPmq0bvhnK4Gz.png" alt="Jupiter Investment logo" /></span>
+            <span class="highlight">Quantitative Research Intern</span>
+            <span class="break-wrap">@ <a class="link" href="https://gs.amac.org.cn/amac-infodisc/res/pof/manager/101000024658.html" target="_blank">Jupiter Investment</a></span>
         </div>
         <div class="award-right">Jun 2024 – Oct 2024</div>
     </div>
@@ -512,38 +569,14 @@
 <!-- ════════════════ Miscellaneous ════════════════ -->
 <div class="section">
     <h2>Miscellaneous</h2>
-    <div class="misc-item">🧐 <span class="highlight">Service:</span> I served as a reviewer for ACL Rolling Review (ARR) '25.</div>
-    <div class="misc-item">👨‍🏫 <span class="highlight">Teaching:</span> I served as a TA for <a href="https://www.cuhk.edu.cn/en/course/11156" class="link">Financial Management</a>, <a href="https://zhongkai-xue.com/aie1001" class="link">Intro to AI Programming</a> and <a href="https://sds.cuhk.edu.cn/en/page/1883" class="link">Intro to C++</a> at CUHK-Shenzhen.</div>
-    <div class="misc-item">💰 <span class="highlight">Interests:</span> I am also interested in financial markets and quantitative investment.</div>
+    <div class="misc-item"><span class="highlight">Teaching:</span> Teaching Assistant for <a href="https://www.cuhk.edu.cn/en/course/11156" class="link">Financial Management</a>, <a href="https://zhongkai-xue.com/aie1001" class="link">Intro to AI Programming</a> and <a href="https://sds.cuhk.edu.cn/en/page/1883" class="link">Intro to C++</a> at CUHK-Shenzhen.</div>
+    <div class="misc-item"><span class="highlight">Service:</span> Reviewer for ACL Rolling Review (ARR) 2025.</div>
+    <div class="misc-item"><span class="highlight">Interests:</span> Beyond research, I am interested in financial markets and quantitative investment.</div>
 </div>
 
 <footer>
     &copy; 2026 Zhongkai Xue. Hosted by GitHub Pages.
 </footer>
 
-<!-- ════════════════ Scripts ════════════════ -->
-<script>
-    const btn = document.getElementById("toggle-pubs");
-    let expanded = false;
-    btn.onclick = () => {
-        expanded = !expanded;
-        document.querySelectorAll(".pub-extra").forEach(p => {
-            p.style.display = expanded ? "flex" : "none";
-        });
-        btn.textContent = expanded ? "Collapse" : "Full";
-    };
-
-    function toggleAuthorText(button) {
-        const parent = button.parentElement;
-        const folded = parent.querySelector('.author-list-folded');
-        const full = parent.querySelector('.author-list-full');
-        const isFolded = folded.style.display !== 'none';
-        folded.style.display = isFolded ? 'none' : 'inline';
-        full.style.display = isFolded ? 'inline' : 'none';
-        button.textContent = isFolded ? 'Collapse' : 'Full';
-    }
-</script>
-
 </body>
 </html>
-
