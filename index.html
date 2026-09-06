@@ -227,6 +227,36 @@
             margin-bottom: 0.5rem;
         }
 
+        .publication-authors {
+            color: #4f5f73;
+            display: -webkit-box;
+            font-size: 0.92rem;
+            line-height: 1.5;
+            margin-bottom: 0.35rem;
+            overflow: hidden;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+        }
+
+        .publication-authors .author-self {
+            color: #2a4d9b;
+            font-weight: 700;
+        }
+
+        .publication-authors sup {
+            color: #777;
+            font-size: 0.72em;
+            margin-left: 0.05rem;
+        }
+
+        .author-note {
+            color: #777;
+            font-size: 0.82rem;
+            font-style: italic;
+            margin: -1.25rem 0 1rem;
+        }
+
         .citation-badge {
             display: inline-flex;
             align-items: center;
@@ -410,16 +440,19 @@
 
 <!-- ════════════════ Publications ════════════════ -->
 <div class="section">
-    <h2>Publications <span class="citation-badge" title="Google Scholar citations"><i class="fas fa-graduation-cap"></i> <span>113</span> Citations</span></h2>
+    <h2>Publications <span class="citation-badge" title="Google Scholar citations"><i class="fas fa-graduation-cap"></i> <span>115</span> Citations</span></h2>
 
     <h3 class="publication-group-title">Memory Systems</h3>
 
     <!-- [extra] RoboMemory -->
     <div class="publication">
-        <img class="publication-image" src="https://pic1.imgdb.cn/i/034BLhFccNMJ3wot8N57QR.png" alt="RoboMemory" />
+        <img class="publication-image" src="https://pic1.imgdb.cn/i/034JykjWjt0VQGnRT7LIfC.png" alt="RoboMemory" />
         <div class="publication-info">
             <div class="publication-title">
                 RoboMemory: A Brain-Inspired Multi-Memory Framework for Interactive Environmental Learning in Physical Embodied Systems
+            </div>
+            <div class="publication-authors">
+                Mingcong Lei<sup>*</sup>, Honghao Cai<sup>*</sup>, Yuyuan Yang<sup>*</sup>, Yimou Wu<sup>*</sup>, Jinke Ren, Zezhou Cui, Liangchen Tan, Zhenglin Wan, <span class="author-self">Zhongkai Xue</span>, Junkun Hong, Gehan Hu, Shuangyu Zhu, Ge Wang, Yiming Zhao, Yatong Han<sup>&dagger;</sup>, et al.
             </div>
             <div class="publication-meta">Conference on Robot Learning, 2026</div>
             <div class="publication-abstract">
@@ -439,6 +472,9 @@
             <div class="publication-title">
                 The Underappreciated Power of Vision Models for Graph Structural Understanding
             </div>
+            <div class="publication-authors">
+                Xinjian Zhao<sup>*</sup>, Wei Pang<sup>*</sup>, <span class="author-self">Zhongkai Xue<sup>*</sup></span>, Xiangru Jian<sup>*</sup>, Lei Zhang, Yaoyao Xu, Xiaozhuang Song, Shu Wu<sup>&dagger;</sup>, Tianshu Yu<sup>&dagger;</sup>
+            </div>
             <div class="publication-meta">Conference on Neural Information Processing Systems, 2025</div>
             <div class="publication-abstract">
                 <strong>Abstract:</strong> We study how vision models understand graph structure and introduce GraphAbstract, a benchmark that tests holistic perception of organizational patterns, symmetry, connectivity, and critical elements. Vision models surpass GNNs on global structural tasks and generalize across scales, showing that visual perception offers a promising path toward graph foundation models.
@@ -454,6 +490,9 @@
         <div class="publication-info">
             <div class="publication-title">
                 MJ-VIDEO: Fine-Grained Benchmarking and Rewarding Video Preferences in Video Generation
+            </div>
+            <div class="publication-authors">
+                Haibo Tong<sup>*</sup>, Zhaoyang Wang<sup>*</sup>, Zhaorun Chen, Haonian Ji, Shi Qiu, Siwei Han, Kexin Geng, <span class="author-self">Zhongkai Xue</span>, Yiyang Zhou, Peng Xia, Mingyu Ding, Rafael Rafailov, Chelsea Finn, Huaxiu Yao<sup>&dagger;</sup>
             </div>
             <div class="publication-meta">Conference on Neural Information Processing Systems, <span style="color: red; font-weight: bold;">Spotlight</span>, 2025</div>
             <div class="publication-abstract">
@@ -474,6 +513,9 @@
             <div class="publication-title">
                 When Vision Meets Graphs: A Survey on Graph Reasoning and Learning
             </div>
+            <div class="publication-authors">
+                Xinjian Zhao, Wei Pang, Zhixuan Yu, Xiangru Jian, Xiaozhuang Song, Yaoyao Xu, <span class="author-self">Zhongkai Xue</span>, Dingshuo Chen, Shu Wu, Philip Torr, Tianshu Yu<sup>&dagger;</sup>
+            </div>
             <div class="publication-meta">International Joint Conference on Artificial Intelligence, 2026</div>
             <div class="publication-abstract">
                 <strong>Abstract:</strong> We present the first systematic survey of vision meets graphs, an emerging area that treats visual depictions as direct inputs for graph reasoning and learning. Through a framework of rendering, perception, and inference, we organize prior work around vision for graph reasoning, vision for graph learning, and scientific graphs, then outline a path toward models that perceive and reason about graphs as scientists do.
@@ -489,6 +531,9 @@
             <div class="publication-title">
                 Political-LLM: Large Language Models in Political Science
             </div>
+            <div class="publication-authors">
+                Lincan Li, Jiaqi Li, Catherine Chen, Fred Gui, <span class="author-self">Zhongkai Xue</span>, Hongjia Yang, Chenxiao Yu, Zhengguang Wang, Jianing Cai, Junlong Aaron Zhou, Bolin Shen, Alex Qian, Weixin Chen, Yue Zhao<sup>&dagger;</sup>, Yushun Dong<sup>&dagger;</sup>, et al.
+            </div>
             <div class="publication-meta">arXiv, 2025</div>
             <div class="publication-abstract">
                 <strong>Abstract:</strong> We present Political-LLM, a framework for understanding how LLMs are integrated into computational political science. Its dual perspective taxonomy connects political tasks such as prediction, generation, simulation, and causal inference with methods for data preparation, fine tuning, and evaluation. We also identify challenges involving domain data, bias and fairness, human expertise, and evaluation.
@@ -498,6 +543,8 @@
             [<a class="link" href="https://political-llm.org">site</a>]
         </div>
     </div>
+
+    <div class="author-note"><sup>*</sup> indicates equal contribution, <sup>&dagger;</sup> indicates corresponding author.</div>
 
 </div>
 
