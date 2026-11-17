@@ -1,3 +1,12 @@
+@font-face {
+    font-family: "Name Fangsong";
+    src: url("fonts/name-fangsong.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+4E2D, U+51F1, U+859B;
+}
+
 :root {
     --paper: #fff;
     --ink: #292622;
@@ -60,6 +69,27 @@ a {
     margin-bottom: 0.45rem;
 }
 
+.name-chinese {
+    margin-bottom: 0.55rem;
+    color: #888;
+    font-family: "Name Fangsong", "FangSong", "STFangsong", serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+}
+
+.name-chinese,
+.intro .profile-links {
+    padding-inline-start: 0.4rem;
+}
+
+.name-pronunciation {
+    font: italic 400 0.8rem/1.4 var(--sans);
+    letter-spacing: normal;
+}
+
 .intro-quote {
     margin-bottom: 1.1rem;
     color: var(--muted);
@@ -80,6 +110,11 @@ a {
 
 .intro-copy p + p,
 .elsewhere p + p { margin-top: 0.55rem; }
+
+.intro-copy .research-focus {
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
 
 .profile-links {
     display: flex;

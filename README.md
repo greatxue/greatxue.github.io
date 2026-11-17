@@ -77,3 +77,7 @@ Notes 仅展示清单中的条目，不自动加入示例卡片。横向内容�
 页首 Google Scholar、GitHub、X、Threads 和小红书标志取自 [Simple Icons 16.34.0](https://github.com/simple-icons/simple-icons/tree/16.34.0/icons)，采用 [CC0 1.0](https://github.com/simple-icons/simple-icons/blob/16.34.0/LICENSE.md) 许可，SVG 路径保持不变。Email 使用 [Bootstrap Icons 1.13.1 的 envelope-fill](https://github.com/twbs/icons/blob/v1.13.1/icons/envelope-fill.svg)，完整 MIT 许可位于 `assets/licenses/bootstrap-icons.txt`。
 
 小红书使用上述 Simple Icons 原始字标路径，等比例缩放后镂空于圆角方形中，颜色继承页面链接主题色。这是为本站适配的单色版本，圆角背景和 SVG mask 为本站添加。
+
+## 中文姓名字体
+
+姓名使用 [TrionesType 朱雀仿宋 v0.212](https://github.com/TrionesType/zhuque/releases/tag/v0.212)。`assets/fonts/name-fangsong.woff2` 为仅包含“薛中凱”及必要字形的子集，衍生字族重命名为 Zhongkai Fangsong Preview；完整 SIL Open Font License 1.1 授权保存在 `assets/licenses/zhuque-fangsong.txt`。字体随网页本地加载。
