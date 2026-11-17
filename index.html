@@ -23,31 +23,38 @@
 </head>
 <body>
     <header class="intro" id="about">
-        <h1>{{ site.title | escape }}</h1>
-        <p class="name-chinese" lang="zh-Hant">薛中凱</p>
-        <nav class="profile-links" aria-label="Contact and profiles">
-            <a href="mailto:zhongkaixue.casia@gmail.com" aria-label="Email" title="Email">{% include icons/email.svg %}</a>
-            <span class="profile-link-group">
-                <span class="profile-separator" aria-hidden="true">/</span>
-                <a href="https://scholar.google.com/citations?user=IcbVX1cAAAAJ&amp;hl=en" aria-label="Google Scholar" title="Google Scholar">{% include icons/googlescholar.svg %}</a>
-            </span>
-            <span class="profile-link-group">
-                <span class="profile-separator" aria-hidden="true">/</span>
-                <a href="https://github.com/greatxue" aria-label="GitHub (@greatxue)" title="GitHub (@greatxue)">{% include icons/github.svg %}</a>
-            </span>
-            <span class="profile-link-group">
-                <span class="profile-separator" aria-hidden="true">/</span>
-                <a href="https://x.com/greatxue_33" aria-label="X (@greatxue_33)" title="X (@greatxue_33)">{% include icons/x.svg %}</a>
-            </span>
-            <span class="profile-link-group">
-                <span class="profile-separator" aria-hidden="true">/</span>
-                <a href="https://www.threads.com/@sighills" aria-label="Threads (@sighills)" title="Threads (@sighills)">{% include icons/threads.svg %}</a>
-            </span>
-            <span class="profile-link-group">
-                <span class="profile-separator" aria-hidden="true">/</span>
-                <a href="https://xhslink.cn/o/A93M7Hbv6E6" aria-label="小红书：叹息城" title="小红书：叹息城">{% include icons/xiaohongshu.svg %}</a>
-            </span>
-        </nav>
+        <div class="profile-header">
+            <div class="profile-identity">
+                <h1>{{ site.title | escape }}</h1>
+                <p class="name-chinese" lang="zh-Hant">薛中凱</p>
+                <nav class="profile-links" aria-label="Contact and profiles">
+                    <a href="mailto:zhongkaixue.casia@gmail.com" aria-label="Email" title="Email">{% include icons/email.svg %}</a>
+                    <span class="profile-link-group">
+                        <span class="profile-separator" aria-hidden="true">/</span>
+                        <a href="https://scholar.google.com/citations?user=IcbVX1cAAAAJ&amp;hl=en" aria-label="Google Scholar" title="Google Scholar">{% include icons/googlescholar.svg %}</a>
+                    </span>
+                    <span class="profile-link-group">
+                        <span class="profile-separator" aria-hidden="true">/</span>
+                        <a href="https://github.com/greatxue" aria-label="GitHub (@greatxue)" title="GitHub (@greatxue)">{% include icons/github.svg %}</a>
+                    </span>
+                    <span class="profile-link-group">
+                        <span class="profile-separator" aria-hidden="true">/</span>
+                        <a href="https://x.com/greatxue_33" aria-label="X (@greatxue_33)" title="X (@greatxue_33)">{% include icons/x.svg %}</a>
+                    </span>
+                    <span class="profile-link-group">
+                        <span class="profile-separator" aria-hidden="true">/</span>
+                        <a href="https://www.threads.com/@sighills" aria-label="Threads (@sighills)" title="Threads (@sighills)">{% include icons/threads.svg %}</a>
+                    </span>
+                    <span class="profile-link-group">
+                        <span class="profile-separator" aria-hidden="true">/</span>
+                        <a href="https://xhslink.cn/o/A93M7Hbv6E6" aria-label="小红书：叹息城" title="小红书：叹息城">{% include icons/xiaohongshu.svg %}</a>
+                    </span>
+                </nav>
+            </div>
+            <div class="profile-portrait">
+                <img src="{{ '/assets/portraits/zhongkai-cafe.jpg' | relative_url }}" alt="Portrait of Zhongkai Xue" width="2048" height="3089" decoding="async">
+            </div>
+        </div>
         <p class="intro-quote"><em>“Every particular Thou is a glimpse through to the eternal Thou.”</em><span class="quote-attribution">— Martin Buber, <a href="https://www.burmalibrary.org/docs21/Buber-c1923-I_And_Thou-ocr-tu.pdf#page=82"><cite>I and Thou</cite></a>, Part III</span></p>
         <div class="intro-copy">
             <p>I’m a PhD student in Computer Science at the <a href="https://english.cas.cn/">Institute of Automation, Chinese Academy of Sciences</a>, advised by <a href="https://english.cas.cn/">Liang Wang</a> and <a href="https://english.cas.cn/">Shu Wu</a>.</p>

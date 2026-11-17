@@ -69,6 +69,38 @@ a {
     margin-bottom: 0.45rem;
 }
 
+.profile-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.05rem;
+}
+
+.profile-identity { min-width: 0; }
+.profile-header .profile-links { margin-bottom: 0; }
+
+.profile-portrait {
+    width: 7rem;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: #f5f2ed;
+}
+
+.profile-portrait img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+@media (max-width: 30rem) {
+    .profile-header { gap: 1rem; }
+    .profile-header h1 { font-size: clamp(1.65rem, 7.6vw, 2.05rem); }
+    .profile-portrait { width: 5rem; }
+}
+
 .name-chinese {
     margin-bottom: 0.55rem;
     color: #888;
