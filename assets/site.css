@@ -85,11 +85,6 @@ a {
     padding-inline-start: 0.4rem;
 }
 
-.name-pronunciation {
-    font: italic 400 0.8rem/1.4 var(--sans);
-    letter-spacing: normal;
-}
-
 .intro-quote {
     margin-bottom: 1.1rem;
     color: var(--muted);
