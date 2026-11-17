@@ -20,3 +20,14 @@ abstracts.forEach((abstract) => {
         });
     });
 });
+
+document.querySelectorAll('.paper-code-pending').forEach((button) => {
+    const status = document.getElementById(button.getAttribute('aria-controls'));
+    if (!status) return;
+
+    button.hidden = false;
+    button.addEventListener('click', () => {
+        status.hidden = !status.hidden;
+        button.setAttribute('aria-expanded', String(!status.hidden));
+    });
+});

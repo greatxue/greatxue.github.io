@@ -257,7 +257,8 @@ summary {
 .paper-actions a { color: inherit; }
 .paper-actions .action-bracket { color: var(--ink); }
 
-.paper-abstract {
+.paper-abstract,
+.paper-code-pending {
     padding: 0;
     border: 0;
     background: none;
@@ -265,6 +266,12 @@ summary {
     font: inherit;
     cursor: pointer;
     text-decoration: none;
+}
+
+.paper-status {
+    margin-top: 0.3rem;
+    color: var(--muted);
+    font: 400 0.82rem/1.5 var(--sans);
 }
 
 .paper-content {
@@ -580,6 +587,11 @@ summary {
     display: block;
     color: inherit;
     text-decoration: none;
+}
+
+.writing-card-link:hover .writing-card-title,
+.writing-card-link:focus-visible .writing-card-title {
+    color: var(--accent);
 }
 
 .writing-card time {

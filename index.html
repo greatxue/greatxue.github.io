@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Spectral:wght@400;500;600&amp;display=swap">
     <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}?v={{ site.time | date: '%s' }}">
     <script src="{{ '/assets/writing-gallery.js' | relative_url }}" defer></script>
-    <script src="{{ '/assets/publications.js' | relative_url }}" defer></script>
+    <script src="{{ '/assets/publications.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
     <script src="{{ '/assets/photography.js' | relative_url }}" defer></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-67XDYXYKQJ"></script>
     <script>
@@ -51,7 +51,7 @@
         <p class="intro-quote"><em>“Every particular Thou is a glimpse through to the eternal Thou.”</em><span class="quote-attribution">— Martin Buber, <a href="https://www.burmalibrary.org/docs21/Buber-c1923-I_And_Thou-ocr-tu.pdf#page=82"><cite>I and Thou</cite></a>, Part III</span></p>
         <div class="intro-copy">
             <p>I’m a PhD student in Computer Science at the <a href="https://english.cas.cn/">Institute of Automation, Chinese Academy of Sciences</a>, advised by <a href="https://english.cas.cn/">Liang Wang</a> and <a href="https://english.cas.cn/">Shu Wu</a>.</p>
-            <p class="research-focus">During my PhD, I hope to explore how we can develop approaches that enable more meaningful interactions. My current research explores how agents can perceive, remember, and interact with the world in a unified way.</p>
+            <p class="research-focus">During my PhD, I hope to explore how we can develop approaches that enable more meaningful interactions. My recent research explores how agents can perceive, remember, and interact with the world in a unified way.</p>
         </div>
     </header>
 
@@ -68,7 +68,9 @@
                         <div class="paper-actions">
                             <button class="paper-abstract" type="button" aria-expanded="true" aria-controls="uniforget-abstract" hidden><span class="action-bracket">[</span>abstract<span class="action-bracket">]</span></button>
                             <a href="https://arxiv.org/abs/2611.04467"><span class="action-bracket">[</span>arxiv<span class="action-bracket">]</span></a>
+                            <button class="paper-code-pending" type="button" aria-expanded="false" aria-controls="uniforget-code-status" hidden><span class="action-bracket">[</span>code<span class="action-bracket">]</span></button>
                         </div>
+                        <p class="paper-status" id="uniforget-code-status" role="status" hidden>Waiting for approval...</p>
                         <div class="paper-content" id="uniforget-abstract">
                             <p class="paper-authors"><span class="author-self">Zhongkai Xue<sup>*</sup></span>, Junkai Chen<sup>*</sup>, Mingcong Lei<sup>*</sup>, Rumo Zhang, Yixiao Liu, Zhimin Sun, Shu Wu, Qiang Liu, Lihua Zhang, Liang Wang</p>
                             <p>Unified multimodal models (UMMs) integrate image generation and visual understanding, but are existing single-pathway unlearning methods sufficient to suppress target concepts across both? In this work, we study cross-pathway concept unlearning. Our goal is to prevent a model from both generating images of a target concept and identifying it in input images, while preserving other capabilities. To this end, we introduce UUBench, a diagnostic benchmark covering 30 target concepts and 60 semantically related neighboring concepts. Experiments on representative UMMs show that the evaluated single-pathway methods achieve limited joint forgetting: generation-side editors strongly suppress target generation but yield limited forgetting in visual understanding, while understanding-side baselines struggle to achieve substantial forgetting even in their own pathway. Their direct composition also yields limited joint forgetting. We therefore propose UniForget, achieving joint forgetting rates of 80.0% on BAGEL-7B-MoT and 92.7% on Janus-Pro-7B, outperforming representative baselines. Further analysis reveals trade-offs between joint forgetting and capability preservation.</p>
@@ -79,7 +81,7 @@
                 <li class="paper" id="robomemory">
                     <div>
                         <h3><a href="https://arxiv.org/abs/2508.01415">RoboMemory: A Brain-Inspired Multi-Memory Framework for Interactive Environmental Learning in Physical Embodied Systems</a></h3>
-                        <p class="paper-meta">10th Conference on Robot Learning</p>
+                        <p class="paper-meta">10th Conference on Robot Learning (CoRL)</p>
                         <div class="paper-actions">
                             <button class="paper-abstract" type="button" aria-expanded="true" aria-controls="robomemory-abstract" hidden><span class="action-bracket">[</span>abstract<span class="action-bracket">]</span></button>
                             <a href="https://arxiv.org/abs/2508.01415"><span class="action-bracket">[</span>arxiv<span class="action-bracket">]</span></a>
@@ -95,7 +97,7 @@
                 <li class="paper" id="mj-video">
                     <div>
                         <h3><a href="https://arxiv.org/abs/2502.01719">MJ-VIDEO: Fine-Grained Benchmarking and Rewarding Video Preferences in Video Generation</a></h3>
-                        <p class="paper-meta">39th Annual Conference on Neural Information Processing Systems, <strong class="paper-highlight">Spotlight</strong></p>
+                        <p class="paper-meta">39th Annual Conference on Neural Information Processing Systems (NeurIPS), <strong class="paper-highlight">Spotlight</strong></p>
                         <div class="paper-actions">
                             <button class="paper-abstract" type="button" aria-expanded="true" aria-controls="mj-video-abstract" hidden><span class="action-bracket">[</span>abstract<span class="action-bracket">]</span></button>
                             <a href="https://arxiv.org/abs/2502.01719"><span class="action-bracket">[</span>arxiv<span class="action-bracket">]</span></a>
@@ -112,7 +114,7 @@
                 <li class="paper" id="vision-models-for-graphs">
                     <div>
                         <h3><a href="https://www.arxiv.org/abs/2510.24788">The Underappreciated Power of Vision Models for Graph Structural Understanding</a></h3>
-                        <p class="paper-meta">39th Annual Conference on Neural Information Processing Systems</p>
+                        <p class="paper-meta">39th Annual Conference on Neural Information Processing Systems (NeurIPS)</p>
                         <div class="paper-actions">
                             <button class="paper-abstract" type="button" aria-expanded="true" aria-controls="vision-models-for-graphs-abstract" hidden><span class="action-bracket">[</span>abstract<span class="action-bracket">]</span></button>
                             <a href="https://arxiv.org/abs/2510.24788"><span class="action-bracket">[</span>arxiv<span class="action-bracket">]</span></a>
