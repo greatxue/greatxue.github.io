@@ -1,0 +1,69 @@
+{% if site.data.photography.size > 0 %}
+<section class="home-section" id="photography" aria-labelledby="photography-title">
+    <div class="photography-gallery" data-photo-gallery>
+        <div class="section-heading gallery-heading">
+            <h2 id="photography-title">Photos</h2>
+            <div class="gallery-controls" hidden>
+                <button type="button" data-photo-prev aria-label="Previous albums" aria-controls="photography-track" disabled><span aria-hidden="true">←</span></button>
+                <button type="button" data-photo-next aria-label="Next albums" aria-controls="photography-track"><span aria-hidden="true">→</span></button>
+            </div>
+        </div>
+        <ul class="photo-track" id="photography-track" role="list" aria-label="Photo albums" tabindex="0">
+            {% for album in site.data.photography %}
+            {% if album.photos.size > 0 %}
+            {% assign cover = album.photos | first %}
+            {% assign photo_width = cover.width | default: 800 %}
+            {% assign photo_height = cover.height | default: 530 %}
+            {% assign photo_ratio = photo_width | times: 1.0 | divided_by: photo_height %}
+            {% assign photo_src = cover.src %}
+            {% unless photo_src contains '://' or photo_src contains '//' %}
+                {% assign photo_src = photo_src | relative_url %}
+            {% endunless %}
+            <li class="photo-item">
+                <button type="button" class="photo-card photo-album-cover" data-photo-album="photo-album-{{ forloop.index }}" aria-haspopup="dialog" aria-controls="photo-album-{{ forloop.index }}" aria-label="View {{ album.title | escape }} album">
+                    <span class="photo-frame" style="--photo-ratio: {{ photo_ratio }}">
+                        <img src="{{ photo_src | escape }}" alt="" width="{{ photo_width }}" height="{{ photo_height }}" loading="lazy" decoding="async">
+                    </span>
+                    <span class="photo-label">{{ album.title | escape }}</span>
+                </button>
+            </li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    {% for album in site.data.photography %}
+    {% if album.photos.size > 0 %}
+    <dialog class="photo-album" id="photo-album-{{ forloop.index }}" aria-labelledby="photo-album-title-{{ forloop.index }}">
+        <div data-photo-gallery>
+            <div class="photo-album-heading">
+                <h3 id="photo-album-title-{{ forloop.index }}">{{ album.title | escape }}</h3>
+                <div class="gallery-controls" hidden>
+                    <button type="button" data-photo-prev aria-label="Previous photos" aria-controls="photo-album-track-{{ forloop.index }}" disabled><span aria-hidden="true">←</span></button>
+                    <button type="button" data-photo-next aria-label="Next photos" aria-controls="photo-album-track-{{ forloop.index }}"><span aria-hidden="true">→</span></button>
+                </div>
+                <button type="button" class="photo-album-close" data-album-close aria-label="Close {{ album.title | escape }} album">[close]</button>
+            </div>
+            <ul class="photo-track" id="photo-album-track-{{ forloop.index }}" role="list" aria-label="{{ album.title | escape }} photos" tabindex="0">
+                {% for photo in album.photos %}
+                {% assign photo_width = photo.width | default: 800 %}
+                {% assign photo_height = photo.height | default: 530 %}
+                {% assign photo_ratio = photo_width | times: 1.0 | divided_by: photo_height %}
+                {% assign photo_src = photo.src %}
+                {% unless photo_src contains '://' or photo_src contains '//' %}
+                    {% assign photo_src = photo_src | relative_url %}
+                {% endunless %}
+                <li class="photo-item">
+                    <figure class="photo-card">
+                        <div class="photo-frame" style="--photo-ratio: {{ photo_ratio }}">
+                            <img src="{{ photo_src | escape }}" alt="{{ photo.alt | default: album.title | escape }}" width="{{ photo_width }}" height="{{ photo_height }}" loading="lazy" decoding="async">
+                        </div>
+                    </figure>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </dialog>
+    {% endif %}
+    {% endfor %}
+</section>
+{% endif %}

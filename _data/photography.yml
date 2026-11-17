@@ -1,0 +1,21 @@
+- title: "Oxford, UK"
+  photos:
+    - src: "/assets/photography/oxford-01.jpg"
+      alt: "A red traffic light and pedestrians at an Oxford street crossing."
+      width: 800
+      height: 530
+    - src: "/assets/photography/oxford-02.jpg"
+      alt: "An outdoor market with green canopies and bicycles in Oxford."
+      width: 800
+      height: 557
+
+- title: "Isle of Man"
+  photos:
+    - src: "/assets/photography/isle-of-man-01.jpg"
+      alt: "A white gateway with the three-legged emblem beside stone walls on the Isle of Man."
+      width: 800
+      height: 600
+    - src: "/assets/photography/isle-of-man-02.jpg"
+      alt: "A green steam locomotive at a platform on the Isle of Man."
+      width: 600
+      height: 800

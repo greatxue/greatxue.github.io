@@ -1,0 +1,44 @@
+<div class="writing-gallery" data-writing-gallery>
+    <div class="section-heading gallery-heading">
+        {% assign heading_tag = include.heading | default: 'h2' %}
+        <{{ heading_tag }} id="{{ include.title_id }}">{{ include.title | escape }}</{{ heading_tag }}>
+        <div class="gallery-controls" hidden>
+            <button type="button" data-gallery-prev aria-label="Previous notes" aria-controls="{{ include.id }}" disabled><span aria-hidden="true">←</span></button>
+            <button type="button" data-gallery-next aria-label="Next notes" aria-controls="{{ include.id }}"><span aria-hidden="true">→</span></button>
+        </div>
+    </div>
+    <ul class="writing-gallery-track" id="{{ include.id }}" role="list" aria-label="Notes gallery" tabindex="0">
+        {% for entry in include.entries %}
+        {% assign cover_style = forloop.index0 | modulo: 4 %}
+        <li class="writing-gallery-item">
+            <article class="writing-card cover-style-{{ cover_style }}" lang="{{ entry.lang | default: 'en' | escape }}">
+                <a class="writing-card-link" href="{{ entry.external_url | escape }}">
+                    {% if entry.cover and entry.cover != empty %}
+                    {% assign cover_url = entry.cover %}
+                    {% unless cover_url contains '://' or cover_url contains '//' %}
+                        {% assign cover_url = cover_url | relative_url %}
+                    {% endunless %}
+                    <div class="writing-cover">
+                        <img src="{{ cover_url | escape }}" alt="{{ entry.cover_alt | default: '' | escape }}" width="{{ entry.cover_width | default: 640 }}" height="{{ entry.cover_height | default: 480 }}" style="object-position: {{ entry.cover_position | default: 'center' | escape }};" loading="lazy" decoding="async">
+                    </div>
+                    {% else %}
+                    <div class="writing-cover text-cover" aria-hidden="true">
+                        <span class="cover-lettering">{{ entry.title | escape }}</span>
+                    </div>
+                    {% endif %}
+                    <h3 class="writing-card-title">{{ entry.title | escape }}</h3>
+                </a>
+                {% if entry.date %}
+                    {% assign entry_date = entry.date | append: '' %}
+                    {% if entry_date.size == 7 %}
+                        {% assign display_date = entry_date | append: '-01' %}
+                        <time class="meta" datetime="{{ entry_date | escape }}">{{ display_date | date: "%b %Y" }}</time>
+                    {% else %}
+                        <time class="meta" datetime="{{ entry_date | escape }}">{{ entry_date | date: "%b %-d, %Y" }}</time>
+                    {% endif %}
+                {% endif %}
+            </article>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
