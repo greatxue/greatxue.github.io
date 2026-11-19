@@ -345,6 +345,12 @@ summary {
     hyphens: none;
 }
 
+.timeline-mentor {
+    color: #77716a;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
 .timeline-period {
     margin-top: 0.2rem;
     color: #77716a;
