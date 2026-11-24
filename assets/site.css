@@ -257,7 +257,7 @@ a {
 .publication-filters {
     display: inline-flex;
     align-items: baseline;
-    gap: 0.15rem;
+    gap: 0.25rem;
 }
 
 .publication-filters button {
