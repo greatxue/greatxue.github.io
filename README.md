@@ -4,7 +4,7 @@ Personal website hosted on GitHub Pages.
 
 ## 添加 Notes 条目
 
-编辑 `_data/writing.yml`，每篇文章一项，列表顺序就是首页和 `/blog/` 的展示顺序。文章可以发布在 Notion 或其他网站；封面与标题会直接打开 `external_url`。
+编辑 `_data/writing.yml`，每篇文章一项，列表顺序就是首页和 `/blog/` 的展示顺序。首页在 Photos 下方显示日期与标题列表；`/blog/` 保留封面画廊。文章可以发布在 Notion 或其他网站，标题和归档页封面会直接打开 `external_url`。
 
 ```yaml
 - title: "記一些不確定的夏天"
@@ -20,9 +20,9 @@ Personal website hosted on GitHub Pages.
 
 日期可填写 `YYYY-MM`（显示为 `Jun 2025`）或 `YYYY-MM-DD`（显示为 `Dec 12, 2025`），省略则不显示。只知道月份时无需补写日期。
 
-封面保存在 `assets/covers/`；宽高填写原图尺寸。画廊沿用 4∶3 封面框，默认居中裁切；可以用 `cover_position` 调整取景，例如 `right center` 保留右侧画面。原图文件保持不变。省略 `cover` 时会用文章标题生成文字封面。`cover_alt` 是图片说明，英文文章可省略 `lang`。
+归档页封面保存在 `assets/covers/`；宽高填写原图尺寸。归档画廊沿用 4∶3 封面框，默认居中裁切；可以用 `cover_position` 调整取景，例如 `right center` 保留右侧画面。原图文件保持不变。省略 `cover` 时会用文章标题生成文字封面。`cover_alt` 是图片说明，英文文章可省略 `lang`。
 
-Notes 仅展示清单中的条目，不自动加入示例卡片。横向内容超出可视区域时会显示滚动按钮，也支持触控板、触屏和键盘方向键。
+Notes 仅展示清单中的条目，不自动加入示例。首页列表不加载封面或横向滚动脚本。归档页横向内容超出可视区域时会显示滚动按钮，也支持触控板、触屏和键盘方向键。
 
 ## 放摄影作品
 

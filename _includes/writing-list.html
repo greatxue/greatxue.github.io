@@ -1,0 +1,16 @@
+<ul class="writing-list" role="list" aria-label="Notes">
+    {% for entry in include.entries %}
+    <li class="writing-list-item{% if entry.date %} has-date{% endif %}">
+        {% if entry.date %}
+            {% assign entry_date = entry.date | append: '' %}
+            {% if entry_date.size == 7 %}
+                {% assign display_date = entry_date | append: '-01' %}
+                <time class="meta" datetime="{{ entry_date | escape }}">{{ display_date | date: "%b %Y" }}</time>
+            {% else %}
+                <time class="meta" datetime="{{ entry_date | escape }}">{{ entry_date | date: "%b %-d, %Y" }}</time>
+            {% endif %}
+        {% endif %}
+        <a href="{{ entry.external_url | escape }}" lang="{{ entry.lang | default: 'en' | escape }}">{{ entry.title | escape }}</a>
+    </li>
+    {% endfor %}
+</ul>
