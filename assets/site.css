@@ -592,7 +592,7 @@ summary {
 }
 
 .elsewhere h2 { margin-bottom: 0.55rem; }
-.elsewhere p { font-size: 0.95rem; }
+.elsewhere p { font-size: inherit; }
 
 /* Photography */
 .photography-gallery { margin-top: 0; }
