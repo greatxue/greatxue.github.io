@@ -1,16 +1,21 @@
 <ul class="writing-list" role="list" aria-label="Notes">
     {% for entry in include.entries %}
-    <li class="writing-list-item{% if entry.date %} has-date{% endif %}">
+    <li class="writing-list-item">
+        <a class="writing-list-link" href="{{ entry.external_url | escape }}" lang="{{ entry.lang | default: 'en' | escape }}">
+        <h3 class="writing-list-title">{{ entry.title | escape }}</h3>
+        {% if entry.excerpt and entry.excerpt != empty %}
+        <p class="writing-list-excerpt">{{ entry.excerpt | escape }}</p>
+        {% endif %}
         {% if entry.date %}
             {% assign entry_date = entry.date | append: '' %}
             {% if entry_date.size == 7 %}
                 {% assign display_date = entry_date | append: '-01' %}
-                <time class="meta" datetime="{{ entry_date | escape }}">{{ display_date | date: "%b %Y" }}</time>
+                <time class="meta" datetime="{{ entry_date | escape }}" lang="en">{{ display_date | date: "%b %Y" }}</time>
             {% else %}
-                <time class="meta" datetime="{{ entry_date | escape }}">{{ entry_date | date: "%b %-d, %Y" }}</time>
+                <time class="meta" datetime="{{ entry_date | escape }}" lang="en">{{ entry_date | date: "%b %-d, %Y" }}</time>
             {% endif %}
         {% endif %}
-        <a href="{{ entry.external_url | escape }}" lang="{{ entry.lang | default: 'en' | escape }}">{{ entry.title | escape }}</a>
+        </a>
     </li>
     {% endfor %}
 </ul>

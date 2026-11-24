@@ -4,12 +4,13 @@ Personal website hosted on GitHub Pages.
 
 ## 添加 Notes 条目
 
-编辑 `_data/writing.yml`，每篇文章一项，列表顺序就是首页和 `/blog/` 的展示顺序。首页在 Photos 下方显示日期与标题列表；`/blog/` 保留封面画廊。文章可以发布在 Notion 或其他网站，标题和归档页封面会直接打开 `external_url`。
+编辑 `_data/writing.yml`，每篇文章一项，列表顺序就是首页和 `/blog/` 的展示顺序。首页在 Photos 下方显示标题、可选引言和日期，整条可点击；`/blog/` 保留封面画廊。文章可以发布在 Notion 或其他网站，条目和归档页封面会直接打开 `external_url`。
 
 ```yaml
 - title: "記一些不確定的夏天"
   lang: zh-Hant
   date: "2025-06"
+  excerpt: "城市的夜晚看不到星星，只有彎彎的月牙遙遠地亮起，勾勒出一個個皎潔的謊言。"
   cover: "/assets/covers/uncertain-summers-tram.png"
   cover_position: "right center"
   cover_alt: "夜色中的復古電車"
@@ -19,6 +20,8 @@ Personal website hosted on GitHub Pages.
 ```
 
 日期可填写 `YYYY-MM`（显示为 `Jun 2025`）或 `YYYY-MM-DD`（显示为 `Dec 12, 2025`），省略则不显示。只知道月份时无需补写日期。
+
+`excerpt` 是可选的文章原文引言，显示在首页标题与日期之间，不额外添加引号。首页以单列文字和留白区分条目，与 Notes 标题左对齐；整条可点击，悬停或键盘聚焦时显示浅暖色底并将标题变为主题色。省略引言时只显示标题和日期。
 
 归档页封面保存在 `assets/covers/`；宽高填写原图尺寸。归档画廊沿用 4∶3 封面框，默认居中裁切；可以用 `cover_position` 调整取景，例如 `right center` 保留右侧画面。原图文件保持不变。省略 `cover` 时会用文章标题生成文字封面。`cover_alt` 是图片说明，英文文章可省略 `lang`。
 
